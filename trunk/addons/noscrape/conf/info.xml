@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">스크랩 금지</title>
+  <title xml:lang="zh-CN">鼠标限制插件</title>
+  <title xml:lang="en">Anti Scrape</title>
+  <description xml:lang="ko">
+    오른쪽 마우스 버튼과, 드래그, 키보드 특수키 사용을 막습니다.
+    소스보기를 막지는 못합니다.
+  </description>
+  <description xml:lang="zh-CN">
+    限制鼠标右键，鼠标选取及特定键盘值。
+  </description>
+  <description xml:lang="en">
+    Prevent right button in the mouse clicked.
+    But it can not prevent the menu of source viewing.
+  </description>
+  <version>0.9</version>
+  <date>2008-10-04</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://www.imsoo.net</link>
+  <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수(misol)</name>
+    <name xml:lang="zh-CN">misol</name>
+    <name xml:lang="en">misol</name>
+  </author>
+  <extra_vars>
+    <var name="author_select" type="select">
+      <title xml:lang="ko">문서 작성자</title>
+      <title xml:lang="zh-CN">to Author of Documents</title>
+      <title xml:lang="en">to Author of Documents</title>
+      <options value="Y">
+        <title xml:lang="ko">스크랩 허용</title>
+        <title xml:lang="zh-CN">Allow.</title>
+        <title xml:lang="en">Allow.</title>
+      </options>
+      <options value="N">
+        <title xml:lang="ko">스크랩 금지</title>
+        <title xml:lang="zh-CN">Disallow.</title>
+        <title xml:lang="en">Disallow.</title>
+      </options>
+      <description xml:lang="ko">문서 작성자가 자신의 글을 스크랩 할 수 있게 하시겠습니까? 작동안함을 선택하시면, 모든 글의 작성자는 자신의 글에 대해 스그뱁 권한을 가집니다.</description>
+      <description xml:lang="zh-CN">The author of a document would be allowed to copy it.</description>
+      <description xml:lang="en">The author of a document would be allowed to copy it.</description>
+    </var>
+    <var name="write_select" type="select">
+      <title xml:lang="ko">글쓰기 모드에서</title>
+      <title xml:lang="zh-CN">发表主题</title>
+      <title xml:lang="en">on Writting page</title>
+      <options value="N">
+        <title xml:lang="ko">애드온 작동</title>
+        <title xml:lang="zh-CN">使用</title>
+        <title xml:lang="en">This addon ON</title>
+      </options>
+      <options value="Y">
+        <title xml:lang="ko">애드온 작동 안함</title>
+        <title xml:lang="zh-CN">不使用</title>
+        <title xml:lang="en">This addon OFF</title>
+      </options>
+      <description xml:lang="ko">글 작성 모드에서 스크랩 금지 애드온을 작동 하시겠습니까?
+        (act=dispBoardWrite 인 상황, module=editor 인 상황 이외의 상황도 있으면, 민수에게 알려주세요)</description>
+      <description xml:lang="zh-CN">设置是否在发表主题时使用此插件。</description>
+      <description xml:lang="en">(act=dispBoardWrite)</description>
+    </var>
+    <var name="drag_select" type="select">
+      <title xml:lang="ko">드래그 금지</title>
+      <title xml:lang="zh-CN">选取</title>
+      <title xml:lang="en">Prevent dragging</title>
+      <options value="N">
+        <title xml:lang="ko">마우스 드래그 허용</title>
+        <title xml:lang="zh-CN">允许</title>
+        <title xml:lang="en">Don't.</title>
+      </options>
+      <options value="Y">
+        <title xml:lang="ko">마우스 드래그 금지</title>
+        <title xml:lang="zh-CN">不允许</title>
+        <title xml:lang="en">Do.</title>
+      </options>
+      <description xml:lang="ko">마우스 드래그를 허용/금지 하시겠습니까?</description>
+      <description xml:lang="zh-CN">设置是否要限制鼠标选取。</description>
+      <description xml:lang="en">Will you allow to drag?</description>
+    </var>
+    <var name="ff_select" type="select">
+      <title xml:lang="ko">파이어 폭스용 마우스 드래그 금지</title>
+      <title xml:lang="zh-CN">选取(Firefox专用)</title>
+      <title xml:lang="en">Prevent dragging for Fire Fox Browser</title>
+      <options value="X">
+        <title xml:lang="ko">마우스 누르기 허용</title>
+        <title xml:lang="zh-CN">允许</title>
+        <title xml:lang="en">Don't.</title>
+      </options>
+      <options value="O">
+        <title xml:lang="ko">마우스 누르기 금지</title>
+        <title xml:lang="zh-CN">不允许</title>
+        <title xml:lang="en">Do.</title>
+      </options>
+      <description xml:lang="ko">파이어 폭스에서도 드래그를 금지 시키려면 사용하세요.
+            그러나, 이 기능을 사용하면, 파이어 폭스에서 글쓰기 칸을 사용 할 수 없는 단점이 있습니다.
+            (추천하는 기능이 아닙니다.)</description>
+      <description xml:lang="zh-CN">限制鼠标选取(Firefox专用)。不推荐使用。</description>
+      <description xml:lang="en">If you want to prevent dragging for Fire Fox Browser, use this.
+            It will block the mouse click event to do it.
+            If I were you, I will not do it.
+            Because, THIS FUNCTION WILL BLOCK TO WRITE ON INPUT BOX. (You can not click it.)</description>
+    </var>
+    <var name="key_allow" type="select">
+      <title xml:lang="ko">특수키 차단</title>
+      <title xml:lang="en">Do not allow Function Key</title>
+      <options value="O">
+        <title xml:lang="ko">특수키 누르기 금지</title>
+        <title xml:lang="zh-CN">不允许</title>
+        <title xml:lang="en">Do not allow it.</title>
+      </options>
+      <options value="X">
+        <title xml:lang="ko">특수키 누르기 허용</title>
+        <title xml:lang="zh-CN">允许</title>
+        <title xml:lang="en">Allow it.</title>
+      </options>
+      <description xml:lang="ko">특수키 제한을 겁니다. (차단/허용)</description>
+    </var>
+    <var name="alert_text">
+      <title xml:lang="ko">경고 문구 내용</title>
+      <title xml:lang="zh-CN">警告文</title>
+      <title xml:lang="en">Alerted Message</title>
+      <description xml:lang="ko">특수키 클릭시 나오는 경고문구를 설정해 주세요.
+            줄 바꾸기는 \n을 입력하시면 됩니다.</description>
+      <description xml:lang="zh-CN">按住特定键盘值时将出现警告文。警告文用\n来换行。</description>
+      <description xml:lang="en">Enter the Message when the key ([Ctrl],[Alt],etc) clicked
+            To Change the line, enter the \n.</description>
+    </var>
+    <var name="but_id">
+      <title xml:lang="ko">제외 회원 ID</title>
+      <title xml:lang="zh-CN">豁免会员ID</title>
+      <title xml:lang="en">Escape Member IDs</title>
+      <description xml:lang="ko">선택하신 회원이 제외 됩니다. 애드온을 적용하지 않을 회원의 아이디를 입력하세요.
+             회원 ID를 여러개 쓰려면
+            ,(콤마)로 연결하여 입력하세요.
+            (예 : 아이디1,아이디2,아이디3)
+      </description>
+      <description xml:lang="zh-CN">可自己指定免限制会员。多个会员用逗号(,)来分割。
+            (例 : ID1,ID2,ID3)
+      </description>
+      <description xml:lang="en">Written members would be allowed to be scraped. Enter the ID of member.
+            To enter 2 or more IDs, use
+            ,(comma) to tell each other.
+            (eg : admin,myid,id1,id2)</description>
+    </var>
+    <var name="but_group">
+      <title xml:lang="ko">제외 회원 그룹</title>
+	  <title xml:lang="zh-CN">豁免用户组</title>
+      <title xml:lang="en">Escape Member Groups</title>
+      <description xml:lang="ko">선택하신 회원그룹이 제외 됩니다. 애드온을 적용하지 않을 회원 그룹의 이름을 입력하세요.
+        회원 그룹명을 여러개 쓰려면
+        ,(콤마)로 연결하여 입력하세요.
+        (예 : 그룹1,그룹2,그룹3)</description>
+      <description xml:lang="zh-CN">可指定免限制用户组。多个用户组用逗号(,)来分割。
+        (例 : 用户组1,用户组2,用户组3)</description>
+      <description xml:lang="en">Written member groups would be allowed to be scraped. Enter the name of member groups.
+        To enter 2 or more IDs, use
+        ,(comma) to tell each other.
+        (eg : group1,group2,group3)</description>
+      </var>
+  </extra_vars>
+</addon>

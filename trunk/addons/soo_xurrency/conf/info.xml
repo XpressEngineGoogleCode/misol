@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">환율 계산기</title>
+  <description xml:lang="ko">
+    [xu:krw]1000[/xu] 와 같은 형식으로 입력하면 1000원에 대응하는 다른나라 통화를 볼 수 있게 해줍니다.
+    [xu:krw]1000[/xu]라고 입력하면 링크가 생성됨.
+    [xu:통화명(알파벳3글자)]액수(숫자로만)[/xu]의 형식.
+    통화명은 http://xurrency.com/currencies 의 code 참고.
+  </description>
+  <version>0.1</version>
+  <date>2008-11-15</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://www.imsoo.net</link>
+  <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수(misol)</name>
+    <name xml:lang="zh-CN">misol</name>
+    <name xml:lang="en">misol</name>
+  </author>
+  <extra_vars>
+    <var name="pop_header_select" type="textarea">
+      <title xml:lang="ko">팝업창 헤더 내용 설정</title>
+      <description xml:lang="ko">환율 정보가 뜨는 창의 스타일이나 스크립트 등을 작성할 수 있습니다.
+      </description>
+    </var>
+  </extra_vars>
+</addon>

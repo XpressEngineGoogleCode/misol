@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.1">
+    <title xml:lang="ko">검색어 강조</title>
+	<author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 4. 20">
+        <name xml:lang="ko">민수</name>
+        <description xml:lang="ko">
+           통합 검색 결과의 검색어 강조 - 기본 스킨을 기준
+        </description>
+    </author>
+</addon>

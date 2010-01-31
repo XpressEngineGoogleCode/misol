@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">공사중 애드온</title>
+  <description xml:lang="ko">
+    지정된 회원 이외에는 공사중 표시를 보게합니다.
+  </description>
+  <version>0.2.0</version>
+  <date>2009-11-17</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://misol221.xpressengine.net/</link>
+  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수(misol)</name>
+    <name xml:lang="zh-CN">misol</name>
+    <name xml:lang="en">misol</name>
+  </author>
+  <extra_vars>
+    <var name="view_message" type="textarea">
+      <title xml:lang="ko">공사중 표시 내용</title>
+      <description xml:lang="ko">지정되지 않은 회원이 볼 메세지. HTML을 사용해서 완전한 문서로 작성해야 합니다.</description>
+    </var>
+    <var name="except_useragent" type="textarea">
+      <title xml:lang="ko">공사중 표시 예외 User-Agent</title>
+      <description xml:lang="ko">해당 User-Agent 에서는 공사중 메세지가 보이지 않습니다. User-Agent가 포함하는 문자열 일부를 쓰세요. 여러 개를 쓸 때는 줄을 바꿔서 구분하세요.</description>
+    </var>
+    <var name="do_useragent" type="textarea">
+      <title xml:lang="ko">공사중 표시 User-Agent</title>
+      <description xml:lang="ko">해당 User-Agent 에서는 공사중 표시 예외 상황이더라도 공사중 메세지를 표시합니다. User-Agent가 포함하는 문자열 일부를 쓰세요. 여러 개를 쓸 때는 줄을 바꿔서 구분하세요.</description>
+    </var>
+    <var name="but_id">
+      <title xml:lang="ko">제외 회원 ID</title>
+      <description xml:lang="ko">선택하신 회원이 제외 됩니다. 애드온을 적용하지 않을 회원의 아이디를 입력하세요.
+             회원 ID를 여러개 쓰려면
+            ,(콤마)로 연결하여 입력하세요.
+            (예 : 아이디1,아이디2,아이디3)
+      </description>
+    </var>
+    <var name="but_group">
+      <title xml:lang="ko">제외 회원 그룹</title>
+      <description xml:lang="ko">선택하신 회원그룹이 제외 됩니다. 애드온을 적용하지 않을 회원 그룹의 이름을 입력하세요.
+        회원 그룹명을 여러개 쓰려면
+        ,(콤마)로 연결하여 입력하세요.
+        (예 : 그룹1,그룹2,그룹3)</description>
+      </var>
+    <var name="until">
+      <title xml:lang="ko">기한</title>
+      <description xml:lang="ko">입력한 기한까지만 공사중 표시가 뜹니다.
+      날짜 입력 예시 : 2009-12-01
+      시간 포함 입력 예시 : 2009-11-17 02:20
+      (PHP strtotime 함수가 인식할 수 있는 시간 값이면 됩니다.)
+      </description>
+    </var>
+  </extra_vars>
+</addon>

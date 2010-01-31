@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">고려대학교 시간표</title>
+    <description xml:lang="ko">시간표를 개인마다 만드는 모듈</description>
+    <version>0.1</version>
+    <date>2010-01-01</date>
+    <category>service</category>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+        <name xml:lang="ko">misol</name>
+    </author>
+</module>

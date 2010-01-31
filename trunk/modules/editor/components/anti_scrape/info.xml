@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component version="0.12">
+    <title xml:lang="ko">스크랩 거부 컴포넌트</title>
+    <title xml:lang="en">Anti Scrape Component</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 3. 19">
+        <name xml:lang="ko">민수</name>
+        <name xml:lang="en">Min-Soo Kim</name>
+        <description xml:lang="ko">
+           오른쪽 마우스 버튼과, 드래그, 키보드 특수키 사용을 막습니다.
+           소스보기를 막지는 못합니다.
+        </description>
+        <description xml:lang="en">
+           Prevent right button in the mouse clicked.
+           But it can not prevent the menu of source viewing.
+        </description>
+    </author>
+    <extra_vars>
+        <var name="alert_text">
+            <title xml:lang="ko">경고 문구 내용</title>
+            <title xml:lang="en">Alerted Message</title>
+            <description xml:lang="ko">특수키 클릭시 나오는 경고문구를 설정해 주세요.
+            줄 바꾸기는 \n을 입력하시면 됩니다.</description>
+            <description xml:lang="en">Enter the Message when the key ([Ctrl],[Alt],etc) clicked
+            To Change the line, enter the \n.</description>
+        </var>
+        <var name="but_id">
+            <title xml:lang="ko">제외 회원 ID</title>
+            <title xml:lang="en">Escape Member IDs</title>
+            <description xml:lang="ko">선택하신 회원이 제외 됩니다. 스크랩 거부 기능을 적용하지 않을 회원의 아이디를 입력하세요.
+             회원 ID를 여러개 쓰려면
+            ,(콤마)로 연결하여 입력하세요.
+            (예 : 아이디1,아이디2,아이디3)
+            </description>
+            <description xml:lang="en">Written members would be allowed to scrape. Enter the ID of member.
+            To enter 2 or more IDs, use
+            ,(comma) to tell each other.
+            (eg : admin,myid,id1,id2)</description>
+        </var>
+        <var name="but_group">
+            <title xml:lang="ko">제외 회원 그룹</title>
+            <title xml:lang="en">Escape Member Groups</title>
+            <description xml:lang="ko">선택하신 회원그룹이 제외 됩니다. 스크랩 거부 기능을 적용하지 않을 회원 그룹의 이름을 입력하세요.
+            회원 그룹명을 여러개 쓰려면
+            ,(콤마)로 연결하여 입력하세요.
+            (예 : 그룹1,그룹2,그룹3)</description>
+            <description xml:lang="en">Written member groups would be allowed to scrape. Enter the name of member groups.
+            To enter 2 or more IDs, use
+            ,(comma) to tell each other.
+            (eg : group1,group2,group3)</description>
+        </var>
+    </extra_vars>
+</component>

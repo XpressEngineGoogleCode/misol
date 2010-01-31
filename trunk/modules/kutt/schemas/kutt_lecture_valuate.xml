@@ -1,0 +1,11 @@
+<table name="kutt_lecture_valuate">
+  <column name="year" type="number" size="4" default="0000" notnull="notnull" index="idx_year" />
+  <column name="term" type="varchar" size="4" default="0000" notnull="notnull" index="idx_term" />
+  <column name="lecture_code" type="varchar" size="16" default="0" notnull="notnull" index="idx_lecture_code" />
+  <column name="class_code" type="number" size="4" default="00" notnull="notnull" index="idx_class_code" />
+  <column name="lecture_title" type="varchar" size="500" notnull="notnull" index="idx_lecture_title" />
+  <column name="lecturer" type="varchar" size="500" notnull="notnull" index="idx_lecturer" />
+  <column name="lecture_point" type="number" size="10" notnull="notnull" index="idx_lecture_point" />
+  <column name="lecture_valuers" type="bigtext" notnull="notnull" />
+  <column name="lecture_valuers_number" type="number" size="10" default="0" notnull="notnull" index="idx_valuers_number" />
+</table>

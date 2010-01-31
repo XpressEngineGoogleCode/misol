@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import url(../../../../../../modules/admin/tpl/css/admin.css);
+
+.search { border:1px solid #DDDDDD; padding:5px; }
+#address { width:100px; }
+.about_address { clear:both; color:#DDDDDD;}
+
+.address_list_box { color:#AAAAAA; margin-top:1em; clear:both; height:250px; overflow:scroll;}
+.address_list_box a { color:#AAAAAA; }
+
+#map { width:400px; height:400px; }

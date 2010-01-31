@@ -1,0 +1,20 @@
+<table name="kutt_lectures">
+  <column name="year" type="number" size="4" default="0000" notnull="notnull" index="idx_year" />
+  <column name="term" type="varchar" size="4" default="0000" notnull="notnull" index="idx_term" />
+  <column name="campus" type="number" size="1" default="1" notnull="notnull" index="idx_campus" />
+  <column name="lecture_code" type="varchar" size="16" default="0" notnull="notnull" index="idx_lecture_code" />
+  <column name="class_code" type="number" size="4" default="00" notnull="notnull" index="idx_class_code" />
+  <column name="lecture_type" type="varchar" size="32" default="0" notnull="notnull" index="idx_lecture_type" />
+  <column name="lecture_type2" type="varchar" size="32" default="0" notnull="notnull" index="idx_lecture_type2" />
+  <column name="lecture_title" type="varchar" size="500" notnull="notnull" index="idx_lecture_title" />
+  <column name="lecturer" type="varchar" size="500" notnull="notnull" index="idx_lecturer" />
+  <column name="lecture_unit" type="number" size="8" default="0" notnull="notnull" index="idx_lecture_unit" />
+  <column name="lecture_hours" type="number" size="8" default="0" notnull="notnull" index="idx_lecture_hours" />
+  <column name="lecture_time" type="varchar" size="250" default="0" notnull="notnull" index="idx_lecture_time" />
+  <column name="lecture_place" type="varchar" size="250" notnull="notnull" index="idx_lecture_place" />
+  <column name="lecture_rating" type="char" size="1" default="0" notnull="notnull" index="idx_lecture_rating" />
+  <column name="lecture_persons" type="char" size="1" default="0" notnull="notnull" index="idx_lecture_persons" />
+  <column name="lecture_waits" type="char" size="1" default="0" notnull="notnull" index="idx_lecture_waits" />
+  <column name="lecture_inter_student" type="char" size="1" default="0" notnull="notnull" index="idx_lecture_inter_student" />
+  <column name="lecture_etc" type="bigtext" default="0" notnull="notnull" />
+</table>

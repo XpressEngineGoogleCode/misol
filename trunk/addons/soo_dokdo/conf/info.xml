@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">독도 배너</title>
+  <version>0.2.1</version>
+  <date>2009-09-25</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://misol221.xpressengine.net/</link>
+  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수(misol)</name>
+    <name xml:lang="zh-CN">misol</name>
+    <name xml:lang="en">misol</name>
+  </author>
+  <description xml:lang="ko">
+    홈페이지 상단에 독도 배너를 답니다.
+  </description>
+  <extra_vars>
+    <var name="soo_dokdo_banner" type="select">
+      <title xml:lang="ko">독도 배너 종류</title>
+      <options value="eng_Black">
+        <title xml:lang="ko">영어 / 검정색 / 왼쪽 상단 - 다음</title>
+      </options>
+      <options value="eng_White">
+        <title xml:lang="ko">영어 / 흰색 / 왼쪽 상단 - 다음</title>
+      </options>
+      <options value="eng_Black_Rt">
+        <title xml:lang="ko">영어 / 검정색 / 오른쪽 상단 - 다음</title>
+      </options>
+      <options value="eng_White_Rt">
+        <title xml:lang="ko">영어 / 흰색 / 오른쪽 상단 - 다음</title>
+      </options>
+      <options value="dok">
+        <title xml:lang="ko">한국어 / 흰색 - 디시인사이드</title>
+      </options>
+      <options value="dokdo_s">
+        <title xml:lang="ko">한국어 / 하늘색(작은) - 디시인사이드</title>
+      </options>
+      <options value="dokdo_b">
+        <title xml:lang="ko">한국어 / 하늘색(큰) - 디시인사이드</title>
+      </options>
+      <options value="dokdo_e_s">
+        <title xml:lang="ko">한국어 / 하늘색(작은, 애니메이션GIF) - 디시인사이드</title>
+      </options>
+      <options value="dokdo_e_b">
+        <title xml:lang="ko">한국어 / 하늘색(큰, 애니메이션GIF) - 디시인사이드</title>
+      </options>
+      <options value="none">
+        <title xml:lang="ko">배너 없음</title>
+      </options>
+      <description xml:lang="ko">독도 배너 종류
+      언어 / 색 / 위치(어디에 적당한가) - 출처</description>
+    </var>
+    <var name="soo_dokdo_banner_rl_self">
+      <title xml:lang="ko">독도 광고 모금 배너 위치 (직접 입력, 언어 = CSS)</title>
+      <description xml:lang="ko">독도 배너 위치 - 입력시 아래 선택상자보다 우선적용.
+      (예)  left: 5px; top: 30px; z-index: 100;</description>
+    </var>
+    <var name="soo_dokdo_banner_rl" type="select">
+      <title xml:lang="ko">독도 광고 모금 배너 위치</title>
+      <options value="left: 0; top: 0; z-index: 100;">
+        <title xml:lang="ko">왼쪽 상단</title>
+      </options>
+      <options value="right: 0; top: 0; z-index: 100;">
+        <title xml:lang="ko">오른쪽 상단</title>
+      </options>
+      <options value="none">
+        <title xml:lang="ko">없음</title>
+      </options>
+      <description xml:lang="ko">독도 배너 위치</description>
+    </var>
+  </extra_vars>
+</addon>

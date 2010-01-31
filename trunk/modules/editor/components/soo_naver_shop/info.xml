@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component version="0.2">
+    <title xml:lang="ko">洙 네이버 상품정보 입력</title>
+    <title xml:lang="en">洙 Naver info. of goods</title>
+    <version>0.1</version>
+    <date>2007-09-08</date>
+    <link>http://www.imsoo.net</link>
+    <description xml:lang="ko">네이버 상품 정보 입력 API 를 이용하여 상품 정보를 입력합니다.</description>
+    <description xml:lang="en">You can insult the information of goods.</description>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+        <name xml:lang="ko">민수</name>
+        <name xml:lang="en">Min-Soo Kim</name>
+        <name xml:lang="zh-CN">金旻洙</name>
+    </author>
+    <extra_vars>
+        <var name="soo_shop_display">
+            <title xml:lang="ko">목록수</title>
+            <title xml:lang="en">the number of items</title>
+            <description xml:lang="ko">1에서 100사이의 수를 입력해주세요.</description>
+            <description xml:lang="en">Enter the number between 1 and 100.</description>
+		    </var>
+        <var name="naver_api_key">
+            <title xml:lang="ko">네이버 api key</title>
+            <title xml:lang="en">Naver api key</title>
+            <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
+            <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
+        </var>
+    </extra_vars>
+</component>

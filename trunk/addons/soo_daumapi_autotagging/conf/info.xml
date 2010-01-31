@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">태그 부풀리기</title>
+        <description xml:lang="ko">
+        다음 문맥 키워드 API, 네이버 추천 검색어 API를 이용해서 태그를 추가해 줍니다.
+        </description>
+    <version>0.1</version>
+    <date>2008-12-31</date>
+    <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+    <link>http://www.imsoo.net</link>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+        <name xml:lang="ko">민수</name>
+        <name xml:lang="en">Min-Soo Kim</name>
+        <name xml:lang="zh-CN">金旻洙</name>
+    </author>
+    <extra_vars>
+        <var name="soo_daum_api_key">
+            <title xml:lang="ko">다음 API키</title>
+            <description xml:lang="ko">문맥 키워드 API키. 문맥내에서 키워드를 추출합니다. (사용하지 않으시려면, 이 칸을 비워두세요.)</description>
+        </var>
+        <var name="soo_naver_api_key">
+            <title xml:lang="ko">네이버 API키</title>
+            <description xml:lang="ko">일반 API 키. 태그에 연관된 검색어를 모두 태그로 등록합니다. (사용하지 않으시려면, 이 칸을 비워두세요.)</description>
+        </var>
+    </extra_vars>
+</addon>선

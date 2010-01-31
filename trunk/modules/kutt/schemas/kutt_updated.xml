@@ -1,0 +1,4 @@
+<table name="kutt_updated">
+  <column name="date" type="number" size="14" default="00000000000000" notnull="notnull" index="idx_date" />
+  <column name="contents" type="text" />
+</table>
