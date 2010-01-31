@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <grants>
+    <grant name="view" default="guest">
+      <title xml:lang="ko">열람</title>
+    </grant>
+  </grants>
+  <actions>
+    <action name="dispTimeTable" type="view" index="true" />
+  </actions>
+</module>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.3">
+    <title xml:lang="ko">HTML header 입력</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 4. 13">
+        <name xml:lang="ko">민수</name>
+        <description xml:lang="ko">
+            HTML &amp;lt;head&amp;gt;와&amp;lt;/head&amp;gt;사이에 추가 입력을 쉽게 합니다.
+        </description>
+    </author>
+    <extra_vars>
+        <var name="hd1">
+            <title xml:lang="ko">내용</title>
+            <type>textarea</type>
+            <description xml:lang="ko">&amp;lt;head&amp;gt;와&amp;lt;/head&amp;gt;사이에 입력할 내용을 작성하세요.</description>
+        </var>
+        <var name="but_list">
+            <title xml:lang="ko">제외 모듈</title>
+            <type>mid_list</type>
+            <description xml:lang="ko">선택하신 모듈은 적용 대상에서 제외됩니다.</description>
+        </var>
+    </extra_vars>
+</addon>

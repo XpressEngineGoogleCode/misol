@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">게시글 추가 내용 출력</title>
+    <title xml:lang="en">Upper/Lower end of Board Contents</title>
+    <title xml:lang="zh-TW">討論板上下端內容</title>
+    <description xml:lang="ko">
+      게시글의 상/하단에 특정 내용을 추가할 수 있습니다.
+    </description>
+    <description xml:lang="en">
+      You can insert something before/after Board Contents.
+    </description>
+    <description xml:lang="zh-TW">
+      可以在討論板上面或下面插入想要的內容。
+    </description>
+    <version>0.2.2</version>
+    <date>2009-11-17</date>
+    <link>http://www.imsoo.net</link>
+    <author email_address="storyhold@naver.com" link="http://gigglehd.com">
+      <name xml:lang="ko">낄낄</name>
+      <name xml:lang="en">giggle</name>
+      <name xml:lang="zh-TW">giggle</name>
+    </author>
+    <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+      <name xml:lang="ko">민수</name>
+      <name xml:lang="en">misol</name>
+      <name xml:lang="zh-TW">misol</name>
+    </author>
+    <extra_vars>
+        <var name="soo_top" type="textarea">
+            <title xml:lang="ko">게시물 본문 상단 내용 입력</title>
+            <title xml:lang="en">something before Board Contents</title>
+            <title xml:lang="zh-TW">討論板上端</title>
+            <description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+            <description xml:lang="en">Enter something you want to display the upper end of board contents (HTML)</description>
+            <description xml:lang="zh-TW">輸入想要顯示在討論板上端的內容 (HTML)</description>
+        </var>
+        <var name="soo_bottom" type="textarea">
+            <title xml:lang="ko">게시물 본문 하단 내용 입력</title>
+            <title xml:lang="en">something after Board Contents</title>
+            <title xml:lang="zh-TW">討論板下端</title>
+            <description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+            <description xml:lang="en">Enter something you want to display the lower end of board contents (HTML)</description>
+            <description xml:lang="zh-TW">輸入想要顯示在討論板下端的內容 (HTML)</description>
+        </var>
+    </extra_vars>
+</addon>

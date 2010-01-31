@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@import url(../../../../../../modules/admin/tpl/css/admin.css);
+ul{ margin: 0; padding: 0;}
+#map_canvas { width:640px; height:400px; }
+#map_popBody { width: 100%; }
+#address{width: 150px;}
+#form_to_save { display:-moz-inline-box; vertical-align:middle; margin: 0px; padding: 0px; display: inline; float:left;}
+.result_list_box { color:#666666; margin-top:0px; clear:both; height:100px; width:100%; overflow-x : hidden; overflow-y : auto; overflow : auto;}
+.result_list_box a { color:#666666; }
+.result_lists { list-style:none; }

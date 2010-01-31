@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.11">
+    <title xml:lang="ko">Meta Tag 입력기</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 3. 23">
+        <name xml:lang="ko">민수</name>
+        <name xml:lang="en">Min-Soo Kim</name>
+        <description xml:lang="ko">
+           Meta 입력기
+        </description>
+    </author>
+    <extra_vars>
+        <var name="meta_keyword">
+            <title xml:lang="ko">KEY Word</title>
+            <description xml:lang="ko">키워드</description>
+        </var>
+        <var name="meta_decription">
+            <title xml:lang="ko">Decription</title>
+            <description xml:lang="ko">페이지 요약</description>
+        </var>
+        <var name="meta_author">
+            <title xml:lang="ko">Author</title>
+            <description xml:lang="ko">작자</description>
+        </var>
+        <var name="meta_icon">
+            <title xml:lang="ko">Shortcut Icon</title>
+            <description xml:lang="ko">제목에 표시될 아이콘이 있는 경로를 써 주세요. 경로는 절대경로로 써주시는게 좋습니다.
+            예>
+            http://www.daum.net/favicon.ico</description>
+        </var>
+        <var name="meta_robot_index">
+            <title xml:lang="ko">검색로봇 거부표시 (본문서)</title>
+            <type>select</type>
+            <options>
+                <title xml:lang="ko">수집 허용 표시</title>
+                <value>1</value>
+            </options>
+            <options>
+                <title xml:lang="ko">수집 거부 표시</title>
+                <value>2</value>
+            </options>
+            <description xml:lang="ko">검색로봇의 본 문서 수집에 대해 허용/거부 표시 합니다.</description>
+        </var>
+        <var name="meta_robot_follow">
+            <title xml:lang="ko">검색로봇 거부표시 (링크문서)</title>
+            <type>select</type>
+            <options>
+                <title xml:lang="ko">수집 허용 표시</title>
+                <value>1</value>
+            </options>
+            <options>
+                <title xml:lang="ko">수집 거부 표시</title>
+                <value>2</value>
+            </options>
+            <description xml:lang="ko">검색로봇의 링크 문서 수집에 대해 허용/거부 표시 합니다.</description>
+        </var>
+    </extra_vars>
+</addon>

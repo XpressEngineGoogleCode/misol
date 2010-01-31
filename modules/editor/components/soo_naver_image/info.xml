@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component version="1.0">
+    <title xml:lang="ko">네이버 이미지 입력</title>
+    <title xml:lang="en">Insert the Naver Images</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2009. 9. 14">
+        <name xml:lang="ko">민수</name>
+        <name xml:lang="en">Min-Soo Kim</name>
+        <name xml:lang="zh-CN">金旻洙</name>
+        <description xml:lang="ko">네이버 이미지를 에디터에 원하는 곳에 추가하거나 수정할 수 있습니다.\n네이버 api키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
+        <description xml:lang="en">You can insult the Naver Images.</description>
+    </author>
+    <extra_vars>
+        <var name="soo_img_display">
+            <title xml:lang="ko">목록수</title>
+            <title xml:lang="en">the number of items</title>
+            <description xml:lang="ko">1에서 100사이의 수를 입력해주세요.</description>
+            <description xml:lang="en">Enter the number between 1 and 100.</description>
+		</var>
+        <var name="naver_api_key">
+            <title xml:lang="ko">네이버 api key</title>
+            <title xml:lang="en">Naver api key</title>
+            <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
+            <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
+		</var>
+		<var name="soo_img_copyright">
+            <title xml:lang="ko">이미지 저작권 표시</title>
+            <title xml:lang="en">Marking Copyright.</title>
+            <description xml:lang="ko">입력된 네이버 이미지 하단에 NHN의 카피라잇을 입력합니다. 표시 하려면 Y 를 입력하세요. (Copyright ⓒ NHN Corp.)</description>
+            <description xml:lang="en">Marking a copyright code(Copyright ⓒ NHN Corp.) at the bottom of the image. If you want to mark it, insult Y in this box.</description>
+        </var>
+    </extra_vars>
+</component>

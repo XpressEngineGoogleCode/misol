@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">xHTML마크업 보정</title>
+    <description xml:lang="ko">
+      인터넷 익스플로러에서 위지윅 에디터 사용하면, 주로 발생하는 태그명의 대문자 변환이나 요소의 따옴표 생략 따위를 보정합니다.
+    </description>
+  <version>0.1</version>
+  <date>2008-09-20</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://www.imsoo.net</link>
+  <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수</name>
+    <name xml:lang="en">Min-Soo Kim</name>
+    <name xml:lang="zh-CN">金旻洙</name>
+  </author>
+  <extra_vars>
+    <var name="tag_match_select" type="select">
+      <title xml:lang="ko">강제 시작-끝 태그 맞춤</title>
+      <options value="N">
+        <title xml:lang="ko">맞추지 않음</title>
+      </options>
+      <options value="Y">
+        <title xml:lang="ko">강제 맞춤</title>
+      </options>
+      <description xml:lang="ko">강제로 시작태그와 끝 태그를 맞춥니다.
+        문서 형식이 변경될 수 있습니다.
+      </description>
+    </var>
+  </extra_vars>
+</addon>

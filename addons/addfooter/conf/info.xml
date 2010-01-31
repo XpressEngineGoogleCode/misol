@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">외부스크립트 추가 by 민수</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 4. 13">
+        <name xml:lang="ko">민수</name>
+        <description xml:lang="ko">
+            아기곰돌이님의 외부 스크립트 추가 애드온과 동일한 내용.
+            설정버튼을 눌러, 추가할 스크립트를 입력하세요.
+        </description>
+    </author>
+    <extra_vars>
+        <var name="footer_script">
+            <title xml:lang="ko">내용</title>
+            <type>textarea</type>
+            <description xml:lang="ko">페이지 맨 아래 &amp;lt;/body&amp;gt; 바로 위에 입력됩니다.</description>
+        </var>
+        <var name="but_list">
+            <title xml:lang="ko">제외 모듈</title>
+            <type>mid_list</type>
+            <description xml:lang="ko">선택하신 모듈은 적용 대상에서 제외됩니다.</description>
+        </var>
+    </extra_vars>
+</addon>

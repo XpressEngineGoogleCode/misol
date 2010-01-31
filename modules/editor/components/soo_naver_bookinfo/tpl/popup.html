@@ -1,0 +1,117 @@
+<!--%import("popup.js")-->
+<!--%import("popup.css")-->
+<!--%import("../lang")-->
+{@Context::setBrowserTitle($component_info->title.' Ver. '.$component_info->version);}
+<script language="javascript" type="text/javascript">//<![CDATA[
+<!--
+var no_result="{$lang->msg_no_result}";
+var soo_msg_close = "{$lang->soo_msg_close}";
+var soo_msg_total="{$lang->soo_msg_total}";
+var soo_msg_result_num="{$lang->soo_msg_result_num}";
+var soo_msg_nextpage="{$lang->soo_msg_nextpage}";
+var soo_msg_beforepage="{$lang->soo_msg_beforepage}";
+var soo_msg_insert="{$lang->soo_msg_insert}";
+var soo_msg_cata_anywhere = "{$lang->soo_msg_cata_anywhere}";
+var soo_book_title = "{$lang->soo_booksearch_in_title}";
+var soo_book_author = "{$lang->soo_bookinfo_author}";
+var soo_book_price = "{$lang->soo_bookinfo_price}";
+var soo_book_price_unit = "{$lang->soo_bookinfo_price_unit}";
+var soo_book_price_discount = "{$lang->soo_bookinfo_price_discount}";
+var soo_book_publisher = "{$lang->soo_booksearch_in_publisher}";
+var soo_book_pdate = "{$lang->soo_bookinfo_pdate}";
+var soo_book_isbn = "{$lang->soo_booksearch_in_isbn}";
+var soo_book_description = "{$lang->soo_bookinfo_description}";
+var soo_book_link = "{$lang->soo_bookinfo_link}";
+//-->
+//]]></script>
+<div id="popHeader">
+  <h1>{$component_info->title} ver. {$component_info->version}</h1>
+</div>
+
+<div id="popupBody">
+<table border="0">
+    <tr valign="top">
+        <td>
+            <div class="search">
+                <form action="./" method="get" onSubmit="search_soo_bookinfo(); return false;" id="fo">
+                <table border="0">
+                <tr>
+                    <td><select size="1" id="where" class="searchinput">
+                        <option value="any">{$lang->soo_booksearch_in}</option>
+                        <option value="titl">{$lang->soo_booksearch_in_title}</option>
+                        <option value="cont">{$lang->soo_booksearch_in_contents}</option>
+                        <option value="isbn">{$lang->soo_booksearch_in_isbn}</option>
+                        <option value="publ">{$lang->soo_booksearch_in_publisher}</option>
+                        </select>
+
+                        <select size="1" id="cata" class="searchinput">
+                        <option value="all">{$lang->soo_booksearch_cat}</option>
+                        <option value="1">{$lang->soo_booksearch_cat_normal}</option>
+                            <option value="101">-{$lang->soo_booksearch_cat_normal_philosophy}</option>
+                            <option value="102">-{$lang->soo_booksearch_cat_normal_myth}</option>
+                            <option value="103">-{$lang->soo_booksearch_cat_normal_art}</option>
+                            <option value="104">-{$lang->soo_booksearch_cat_normal_human}</option>
+                            <option value="105">-{$lang->soo_booksearch_cat_normal_history}</option>
+                            <option value="106">-{$lang->soo_booksearch_cat_normal_auto}</option>
+                            <option value="107">-{$lang->soo_booksearch_cat_normal_liter}</option>
+                            <option value="108">-{$lang->soo_booksearch_cat_normal_literature}</option>
+                            <option value="109">-{$lang->soo_booksearch_cat_normal_nonfic}</option>
+                            <option value="110">-{$lang->soo_booksearch_cat_normal_social}</option>
+                            <option value="111">-{$lang->soo_booksearch_cat_normal_fe}</option>
+                            <option value="112">-{$lang->soo_booksearch_cat_normal_sp}</option>
+                            <option value="114">-{$lang->soo_booksearch_cat_normal_biz}</option>
+                            <option value="115">-{$lang->soo_booksearch_cat_normal_computer}</option>
+                            <option value="116">-{$lang->soo_booksearch_cat_normal_science}</option>
+                            <option value="117">-{$lang->soo_booksearch_cat_normal_engineering}</option>
+                            <option value="119">-{$lang->soo_booksearch_cat_normal_g_novel}</option>
+                            <option value="121">-{$lang->soo_booksearch_cat_normal_trip}</option>
+                            <option value="122">-{$lang->soo_booksearch_cat_normal_sports}</option>
+                            <option value="123">-{$lang->soo_booksearch_cat_normal_home}</option>
+                            <option value="124">-{$lang->soo_booksearch_cat_normal_self}</option>
+                            <option value="125">-{$lang->soo_booksearch_cat_normal_lang}</option>
+                            <option value="126">-{$lang->soo_booksearch_cat_normal_license}</option>
+                            <option value="128">-{$lang->soo_booksearch_cat_normal_adolesce}</option>
+                            <option value="129">-{$lang->soo_booksearch_cat_normal_text}</option>
+                            <option value="130">-{$lang->soo_booksearch_cat_normal_dic}</option>
+                            <option value="150">-{$lang->soo_booksearch_cat_normal_pub}</option>
+                        <option value="2">{$lang->soo_booksearch_cat_kids}</option>
+                        <option value="4">{$lang->soo_booksearch_cat_artinus}</option>
+                            <option value="401">-{$lang->soo_booksearch_cat_artinus_art}</option>
+                            <option value="402">-{$lang->soo_booksearch_cat_artinus_paint}</option>
+                            <option value="403">-{$lang->soo_booksearch_cat_artinus_in}</option>
+                            <option value="404">-{$lang->soo_booksearch_cat_artinus_de}</option>
+                            <option value="405">-{$lang->soo_booksearch_cat_artinus_ma}</option>
+                            <option value="406">-{$lang->soo_booksearch_cat_artinus_fa}</option>
+                            <option value="407">-{$lang->soo_booksearch_cat_artinus_pi}</option>
+                            <option value="408">-{$lang->soo_booksearch_cat_artinus_mo}</option>
+                            <option value="409">-{$lang->soo_booksearch_cat_artinus_ani}</option>
+                            <option value="410">-{$lang->soo_booksearch_cat_artinus_sty}</option>
+                            <option value="411">-{$lang->soo_booksearch_cat_artinus_dic}</option>
+                            <option value="412">-{$lang->soo_booksearch_cat_artinus_kor}</option>
+                            <option value="413">-{$lang->soo_booksearch_cat_artinus_mus}</option>
+                            <option value="414">-{$lang->soo_booksearch_cat_artinus_kidsart}</option>
+                        <option value="5">{$lang->soo_booksearch_cat_maga}</option>
+                            <option value="501">-{$lang->soo_booksearch_cat_maga_in}</option>
+                            <option value="502">-{$lang->soo_booksearch_cat_maga_ex}</option>
+                        <option value="6">{$lang->soo_booksearch_cat_comics}</option>
+                        </select>
+                        <input type="text" class="inputTypeText" id="query" class="searchinput" value="" /></td>
+                    <td><span class="button"><input type="submit" value="{$lang->cmd_search}" /></span></td>
+                </tr>
+                </table>
+
+                <span class="about_soo_book_search">{$lang->about_soo_book_search}</span>
+
+                </form>
+            </div>
+            <div class="result_list_box" id="result_list_layer"><span>{$lang->about_soo_result_use}</span></div>
+            <div id="soo_result_info">{$lang->about_soo_book_result_info}</div>
+        </td>
+    </tr>
+</table>
+</div>
+
+<div id="popFooter" class="tCenter">
+    <a href="#" onclick="window.close(); return false;" class="button"><span>{$lang->cmd_close}</span></a>
+    <a href="#" onclick="winopen('./?module=editor&amp;act=dispEditorComponentInfo&amp;component_name={$component_info->component_name}','ComponentInfo','left=10,top=10,width=10,height=10,resizable=no,scrollbars=no,toolbars=no');return false;" class="button"><span>{$lang->about_component}</span></a>
+</div>

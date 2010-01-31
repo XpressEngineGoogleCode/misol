@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component version="0.2">
+  <title xml:lang="ko">미솔's 비디오 검색 글쓰기 도구</title>
+  <title xml:lang="en">misol's Video Search Component</title>
+  <version>0.4.2</version>
+  <date>2009-12-28</date>
+  <link>http://www.imsoo.net</link>
+  <description xml:lang="ko">검색된 동영상을 삽입합니다.</description>
+  <description xml:lang="en">You can insert Videos.</description>
+  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+    <name xml:lang="ko">misol</name>
+    <name xml:lang="en">misol</name>
+    <name xml:lang="zh-CN">misol</name>
+  </author>
+  <author link="http://www.habile.kr">
+    <name xml:lang="ko">Habile</name>
+    <name xml:lang="en">Habile</name>
+    <name xml:lang="zh-CN">Habile</name>
+  </author>
+  <extra_vars>
+    <var name="soo_display">
+      <title xml:lang="ko">목록수</title>
+      <title xml:lang="en">the number of items</title>
+      <description xml:lang="ko">1에서 50사이의 수를 입력해주세요.</description>
+      <description xml:lang="en">Enter the number between 1 and 50.</description>
+    </var>
+    <var name="soo_design">
+      <title xml:lang="ko">팝업창 디자인</title>
+      <title xml:lang="en">Design of Popup Window</title>
+      <description xml:lang="ko">habile 또는 misol 를 입력해주세요. (habile은 세로버전 misol은 가로버전입니다. 아무것도 입력하지 않으면 habile가 기본입니다.)</description>
+      <description xml:lang="en">Enter habile or misol. ( misol is vertical version and habile is horizontal version )</description>
+    </var>
+    <var name="soo_daum_api_key">
+      <title xml:lang="ko">다음 API KEY (선택사항)</title>
+      <title xml:lang="en">Daum API KEY (Optional)</title>
+      <description xml:lang="ko">다음 TV팟을 이용하려면 검색 API키를 입력합니다. API키는 http://dna.daum.net/ 에서 받을 수 있습니다.</description>
+      <description xml:lang="en">If you want to use Daum TV-pot video, insert here Daum Search API key. (This Option is not required. You can get the key on http://dna.daum.net/ )</description>
+    </var>
+  </extra_vars>
+</component>

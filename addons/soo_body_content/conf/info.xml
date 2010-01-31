@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">최상단 내용 추가</title>
+    <description xml:lang="ko">
+      HTML body 태그 하단에 내용 추가
+    </description>
+    <version>0.2</version>
+    <date>2009-11-18</date>
+    <link>http://www.imsoo.net</link>
+    <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+      <name xml:lang="ko">민수(misol)</name>
+      <name xml:lang="en">Min-Soo Kim(misol)</name>
+      <name xml:lang="zh-CN">金旻洙(misol)</name>
+    </author>
+    <extra_vars>
+        <var name="soo_body" type="textarea">
+            <title xml:lang="ko">페이지 최상단 내용</title>
+            <description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+        </var>
+    </extra_vars>
+</addon>

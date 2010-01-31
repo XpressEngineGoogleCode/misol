@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.1">
+    <title xml:lang="ko">OpenID (myid.net)</title>
+    <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 2. 24">
+        <name xml:lang="ko">민수</name>
+        <description xml:lang="ko">
+            본인의 도메인을 오픈아이디로 활용할 수 있도록 합니다.
+            myid.net 회원만 (myid.net의 오픈ID가 있어야) 이용 가능합니다.
+        </description>
+    </author>
+    <extra_vars>
+        <var name="myid">
+            <title xml:lang="ko">ID</title>
+            <description xml:lang="ko">myid.net의 ID를 입력하세요.
+            *.myid.net에서 별표에 해당하는 값.
+            예를들어 abc.myid.net이 오픈ID라면, abc를 입력하세요.</description>
+        </var>
+    </extra_vars>
+</addon>

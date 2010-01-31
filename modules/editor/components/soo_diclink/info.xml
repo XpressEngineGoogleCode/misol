@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component version="0.2">
+  <version>0.2</version>
+  <date>2009-09-19</date>
+  <title xml:lang="ko">洙 사전 검색 링크</title>
+  <title xml:lang="en">Insert link of the word.(Daum API)</title>
+  <description xml:lang="ko">국어, 영어, 한자 사전으로 단어에 링크를 쉽게 걸어줍니다.</description>
+  <description xml:lang="en">You can insult the links to Korean, English, Chinese character Dictionary.</description>
+  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수</name>
+    <name xml:lang="en">Min-Soo Kim</name>
+  </author>
+  <extra_vars>
+    <var name="soo_diclink_display">
+      <title xml:lang="ko">목록수</title>
+      <title xml:lang="en">the number of items</title>
+      <description xml:lang="ko">1에서 20사이의 수를 입력해주세요.</description>
+      <description xml:lang="en">Enter the number between 1 and 20.</description>
+    </var>
+    <var name="daum_api_key">
+      <title xml:lang="ko">다음 api key</title>
+      <title xml:lang="en">Daum api key</title>
+      <description xml:lang="ko">https://apis.daum.net/register/apikey.daum 에서 다음 사전 API KEY를 발급 받으신 후 입력해주세요.</description>
+      <description xml:lang="en">Please get Daum Dictionary API key at https://apis.daum.net/register/apikey.daum first and then input the key.</description>
+  </var>
+  </extra_vars>
+</component>

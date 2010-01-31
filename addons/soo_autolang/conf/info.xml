@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+  <title xml:lang="ko">자동 언어 선택</title>
+  <description xml:lang="ko">
+    HTTP_ACCEPT_LANGUAGE 정보에 따라 홈페이지의 언어를 자동으로 선택합니다.
+  </description>
+  <version>0.1</version>
+  <date>2009-06-07</date>
+  <license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+  <link>http://www.imsoo.net</link>
+  <author email_address="misol221@paran.com" link="http://www.imsoo.net">
+    <name xml:lang="ko">민수(misol)</name>
+  </author>
+</addon>

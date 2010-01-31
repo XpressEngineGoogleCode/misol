@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@import url(../../../../../../modules/admin/tpl/css/admin.css);
+
+.search { border:1px solid #DDDDDD; padding:5px; }
+#query { width:300px; }
+#soo_result_info { color:#888888; height:30px; width:583px; text-align: right; }
+
+.result_list_box { color:#888888; margin-top:1em; clear:both; height:360px; width:580px; overflow:auto;}
+.result_list_box a { color:#777777; strong }
+.result_layer {float: left; border-style: solid; border-width: 1px; width:30%; overflow:auto; padding:5px;}
