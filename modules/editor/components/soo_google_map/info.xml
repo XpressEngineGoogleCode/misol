@@ -17,6 +17,12 @@
     <name xml:lang="zh-TW">Kim, Min-Soo(misol)</name>
     <name xml:lang="zh-CN">Kim, Min-Soo(misol)</name>
   </author>
+  <author>
+    <name xml:lang="ko">royallin</name>
+    <name xml:lang="en">royallin</name>
+    <name xml:lang="zh-TW">royallin</name>
+    <name xml:lang="zh-CN">royallin</name>
+  </author>
   <extra_vars>
     <var name="soo_google_map_api_key">
       <title xml:lang="ko">Google API Key</title>

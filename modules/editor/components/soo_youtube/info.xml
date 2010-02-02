@@ -21,6 +21,12 @@
     <name xml:lang="zh-TW">Habile</name>
     <name xml:lang="zh-CN">Habile</name>
   </author>
+  <author>
+    <name xml:lang="ko">royallin</name>
+    <name xml:lang="en">royallin</name>
+    <name xml:lang="zh-TW">royallin</name>
+    <name xml:lang="zh-CN">royallin</name>
+  </author>
   <extra_vars>
     <var name="soo_display">
       <title xml:lang="ko">목록수</title>
