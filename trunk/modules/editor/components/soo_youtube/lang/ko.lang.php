@@ -6,6 +6,7 @@
  **/
 
 // 문구
+$lang->soo_msg_close = "정보를 입력하였습니다. \\n미솔의 유투브 글쓰기 도구 창을 닫겠습니까?";
 $lang->soo_msg_total = '총';
 $lang->soo_msg_result_num = '개의 검색 결과 중';
 $lang->soo_msg_insert_all = '모두 입력';

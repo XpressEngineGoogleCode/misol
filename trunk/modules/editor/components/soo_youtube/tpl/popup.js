@@ -27,7 +27,9 @@ function insertSooCom(i, j) {
     opener.editorReplaceHTML(iframe_obj, text);
     opener.editorFocus(opener.editorPrevSrl);
 
-    window.close();
+    if(confirm(soo_msg_close)) {
+      window.close();
+    }
 }
 
 function preview_video(i) {
