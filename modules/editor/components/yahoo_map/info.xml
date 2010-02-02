@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <component version="0.1">
     <title xml:lang="ko">야후 거기 지도 입력</title>
     <title xml:lang="en">Insert the Yahoo Map</title>
@@ -8,7 +8,7 @@
         <name xml:lang="en">Min-Soo Kim</name>
         <name xml:lang="zh-TW">Min-Soo Kim</name>
         <description xml:lang="ko">야후 거기 지도를 에디터에 원하는 곳에 추가하거나 수정할 수 있습니다.\n야후 api키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
-        <description xml:lang="en">You can insult Yahoo Maps.</description>
+        <description xml:lang="en">You can insert Yahoo Maps.</description>
         <description xml:lang="zh-TW">必須要先註冊才可使用 Yahoo 地圖。</description>
     </author>
     <extra_vars>

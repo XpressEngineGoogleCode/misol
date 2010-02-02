@@ -19,7 +19,7 @@
     $lang->msg_not_exists_addr = "Address doesn't exist";
     $lang->msg_fail_to_socket_open = "Failed to connect zip code searching server";
     $lang->msg_no_result = "Nothing Found";
-    $lang->msg_no_yahoo_xy = "Select the Search result that you want to insult.";
+    $lang->msg_no_yahoo_xy = "Select the Search result that you want to insert.";
 
     $lang->msg_no_apikey = "Yahoo api key is necessary to use Yahoo Map.\nPlease input api key after selecting Module &gt; WISYWIG Editor &gt; <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=yahoo_map','SetupComponent');return false;\">Insert the Yahoo Map</a>";
     
