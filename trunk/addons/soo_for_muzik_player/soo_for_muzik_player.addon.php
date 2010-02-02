@@ -9,6 +9,8 @@ if(!defined("__ZBXE__")) exit();
 if($_SESSION['soo_for_muzik_player'] === false) return;
 // 로봇일 경우, HTML 모드가 아닐 경우 동작 안함.
 if(isCrawler() || Context::getResponseMethod()!=='HTML') return;
+//POST 내용 있으면 동작 안함.
+if(count($_POST)) return;
 // 특정 액션에서 동작 안함
 if(in_array(Context::get('act'), array('dispEditorPopup','dispEditorComponentInfo','dispModuleSkinInfo','dispDocumentManageDocument')) || in_array(Context::get('module'), array('module'))) return;
 
@@ -67,9 +69,9 @@ var is_sooframe = true;
 //]]></script>
 </head>
 <frameset rows="'.$size.'">');
-    if(!$addon_info->frame_position || $addon_info->frame_position == 'up') print('<frame id="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
-    print('<frame id="contents_frame" src="'.$uri.'" frameborder="'.$addon_info->frame_border.'" />');
-    if($addon_info->frame_position == 'down') print('<frame id="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
+    if(!$addon_info->frame_position || $addon_info->frame_position == 'up') print('<frame id="new_frame" name="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
+    print('<frame id="contents_frame" name="contents_frame" src="'.$uri.'" frameborder="'.$addon_info->frame_border.'" />');
+    if($addon_info->frame_position == 'down') print('<frame id="new_frame" name="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
     print('
 <noframes>
 <body>
