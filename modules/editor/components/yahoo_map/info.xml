@@ -2,18 +2,23 @@
 <component version="0.1">
     <title xml:lang="ko">야후 거기 지도 입력</title>
     <title xml:lang="en">Insert the Yahoo Map</title>
+    <title xml:lang="zh-TW">Yahoo 地圖</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2007. 3. 29">
         <name xml:lang="ko">민수</name>
         <name xml:lang="en">Min-Soo Kim</name>
+        <name xml:lang="zh-TW">Min-Soo Kim</name>
         <description xml:lang="ko">야후 거기 지도를 에디터에 원하는 곳에 추가하거나 수정할 수 있습니다.\n야후 api키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
         <description xml:lang="en">You can insult Yahoo Maps.</description>
+        <description xml:lang="zh-TW">必須要先註冊才可使用 Yahoo 地圖。</description>
     </author>
     <extra_vars>
         <var name="yahoo_api_key">
             <title xml:lang="ko">야후 api key</title>
             <title xml:lang="en">Yahoo api key</title>
+            <title xml:lang="zh-TW">Yahoo api key</title>
             <description xml:lang="ko">http://kr.open.gugi.yahoo.com/ 에서 야후 API key를 발급 받으신 후 입력해주세요.</description>
             <description xml:lang="en">Please get Naver Map API key from http://developer.yahoo.com/wsregapp/index.php first and then input the key.</description>
+            <description xml:lang="zh-TW">請先從 http://developer.yahoo.com/wsregapp/index.php 獲得 Yahoo API Key 然後再輸入。</description>
 		</var>
     </extra_vars>
 </component>
