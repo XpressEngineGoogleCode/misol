@@ -5,10 +5,13 @@ if(!defined("__ZBXE__")) exit();
 // brief 브라우저로 접속시 프레임을 나눕니다.
 // ⓒ 2010 김민수.
 
+if(Context::getResponseMethod()!=='HTML') return;
 // 프레임을 사용하지 않도록 세션이 정의되어 있으면 작동하지 않음.
 if($_SESSION['soo_for_muzik_player'] === false) return;
-// 로봇일 경우, HTML 모드가 아닐 경우 동작 안함.
-if(isCrawler() || Context::getResponseMethod()!=='HTML') return;
+// 로봇일 경우 동작 안함.
+if(function_exists('isCrawler')) {
+  if(isCrawler()) return;
+}
 //POST 내용 있으면 동작 안함.
 if(count($_POST)) return;
 // 특정 액션에서 동작 안함
