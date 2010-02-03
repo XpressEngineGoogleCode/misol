@@ -12,8 +12,10 @@ if(isCrawler() || Context::getResponseMethod()!=='HTML') return;
 //POST 내용 있으면 동작 안함.
 if(count($_POST)) return;
 // 특정 액션에서 동작 안함
-if(in_array(Context::get('act'), array('dispEditorPopup','dispEditorComponentInfo','dispModuleSkinInfo','dispDocumentManageDocument')) || in_array(Context::get('module'), array('module'))) return;
-
+if(in_array(Context::get('act'), array('dispEditorPopup','dispEditorComponentInfo','dispModuleSkinInfo','dispDocumentManageDocument')) || in_array(Context::get('module'), array('module', 'widget', 'editor','admin'))) return;
+if(class_exists('smartphoneXE')) {
+  if(smartphoneXE::isFromSmartPhone()) return;
+}
 // 프레임 탈출 코드.
 if($called_position == 'before_module_init') {
   //세션이 동작하지 않는 User-Agent를 위한 처리
