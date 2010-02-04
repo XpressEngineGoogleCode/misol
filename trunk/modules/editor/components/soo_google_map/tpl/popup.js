@@ -288,10 +288,10 @@ function insertMap(obj) {
           }
         }
       }
-      var text = "<img src=\""+request_uri+"common/tpl/images/blank.gif\" editor_component=\"soo_google_map\" ment=\""+ment+"\" map_lat=\""+map_lat+"\" map_lng=\""+map_lng+"\" marker_lng=\""+marker_latlng.lng()+"\" marker_lat=\""+marker_latlng.lat()+"\" map_zoom=\""+map_zoom+"\" width=\""+width+"\" height=\""+height+"\" style=\"width:"+width+"px;height:"+height+"px;border:2px dotted #FF0033;background:url(./modules/editor/components/soo_google_map/tpl/component.gif) no-repeat center;\" />";
+      var text = "<img src=\""+request_uri+"common/tpl/images/blank.gif\" editor_component=\"soo_google_map\" ment=\""+ment+"\" map_lat=\""+map_lat+"\" map_lng=\""+map_lng+"\" marker_lng=\""+marker_latlng.lng()+"\" marker_lat=\""+marker_latlng.lat()+"\" map_zoom=\""+map_zoom+"\" width=\""+width+"\" height=\""+height+"\" style=\"width:"+width+"px;height:"+height+"px;border:2px dotted #FF0033;background:url('"+request_uri+"modules/editor/components/soo_google_map/tpl/component.png') no-repeat center;\" />";
     }
     else {
-      var text = "<img src=\""+request_uri+"common/tpl/images/blank.gif\" editor_component=\"soo_google_map\" width=\""+width+"\" height=\""+height+"\" style=\"width:"+width+"px;height:"+height+"px;border:2px dotted #FF0033;background:url(./modules/editor/components/soo_google_map/tpl/component.gif) no-repeat center;\"";
+      var text = "<img src=\""+request_uri+"common/tpl/images/blank.gif\" editor_component=\"soo_google_map\" width=\""+width+"\" height=\""+height+"\" style=\"width:"+width+"px;height:"+height+"px;border:2px dotted #FF0033;background:url('"+request_uri+"modules/editor/components/soo_google_map/tpl/component.png') no-repeat center;\"";
       text += ' location_no="' + saved_location.length + '"';
       for(var i=0;i<saved_location.length;i++) {
         text += ' map_zoom' + i + '="' + saved_location[i][0] + '"';
