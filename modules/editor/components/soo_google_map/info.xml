@@ -8,7 +8,7 @@
   <description xml:lang="en">You can insult Google Maps.</description>
   <description xml:lang="zh-TW">必須要先註冊才可使用 Google 地圖。</description>
   <description xml:lang="zh-CN">必須要先註冊才可使用Google地图。</description>
-  <version>0.2</version>
+  <version>0.2.1</version>
   <date>2009-10-17</date>
   <license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons Attribution-Share Alike 2.0 Korea License.</license>
   <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
