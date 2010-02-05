@@ -63,6 +63,7 @@ if($called_position == 'after_module_proc') {
     if(!$addon_info->frame_position || $addon_info->frame_position == 'up') $size = $addon_info->frame_size.',*';
     else $size = '*,'.$addon_info->frame_size;
 
+    header("Content-Type: text/html; charset=UTF-8");
     print('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="'.Context::getLangType().'" lang="'.Context::getLangType().'">
