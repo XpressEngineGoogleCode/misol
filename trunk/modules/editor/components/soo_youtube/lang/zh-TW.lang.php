@@ -6,7 +6,7 @@
  **/
 
 // 訊息
-$lang->soo_msg_close = 'The video that you select is inserted.\\nDo you want to close the component window?';
+$lang->soo_msg_close = '所選擇的影片已插入\\n是否關閉視窗?';
 $lang->soo_msg_total = '總共';
 $lang->soo_msg_result_num = ' : ';
 $lang->soo_msg_insert_all = '全部插入';
