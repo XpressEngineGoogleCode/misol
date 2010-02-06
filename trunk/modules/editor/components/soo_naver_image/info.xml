@@ -22,11 +22,11 @@
             <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
             <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
 		</var>
-		<var name="soo_img_copyright">
-            <title xml:lang="ko">이미지 저작권 표시</title>
-            <title xml:lang="en">Marking Copyright.</title>
-            <description xml:lang="ko">입력된 네이버 이미지 하단에 NHN의 카피라잇을 입력합니다. 표시 하려면 Y 를 입력하세요. (Copyright ⓒ NHN Corp.)</description>
-            <description xml:lang="en">Marking a copyright code(Copyright ⓒ NHN Corp.) at the bottom of the image. If you want to mark it, insult Y in this box.</description>
+		<var name="soo_img_oldvercheck">
+            <title xml:lang="ko">이 컴포넌를 1.0 이전 버전부터 사용하셨습니까?</title>
+            <title xml:lang="en">Did you use this component before version 1.0?</title>
+            <description xml:lang="ko">이전부터 사용했을 경우에만 이 칸에 아무 문자나 입력하세요.</description>
+            <description xml:lang="en">If you used it, enter any kinds of letters.</description>
         </var>
     </extra_vars>
 </component>

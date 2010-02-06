@@ -1,12 +1,28 @@
+// 네이버 이미지 컴포넌트 스타일 시트 파일.
+// Copyright ⓒ 2009, misol(김민수) <misol@korea.ac.kr>
+// 정낙훈님께서 책 검색 컴포넌트 디자인으로 주신 것 활용.
 @charset "UTF-8";
-@import url(../../../../../../modules/admin/tpl/css/admin.css);
+#popup_content { width:600px; }
+#popHeader, .result_list_box { margin:13px; }
+.search { border-top:2px solid #525f77; border-bottom:2px solid #2e323a; padding:5px; margin:0px; background:#4b576c; }
+#query { width:180px; }
+#query, .search .searchinput{ padding:3px; border:3px solid #6c768a; float:left; margin-left:5px; }
+.searchinput:hover,.searchinput:active,.searchinput:focus{ background:#e4ecfb; }
 
-.search { border:1px solid #DDDDDD; padding:5px; }
-#query { width:150px; }
-#soo_img_head { height:15px; width:583px; }
-#soo_result_info { color:#AAAAAA; height:30px; width:583px; text-align: right; }
-.about_soo_image_search {clear:both; color:#BBBBBB; width:250px; float:right;}
+#soo_result_info { color:#555555; width:600px; padding-right:20px; text-align: right; border-top:2px solid #8d8f91; }
+#results { margin-top:1em; clear:both; overflow:auto; width:590px; }
+#result_list_layer { color:#555555; margin-top:1em; margin-right:20px; clear:both; height:380px; width:590px; overflow:auto; }
+#result_list_layer span:before {content:url("../images/arrow.gif"); margin:0px 5px; float:left; }
 
-.image_list_box { color:#AAAAAA; margin-top:1em; clear:both; height:300px; width:580px; overflow:scroll;}
-.image_list_box a { color:#AAAAAA; }
-.image_layer {float: left; border-style: solid; border-width: 1px; width:120px; height:160px; overflow:hidden; }
+.image_list_box { color:#777777; margin-top:1em; clear:both; height:410px; width:600px; overflow:auto; text-indent:1em;}
+.image_list_box a { color:#777777; strong }
+.image_layer {float: left; border-style: dotted; border-width:0px 0px 1px 0px; width:130px; height:200px; margin:0px 5px 0px 0px; overflow:hidden; padding:5px; text-align:center;}
+
+.pagebtn, .searchinput { margin:0px 3px; }
+.book_link { text-align:right; }
+
+#where{ width:90px; }
+#cata { width:150px; }
+.about_soo_image_search, #soo_img_head {display:none;}
+
+#popHeader h1 { font-size:1.2em; margin:5px 0px 0px 0px; padding:0px; }

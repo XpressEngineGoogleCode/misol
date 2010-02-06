@@ -13,11 +13,11 @@ var site_url = "{Context::getUrl('', '/')}";
     site_url=site_url[0];
 //-->
 //]]></script>
-<div id="popHeadder">
+<div id="popHeader">
     <h1>{$component_info->title} ver. {$component_info->version}</h1>
 </div>
 
-<div id="popBody">
+<div id="popupBody">
 <table border="0">
     <tr valign="top">
         <td>
@@ -25,18 +25,18 @@ var site_url = "{Context::getUrl('', '/')}";
                 <form action="./" method="get" onSubmit="search_soo_image(); return false;" id="fo">
                 <table border="0">
                 <tr>
-                    <td>{$lang->about_soo_image_search_sort} : <select size="1" id="sort">
-                        <option value="sim">{$lang->about_soo_image_search_sort_sim}</option>
-                        <option value="date">{$lang->about_soo_image_search_sort_date}</option>
+                    <td><select size="1" id="sort" class="searchinput">
+							<option value="sim">{$lang->about_soo_image_search_sort_sim}</option>
+							<option value="date">{$lang->about_soo_image_search_sort_date}</option>
                         </select>
 
-                        {$lang->about_soo_image_search_filter} : <select size="1" id="filter">
-                        <option value="all">{$lang->about_soo_image_search_filter_all}</option>
-                        <option value="large">{$lang->about_soo_image_search_filter_large}</option>
-                        <option value="midium">{$lang->about_soo_image_search_filter_midium}</option>
-                        <option value="small">{$lang->about_soo_image_search_filter_small}</option>
+                        <select size="1" id="filter" class="searchinput">
+							<option value="all">{$lang->about_soo_image_search_filter_all}</option>
+							<option value="large">{$lang->about_soo_image_search_filter_large}</option>
+							<option value="midium">{$lang->about_soo_image_search_filter_midium}</option>
+							<option value="small">{$lang->about_soo_image_search_filter_small}</option>
                         </select>
-                        <input type="text" class="inputTypeText" id="query" value="" /></td>
+                        <input type="text" class="inputTypeText searchinput" id="query" value="" /></td>
                     <td><span class="button"><input type="submit" value="{$lang->cmd_search}" /></span></td>
                 </tr>
                 </table>
