@@ -1,0 +1,29 @@
+// 책검색 컴포넌트 스타일 시트 파일.
+// Copyright ⓒ 2009, misol(김민수) <misol@korea.ac.kr>
+@charset "UTF-8";
+#popup_content { width:600px; }
+#popHeader, .result_list_box { margin:13px; }
+.search { border-top:2px solid #525f77; border-bottom:2px solid #2e323a; padding:5px; margin:0px; background:#4b576c; }
+#query { width:180px; }
+#query, .search .searchinput{ padding:3px; border:3px solid #6c768a; float:left; margin-left:5px; }
+.searchinput:hover,.searchinput:active,.searchinput:focus{ background:#e4ecfb; }
+
+#soo_result_info { color:#555555; width:600px; padding-right:20px; text-align: right; border-top:2px solid #8d8f91; }
+#results { margin-top:1em; clear:both; overflow:auto; width:590px; }
+#result_list_layer { color:#555555; margin-top:1em; margin-right:20px; clear:both; height:380px; width:590px; overflow:auto; }
+#result_list_layer span:before {content:url("../images/arrow.gif"); margin:0px 5px; float:left; }
+
+.result_list_box a { color:#777777; strong }
+.result_images { float: left; margin:0px 5px 0px 0px; }
+.result_layer {float: left; border-style: dotted; border-width:0px 0px 1px 0px; width:560px; overflow:auto; padding:5px;}
+.book_title { display:inline; }
+.book_info { list-style:none; margin:0px; padding:0px; display:block; }
+.pagebtn, .searchinput { margin:0px 3px; }
+.book_link { text-align:right; }
+
+#where{ width:90px; }
+#cata { width:150px; }
+.about_soo_book_search {display:none;}
+
+#popHeader { background:url("../images/title.png") no-repeat 0 0; width:222px; height:21px; }
+#popHeader h1 { width:0px; height:0px; text-indent: -100em; overflow: hidden;  }
