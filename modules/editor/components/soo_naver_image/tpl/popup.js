@@ -87,14 +87,14 @@ function complete_search_image(ret_obj, response_tags, selected_image) {
   }
   var nxtpg = "";
   if(image_list_nextpage!=1) {
-   nxtpg = "<a class=\"button\" href=\"javascript:search_soo_image(query,"+image_list_nextpage+");\">\n<span>"+soo_msg_nextpage+"</span></a>";
+   nxtpg = "<a class=\"button pagebtn\" href=\"javascript:search_soo_image(query,"+image_list_nextpage+");\">\n<span>"+soo_msg_nextpage+"</span></a>";
   }
   else {
    nxtpg = '';
   }
   
   if(image_list_page!=1) {
-   bfpg = "<a class=\"button\" href=\"javascript:search_soo_image(query,"+bfpgno+");\">\n<span>"+soo_msg_beforepage+"</span></a>";
+   bfpg = "<a class=\"button pagebtn\" href=\"javascript:search_soo_image(query,"+bfpgno+");\">\n<span>"+soo_msg_beforepage+"</span></a>";
   }
   else {
    bfpg = '';

@@ -1,4 +1,5 @@
 <?
+if(!defined("__ZBXE__")) exit(); // only this line is added by misol.
 	// last update : 2005.09.19.002
 
 	class http
@@ -88,7 +89,7 @@
 					fwrite($this->socket, $data);
 
 					if( $this->debug )
-						echo "<div style='text-align: justify; font-size: 9pt; font-family: ±¼¸²; line-height: 150%; word-break: break-all; color: red'>".str_replace("\r\n", "<br>", $data)."</div>";
+						echo "<div style='text-align: justify; font-size: 9pt; font-family: ï¿½ï¿½ï¿½ï¿½; line-height: 150%; word-break: break-all; color: red'>".str_replace("\r\n", "<br>", $data)."</div>";
 
 					$this->readData();
 
@@ -214,17 +215,17 @@
 
 		function dumpAll()
 		{
-			$data = "<div style='text-align: justify; margin-bottom: 30px; font-size: 9pt; font-family: ±¼¸²; line-height: 150%; word-break: break-all'><fieldset><legend>&nbsp;Çì´õ&nbsp;</legend>";
+			$data = "<div style='text-align: justify; margin-bottom: 30px; font-size: 9pt; font-family: ï¿½ï¿½ï¿½ï¿½; line-height: 150%; word-break: break-all'><fieldset><legend>&nbsp;ï¿½ï¿½ï¿½&nbsp;</legend>";
 
 			foreach($this->receive as $header => $value)
 			{
 				if( $header == "Body" )
-					$body = "<fieldset><legend>&nbsp;º»¹®&nbsp;</legend>".htmlspecialchars($value)."</fieldset>";
+					$body = "<fieldset><legend>&nbsp;ï¿½ï¿½ï¿½ï¿½&nbsp;</legend>".htmlspecialchars($value)."</fieldset>";
 				else
 					$data .= "$header: ".htmlspecialchars($value)."<br>";
 			}
 
-			echo "$data</fieldset><fieldset><legend>&nbsp;ÄíÅ°&nbsp;</legend>";
+			echo "$data</fieldset><fieldset><legend>&nbsp;ï¿½ï¿½Å°&nbsp;</legend>";
 
 			if( $this->cookie )
 				foreach($this->cookie as $key => $value)
