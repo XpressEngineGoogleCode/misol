@@ -2,31 +2,40 @@
 <component version="1.0">
     <title xml:lang="ko">네이버 이미지 입력</title>
     <title xml:lang="en">Insert the Naver Images</title>
+    <title xml:lang="zh-TW">Naver 圖片</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2009. 9. 14">
         <name xml:lang="ko">민수</name>
         <name xml:lang="en">Min-Soo Kim</name>
         <name xml:lang="zh-CN">金旻洙</name>
+        <name xml:lang="zh-TW">Min-Soo Kim</name>
         <description xml:lang="ko">네이버 이미지를 에디터에 원하는 곳에 추가하거나 수정할 수 있습니다.\n네이버 api키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
         <description xml:lang="en">You can insult the Naver Images.</description>
+        <description xml:lang="zh-TW">可插入 Naver </description>
     </author>
     <extra_vars>
         <var name="soo_img_display">
             <title xml:lang="ko">목록수</title>
             <title xml:lang="en">the number of items</title>
+            <title xml:lang="zh-TW">項目數量</title>
             <description xml:lang="ko">1에서 100사이의 수를 입력해주세요.</description>
             <description xml:lang="en">Enter the number between 1 and 100.</description>
+            <description xml:lang="zh-TW">請輸入數字 1~50 之間。</description>
 		</var>
         <var name="naver_api_key">
             <title xml:lang="ko">네이버 api key</title>
             <title xml:lang="en">Naver api key</title>
+            <title xml:lang="zh-TW">Naver api key</title>
             <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
             <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
+            <description xml:lang="zh-TW">請先從 http://openapi.naver.com/ 獲得 Naver Map API key 後再輸入。</description>
 		</var>
 		<var name="soo_img_oldvercheck">
             <title xml:lang="ko">이 컴포넌를 1.0 이전 버전부터 사용하셨습니까?</title>
             <title xml:lang="en">Did you use this component before version 1.0?</title>
+            <title xml:lang="zh-TW">是否有使用過 1.0 以前的版本?</title>
             <description xml:lang="ko">이전부터 사용했을 경우에만 이 칸에 아무 문자나 입력하세요.</description>
             <description xml:lang="en">If you used it, enter any kinds of letters.</description>
+            <description xml:lang="zh-TW">如果有請隨便輸入字母。</description>
         </var>
     </extra_vars>
 </component>
