@@ -2,8 +2,8 @@
 if(!defined('__ZBXE__')) exit();
 // file soo_js_exif.addon.php
 // author misol (misol@korea.ac.kr)
-// brief ºê¶ó¿ìÀú·Î Á¢¼Ó½Ã ÇÁ·¹ÀÓÀ» ³ª´¯´Ï´Ù.
-// ¨Ï 2010 ±è¹Î¼ö.
+// brief ë¸Œë¼ìš°ì €ë¡œ ì ‘ì†ì‹œ í”„ë ˆì„ì„ ë‚˜ëˆ•ë‹ˆë‹¤.
+// â“’ 2010 ê¹€ë¯¼ìˆ˜.
 // This addon uses MIT License based librarys, Binary Ajax 0.1.5, EXIF Reader 0.1.2, and ImageInfo 0.1.2, which is written by Jacob Seidelin.
 
 if($called_position == 'after_module_proc' && Context::getResponseMethod() == 'HTML') {
