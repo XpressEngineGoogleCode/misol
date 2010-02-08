@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
-	<title xml:lang="ko">MISOL JS Exif</title>
+	<title xml:lang="ko">JS Exif for XE</title>
 	<description xml:lang="ko">
-	  자바스크립트를 이용해 Exif 정보를 표시합니다.
-    Javascript EXIF Reader 0.1.4, Binary Ajax 0.1.7 라이브러리를 이용하였습니다.
-    두 라이브러리의 저작권  : Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
-    두 라이브러리는 MPL License를 따릅니다. [http://www.nihilogic.dk/licenses/mpl-license.txt]
-  </description>
+		자바스크립트를 이용해 Exif 정보를 표시합니다.
+		Binary Ajax 0.1.5, EXIF Reader 0.1.2, and ImageInfo 0.1.2 라이브러리를 이용하였습니다.
+		세 라이브러리의 저작권  : Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
+		세 라이브러리는 MIT License를 따릅니다. [http://www.opensource.org/licenses/mit-license.php]
+	</description>
 	<version>0.1</version>
-	<date>2010-01-29</date>
+	<date>2010-02-07</date>
 	<author link="http://www.imsoo.net" email_address="misol@korea.ac.kr">
 		<name xml:lang="ko">misol</name>
 	</author>

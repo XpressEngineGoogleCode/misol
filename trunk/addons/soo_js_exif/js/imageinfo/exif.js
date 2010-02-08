@@ -1,7 +1,7 @@
 /*
- * Javascript EXIF Reader 0.1.4
+ * Javascript EXIF Reader 0.1.2
  * Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
- * Licensed under the MPL License [http://www.nihilogic.dk/licenses/mpl-license.txt]
+ * MIT License [http://www.opensource.org/licenses/mit-license.php]
  */
 
 
@@ -569,20 +569,6 @@ EXIF.getTag = function(oImg, strTag)
 	if (!imageHasData(oImg)) return;
 	return oImg.exifdata[strTag];
 }
-
-EXIF.getAllTags = function(oImg) 
-{
-	if (!imageHasData(oImg)) return {};
-	var oData = oImg.exifdata;
-	var oAllTags = {};
-	for (var a in oData) {
-		if (oData.hasOwnProperty(a)) {
-			oAllTags[a] = oData[a];
-		}
-	}
-	return oAllTags;
-}
-
 
 EXIF.pretty = function(oImg) 
 {

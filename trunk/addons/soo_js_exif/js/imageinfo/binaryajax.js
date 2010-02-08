@@ -1,8 +1,8 @@
 
 /*
- * Binary Ajax 0.1.7
+ * Binary Ajax 0.1.5
  * Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
- * Licensed under the MPL License [http://www.nihilogic.dk/licenses/mpl-license.txt]
+ * MIT License [http://www.opensource.org/licenses/mit-license.php]
  */
 
 
@@ -156,10 +156,10 @@ var BinaryAjax = (function() {
 				if (typeof(oHTTP.onload) != "undefined") {
 					oHTTP.onload = function() {
 
-						if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
-							oHTTP.binaryResponse = new BinaryFile(oHTTP.responseText, iDataOffset, iDataLen);
-							oHTTP.fileSize = iFileSize || oHTTP.getResponseHeader("Content-Length");
-							fncCallback(oHTTP);
+						if (oHTTP.status == "200" || oHTTP.status == "206") {
+							this.binaryResponse = new BinaryFile(this.responseText, iDataOffset, iDataLen);
+							this.fileSize = iFileSize || this.getResponseHeader("Content-Length");
+							fncCallback(this);
 						} else {
 							if (fncError) fncError();
 						}
@@ -168,14 +168,10 @@ var BinaryAjax = (function() {
 				} else {
 					oHTTP.onreadystatechange = function() {
 						if (oHTTP.readyState == 4) {
-							if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
-								// IE6 craps if we try to extend the XHR object
-								var oRes = {
-									status : oHTTP.status,
-									binaryResponse : new BinaryFile(oHTTP.responseBody, iDataOffset, iDataLen),
-									fileSize : iFileSize || oHTTP.getResponseHeader("Content-Length")
-								};
-								fncCallback(oRes);
+							if (oHTTP.status == "200" || oHTTP.status == "206") {
+								this.binaryResponse = new BinaryFile(oHTTP.responseBody, iDataOffset, iDataLen);
+								this.fileSize = iFileSize || this.getResponseHeader("Content-Length");
+								fncCallback(this);
 							} else {
 								if (fncError) fncError();
 							}
