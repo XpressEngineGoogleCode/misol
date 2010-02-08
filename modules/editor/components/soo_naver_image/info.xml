@@ -19,6 +19,13 @@
     <name xml:lang="ko">정낙훈</name>
     <name xml:lang="en">eond</name>
     <name xml:lang="zh-CN">eond</name>
+	<name xml:lang="zh-TW">eond</name>
+  </author>
+  <author>
+    <name xml:lang="ko">royallin</name>
+    <name xml:lang="en">royallin</name>
+    <name xml:lang="zh-CN">royallin</name>
+	<name xml:lang="zh-TW">royallin</name>
   </author>
   <extra_vars>
     <var name="soo_img_display">
