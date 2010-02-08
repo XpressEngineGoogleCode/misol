@@ -40,7 +40,9 @@ function insertSooNaverImg(alt, src, query, w, h) {
     opener.editorReplaceHTML(iframe_obj, text);
     opener.editorFocus(opener.editorPrevSrl);
 
-    window.close();
+    if(confirm(soo_msg_close)) {
+      window.close();
+    }
 }
 
 xAddEventListener(window, "load", getsoo_naver_image);
@@ -75,8 +77,8 @@ function complete_search_image(ret_obj, response_tags, selected_image) {
   var bfpgno = ret_obj['image_list_bfpage'];
   image_list_page = ret_obj['img_start'];
   soo_image_list = new Array();
-  var html = "";
-  if(total_img_no==0) html = no_result;
+  var html = "<a id='page_top'></a>";
+  if(total_img_no==0) html = '<span>'+no_result+'</span>';
   else {
       var image_list = image_list.split("\n");
       for(var i=0;i<image_list.length;i++) {
@@ -110,4 +112,5 @@ function complete_search_image(ret_obj, response_tags, selected_image) {
   xInnerHtml(result_info_zone, soo_msg_total+total_img_no+soo_msg_result_num+img_start_end+bfpg + nxtpg);
   }
   xInnerHtml(list_zone, html);
+  location.href = '#page_top';
 }
