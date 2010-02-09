@@ -3,6 +3,7 @@ if(!defined("__ZBXE__")) exit();
 // class  soo_naver_image
 // author 민수 <misol@korea.ac.kr>
 // brief  네이버 이미지 추가 컴포넌트
+// (c) 2010 김민수.
 
 class soo_naver_image extends EditorHandler {
   var $editor_sequence = '0';
