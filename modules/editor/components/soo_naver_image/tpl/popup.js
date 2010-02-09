@@ -35,7 +35,7 @@ function insertSooNaverImg(alt, src, query, w, h) {
 
     opener.editorFocus(opener.editorPrevSrl);
 
-    var iframe_obj = opener.editorGetIFrame(opener.editorPrevSrl)
+    var iframe_obj = opener.editorGetIFrame(opener.editorPrevSrl);
 
     opener.editorReplaceHTML(iframe_obj, text);
     opener.editorFocus(opener.editorPrevSrl);
