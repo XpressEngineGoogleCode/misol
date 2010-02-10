@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
     <title xml:lang="ko">최상단 내용 추가</title>
+    <title xml:lang="zh-TW">追加內容</title>
     <description xml:lang="ko">
       HTML body 태그 하단에 내용 추가
+    </description>
+    <description xml:lang="zh-TW">
+      HTML body 標籤下追加內容。
     </description>
     <version>0.2</version>
     <date>2009-11-18</date>
@@ -10,12 +14,15 @@
     <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
       <name xml:lang="ko">민수(misol)</name>
       <name xml:lang="en">Min-Soo Kim(misol)</name>
+      <name xml:lang="zh-TW">Min-Soo Kim(misol)</name>
       <name xml:lang="zh-CN">金旻洙(misol)</name>
     </author>
     <extra_vars>
         <var name="soo_body" type="textarea">
             <title xml:lang="ko">페이지 최상단 내용</title>
+            <title xml:lang="zh-TW">頂端頁面內容</title>
             <description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+            <description xml:lang="zh-TW">請輸入要顯示的內容。(可使用 HTML )</description>
         </var>
     </extra_vars>
 </addon>
