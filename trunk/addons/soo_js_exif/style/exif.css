@@ -1,4 +1,7 @@
+/* ⓒ 2010 김민수 */
+
 .soo_exif {
+	padding:5px;
 	display:block;
 	opacity:0.75;
 	-moz-opacity:0.75;
@@ -7,8 +10,9 @@
 	background:#000000;
 	font-weight: normal;
 	font-size: 1.1em;
-	font-family: Times New Roman;
+	font-family: Times New Roman, 나눔고딕, 맑은 고딕;
 	line-height: 170%;
+	text-align: left;
 }
 .soo_exif strong {
 	font-size: 1.2em;
