@@ -15,7 +15,7 @@ if(function_exists('isCrawler')) {
 //POST 내용 있으면 동작 안함.
 if(count($_POST)) return;
 // 특정 액션에서 동작 안함
-if(in_array(Context::get('act'), array('dispEditorPopup','dispEditorComponentInfo','dispModuleSkinInfo','dispDocumentManageDocument')) || in_array(Context::get('module'), array('module', 'widget', 'editor','admin'))) return;
+if(in_array(Context::get('module'), array('admin'))) return;
 if(class_exists('smartphoneXE')) {
   if(smartphoneXE::isFromSmartPhone()) return;
 }
@@ -100,7 +100,7 @@ var is_sooframe = true;
   if($url) {
     $url = str_replace('"', '\\"', $url);
     Context::addHtmlHeader('var soo_frame_uri = "'.$url."\";\n");
-    Context::addHtmlHeader('if(!parent.is_sooframe) setTimeout(function() {document.location.href = soo_frame_uri;}, 300);'."\n");
+    Context::addHtmlHeader('if(!parent.is_sooframe) setTimeout(function() { if(typeof(_isPoped) == "undefined") document.location.href = soo_frame_uri;}, 300);'."\n");
   }
   Context::addHtmlHeader('var is_sooframe = true;'."\n");
 
