@@ -4,14 +4,46 @@ if(!defined("__ZBXE__")) exit();
 // author misol (misol@korea.ac.kr)
 // brief 브라우저로 접속시 프레임을 나눕니다.
 // ⓒ 2010 김민수.
-
-if(Context::getResponseMethod()!=='HTML') return;
+if($called_position == 'before_module_init') {
+  if(Context::get('outframe')) {
+    $_SESSION['soo_for_muzik_player']['outframe'] = false;
+    FileHandler::writeFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt',1);
+  }
+}
+if(Context::get('fr')) return;
 // 프레임을 사용하지 않도록 세션이 정의되어 있으면 작동하지 않음.
-if($_SESSION['soo_for_muzik_player'] === false) return;
+if($_SESSION['soo_for_muzik_player']['outframe'] === false) return;
 // 로봇일 경우 동작 안함.
 if(function_exists('isCrawler')) {
   if(isCrawler()) return;
 }
+
+if(Context::getResponseMethod()=='XMLRPC' && Context::get('soo_frame') == 'addon' && Context::get('act') == 'soo_for_muzik_player') {
+  if(Context::get('do') == 'doFrameSessionStart') {
+    $_SESSION['soo_for_muzik_player']['doFrameSessionStart'] = true;
+    return;
+  }
+  if(Context::get('do') == 'doFrameSessionChecker') {
+    header("Content-Type: text/xml; charset=UTF-8");
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    if($_SESSION['soo_for_muzik_player']['doFrameSessionStart']) {
+      $xmlDoc  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<response>\n<error>0</error>\n<message>FrameSessionStartSuccess</message>\n</response>";
+      echo $xmlDoc;
+      exit();
+    }
+    else {
+      $xmlDoc  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<response>\n<error>0</error>\n<message>FrameSessionStartFail</message>\n</response>";
+      echo $xmlDoc;
+      exit();
+    }
+  }
+}
+
+if(Context::getResponseMethod()!='HTML') return;
 //POST 내용 있으면 동작 안함.
 if(count($_POST)) return;
 // 특정 액션에서 동작 안함
@@ -25,31 +57,29 @@ if($called_position == 'before_module_init') {
   $check = FileHandler::readFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt');
   if($check) {
     // 세션을 전역 변수처럼 사용. (애드온 사용 순서가 순차적으로 적용되니까.)
-    $_SESSION['soo_for_muzik_player'] = false;
+    $_SESSION['soo_for_muzik_player']['outframe'] = false;
     return;
-  }
-  if(Context::get('outframe')) {
-    $_SESSION['soo_for_muzik_player'] = false;
-    FileHandler::writeFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt',1);
   }
 }
 if($called_position == 'after_module_proc') {
-  if(Context::get('framecheck')) {
-    if(_isHackedSrc(Context::get('framecheck'))) return;
-    removeHackTag(Context::get('framecheck'));
-    $uri = removeHackTag(base64_decode(Context::get('framecheck')));
-    if(_isHackedSrc($uri)) return;
-    $parsed_uri = parse_url(trim($uri));
-    if($parsed_uri['host'] != $_SERVER['HTTP_HOST']) {
-      echo 'Unexpected Host';
-      exit;
+
+  if($_SESSION['soo_for_muzik_player']['doFrameSessionStart']) {
+    $uri = Context::getRequestUri();
+    if(count($_GET)) {
+      $uri = Context::getRequestUrl();
     }
-    if(Context::getRequestUri() != $uri) $exit_uri = $uri.'&outframe=true';
-    else $exit_uri = $uri.'?outframe=true';
+    if(Context::getRequestUri() != $uri) {
+      $exit_uri = $uri.'&outframe=true';
+      $uri .= '&fr=true';
+    }
+    else {
+      $exit_uri = $uri.'?outframe=true';
+      $uri .= '?fr=true';
+    }
     $exit_uri = htmlspecialchars($exit_uri);
     $uri = htmlspecialchars($uri);
 
-    if(!$_SESSION['soo_for_muzik_player']) $_SESSION['soo_for_muzik_player'] = true;
+    unset($_SESSION['soo_for_muzik_player']['doFrameSessionStart']);
 
     if(!isset($addon_info->frame_size)) $addon_info->frame_size = 20;
     if(!isset($addon_info->frame_border)) $addon_info->frame_border = 0;
@@ -64,6 +94,11 @@ if($called_position == 'after_module_proc') {
     else $size = '*,'.$addon_info->frame_size;
 
     header("Content-Type: text/html; charset=UTF-8");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+
     print('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="'.Context::getLangType().'" lang="'.Context::getLangType().'">
@@ -90,21 +125,7 @@ var is_sooframe = true;
 </html>');
     exit;
   } else {
-    $url = Context::getRequestUri().'?framecheck='.urlencode(base64_encode(Context::getRequestUri()));
-    if(count($_GET)) {
-      $url = Context::getRequestUrl().'&framecheck='.urlencode(base64_encode(Context::getRequestUrl()));
-    }
+    Context::addJsFile('./addons/soo_for_muzik_player/js/frame_loader.js');
   }
-  if(_isHackedSrc($url)) return;
-  Context::addHtmlHeader('<script type="text/javascript">//<![CDATA['."\n");
-  if($url) {
-    $url = str_replace('"', '\\"', $url);
-    Context::addHtmlHeader('var soo_frame_uri = "'.$url."\";\n");
-    Context::addHtmlHeader('if(!parent.is_sooframe) setTimeout(function() { if(typeof(_isPoped) == "undefined") document.location.href = soo_frame_uri;}, 300);'."\n");
-  }
-  Context::addHtmlHeader('var is_sooframe = true;'."\n");
-
-  Context::addHtmlHeader('//]]></script>');
 }
-
 ?>
