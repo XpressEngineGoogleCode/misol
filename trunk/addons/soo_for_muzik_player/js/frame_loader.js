@@ -1,14 +1,16 @@
 jQuery(document.body).ready(function () {
-  if(SooFrameChecker !== false) return;
+  if(typeof(window.parent.is_sooframe) == "undefined" && typeof(_isPoped) == "undefined") {
 
-  var params = new Array();
+    var params = new Array();
 
-  params['do'] = "doFrameSessionStart";
-  params['soo_frame'] = "addon";
+    params['do'] = "doFrameSessionStart";
+    params['soo_frame'] = "addon";
 
 
-  var response_tags = new Array('error','message');
-  exec_xml('', 'soo_for_muzik_player', params, SooFrameSetterSessionCheck, response_tags);
+    var response_tags = new Array('error','message');
+    exec_xml('', 'soo_for_muzik_player', params, SooFrameSetterSessionCheck, response_tags);
+  }
+  is_sooframe = true;
 });
 
 function SooFrameSetterSessionCheck(ret_obj, response_tags) {
@@ -23,14 +25,8 @@ function SooFrameSetterSessionCheck(ret_obj, response_tags) {
 
 function SooFrameSetter(ret_obj, response_tags) {
   if(ret_obj['message'] == 'FrameSessionStartSuccess') {
-    if(typeof(_isPoped) == "undefined") {
-      location.reload();
-    } 
+    location.reload(); 
   }
 }
-
-if(typeof(window.parent.is_sooframe) == "undefined") {
-  var SooFrameChecker = false;
-}
 parent.document.title = document.title;
-var is_sooframe = true;
+var is_sooframe;
