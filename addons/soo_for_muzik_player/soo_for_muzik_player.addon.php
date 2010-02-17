@@ -10,7 +10,9 @@ if($called_position == 'before_module_init') {
     FileHandler::writeFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt',1);
   }
 }
-if(Context::get('fr')) return;
+if(Context::get('fr')) {
+  return;
+}
 // 프레임을 사용하지 않도록 세션이 정의되어 있으면 작동하지 않음.
 if($_SESSION['soo_for_muzik_player']['outframe'] === false) return;
 // 로봇일 경우 동작 안함.
@@ -107,9 +109,14 @@ if($called_position == 'after_module_proc') {
 <title>'.Context::getBrowserTitle().'</title>
 <script type="text/javascript">//<![CDATA[
 var is_sooframe = true;
+
+function framelct() {
+document.getElementById("contents_frame").src = "'.$uri.'";
+document.getElementById("new_frame").src = document.getElementById("new_frame").src;
+}
 //]]></script>
 </head>
-<frameset rows="'.$size.'">');
+<frameset rows="'.$size.'" onload="framelct()">');
     if(!$addon_info->frame_position || $addon_info->frame_position == 'up') print('<frame id="new_frame" name="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
     print('<frame id="contents_frame" name="contents_frame" src="'.$uri.'" frameborder="'.$addon_info->frame_border.'" />');
     if($addon_info->frame_position == 'down') print('<frame id="new_frame" name="new_frame" src="'.$addon_info->frame_page.'" '.$attrbt.' />');
