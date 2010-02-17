@@ -78,6 +78,7 @@ if($called_position == 'after_module_proc') {
       $exit_uri = $uri.'?outframe=true';
       $uri .= '?fr=true';
     }
+    $or_uri = $uri;
     $exit_uri = htmlspecialchars($exit_uri);
     $uri = htmlspecialchars($uri);
 
@@ -111,7 +112,7 @@ if($called_position == 'after_module_proc') {
 var is_sooframe = true;
 
 function framelct() {
-document.getElementById("contents_frame").src = "'.$uri.'";
+document.getElementById("contents_frame").src = document.getElementById("contents_frame").src;
 document.getElementById("new_frame").src = document.getElementById("new_frame").src;
 }
 //]]></script>
