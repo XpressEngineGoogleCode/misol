@@ -1,14 +1,11 @@
-jQuery(document.body).ready(function () {
+jQuery(document).ready(function () {
   if(typeof(window.parent.is_sooframe) == "undefined" && typeof(_isPoped) == "undefined") {
-
     var params = new Array();
-
     params['do'] = "doFrameSessionStart";
-    params['soo_frame'] = "addon";
-
+    params['mid'] = current_mid;
 
     var response_tags = new Array('error','message');
-    exec_xml('', 'soo_for_muzik_player', params, SooFrameSetterSessionCheck, response_tags);
+    exec_xml('addon', 'soo_for_muzik_player', params, SooFrameSetterSessionCheck, response_tags);
   }
   is_sooframe = true;
 });
@@ -16,11 +13,10 @@ jQuery(document.body).ready(function () {
 function SooFrameSetterSessionCheck(ret_obj, response_tags) {
   var params = new Array();
   params['do'] = "doFrameSessionChecker";
-  params['soo_frame'] = "addon";
-
+  params['mid'] = current_mid;
 
   var response_tags = new Array('error','message');
-  exec_xml('', 'soo_for_muzik_player', params, SooFrameSetter, response_tags);
+  exec_xml('addon', 'soo_for_muzik_player', params, SooFrameSetter, response_tags);
 }
 
 function SooFrameSetter(ret_obj, response_tags) {
