@@ -118,7 +118,12 @@ if(Context::getResponseMethod() == 'HTML') {
   <title>'.$title.'</title>
   <script type="text/javascript">'.'/'.'/'.'<![CDATA[
   var is_sooframe = true;
+  var is_sooframe_loaded = false;
   function framelct() {
+    if(!is_sooframe_loaded) {
+      document.getElementById("contents_frame").src = document.getElementById("contents_frame").src;
+      document.getElementById("new_frame").src = document.getElementById("new_frame").src;
+    }
   }
   '.'/'.'/]]></script>
   </head> <frameset rows="'.$size.'" onload="framelct()">';
