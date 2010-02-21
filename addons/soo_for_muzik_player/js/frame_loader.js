@@ -6,6 +6,8 @@ jQuery(document).ready(function () {
 
     var response_tags = new Array('error','message');
     exec_xml('addon', 'soo_for_muzik_player', params, SooFrameSetterSessionCheck, response_tags);
+  } else if(typeof(window.parent.is_sooframe) != "undefined" && typeof(_isPoped) == "undefined") {
+    window.parent.is_sooframe_loaded = true;
   }
   is_sooframe = true;
 });
