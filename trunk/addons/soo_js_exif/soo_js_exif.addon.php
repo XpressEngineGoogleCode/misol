@@ -20,6 +20,7 @@ if($called_position == 'after_module_proc' && Context::getResponseMethod() == 'H
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/imageinfo.js');
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/binaryajax.js');
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/exif.js');
+  //Context::addJsFile('./addons/soo_js_exif/js/imageinfo/jquery.exif.js');
   Context::addCssFile('./addons/soo_js_exif/style/exif.css');
 }
 ?>
