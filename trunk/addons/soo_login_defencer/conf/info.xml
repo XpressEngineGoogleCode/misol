@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
   <title xml:lang="ko">로그인 방어</title>
+  <title xml:lang="zh-TW">登入防護</title>
     <description xml:lang="ko">
       일정 횟수 이상 로그인에 실패하면 지정된 시간만큼 로그인을 할 수 없습니다.
+    </description>
+    <description xml:lang="zh-TW">
+      登入失敗達到一定次數時，在指定的時間內將無法登入。
     </description>
   <version>0.2.3</version>
   <date>2009-12-12</date>
@@ -12,18 +16,27 @@
     <name xml:lang="ko">민수</name>
     <name xml:lang="en">Min-Soo Kim</name>
     <name xml:lang="zh-CN">金旻洙</name>
+    <name xml:lang="zh-TW">Min-Soo Kim</name>
   </author>
   <extra_vars>
     <var name="frequency">
       <title xml:lang="ko">제한 횟수</title>
+      <title xml:lang="zh-TW">次數限制</title>
       <description xml:lang="ko">
         제한 횟수만큼 로그인을 시도하면 로그인이 지정된 시간만큼 금지됩니다. (기본 값 : 5)
+      </description>
+      <description xml:lang="zh-TW">
+        設定登入的次數限制。(預設 : 5)
       </description>
     </var>
     <var name="set_time">
       <title xml:lang="ko">정지 시간</title>
+      <title xml:lang="zh-TW">時間限制</title>
       <description xml:lang="ko">
         로그인이 금지되었을 때 정지할 시간. (단위 : 분, 기본 값 : 1)
+      </description>
+      <description xml:lang="zh-TW">
+        禁止登入的時間限制。(單位： 分，預設： 1)
       </description>
     </var>
   </extra_vars>
