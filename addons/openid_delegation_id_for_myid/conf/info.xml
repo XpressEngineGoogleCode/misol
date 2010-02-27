@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon version="0.1">
     <title xml:lang="ko">OpenID (myid.net)</title>
+    <title xml:lang="zh-TW">OpenID (myid.net)</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 2. 24">
         <name xml:lang="ko">민수</name>
+        <name xml:lang="zh-TW">민수</name>
         <description xml:lang="ko">
             본인의 도메인을 오픈아이디로 활용할 수 있도록 합니다.
             myid.net 회원만 (myid.net의 오픈ID가 있어야) 이용 가능합니다.
+        </description>
+        <description xml:lang="zh-TW">
+            把自己擁有的域名當 OpenID 來使用。
+            只有 myid.net 的會員才可以使用。 (必須使用 myid.net 提供的 OpenID)
         </description>
     </author>
     <extra_vars>
         <var name="myid">
             <title xml:lang="ko">ID</title>
+            <title xml:lang="zh-TW">帳號</title>
             <description xml:lang="ko">myid.net의 ID를 입력하세요.
             *.myid.net에서 별표에 해당하는 값.
             예를들어 abc.myid.net이 오픈ID라면, abc를 입력하세요.</description>
+            <description xml:lang="zh-TW">請輸入 myid.net 的帳號。
+            如果你的 OpenID 是 *.myid.net 請輸入 *
+            舉個例子，你的 OpenID 是 abc.myid.net 的話，那輸入 abc 就可以了。</description>
         </var>
     </extra_vars>
 </addon>

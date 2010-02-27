@@ -2,9 +2,11 @@
 <addon version="0.1">
     <title xml:lang="ko">OpenID (ClaimID.com)</title>
     <title xml:lang="en">OpenID (ClaimID.com)</title>
+    <title xml:lang="zh-TW">OpenID (ClaimID.com)</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 2. 24">
         <name xml:lang="ko">민수</name>
         <name xml:lang="en">Min-Soo Kim</name>
+        <name xml:lang="zh-TW">Min-Soo Kim</name>
         <description xml:lang="ko">
             본인의 도메인을 사용하여 오픈아이디로 활용할 수 있도록 합니다.
             claimID.com 회원만 (claimid.com의 오픈ID가 있어야) 이용 가능합니다.
@@ -13,11 +15,16 @@
             This addon enables you to use your own domain name as an OpenID.
             This addon is useful to the claimid.com members only. (You should have OpenID provided by claimid.com)
         </description>
+        <description xml:lang="zh-TW">
+            此附加元件可把自己擁有的域名當 OpenID 來使用。
+            只有 claimid.com 的會員才能使用。(必須使用 claimid.com 提供的 OpenID )
+        </description>
     </author>
     <extra_vars>
         <var name="claimid">
             <title xml:lang="ko">ID</title>
             <title xml:lang="en">ID</title>
+            <title xml:lang="zh-TW">帳號</title>
             <description xml:lang="ko">claimid.com의 ID를 입력하세요.
             openid.claimid.com/*에서 별표에 해당하는 값.
             예를들어 openid.claimid.com/abc가 오픈ID라면, abc를 입력하세요.</description>
@@ -25,6 +32,9 @@
             If your OpenID is openid.claimid.com/*, enter the *.
             For example, your OpenID is openid.claimid.com/abc, then enter the letter abc.
             </description>
+            <description xml:lang="zh-TW">請輸入你的 claimid.com 帳號
+            如果你的 OpenID 是 openid.claimid.com/* 請輸入 *
+            舉個例子，你的 OpenID 是 openid.claimid.com/abc 的話，那輸入 abc 就可以了。</description>
         </var>
     </extra_vars>
 </addon>
