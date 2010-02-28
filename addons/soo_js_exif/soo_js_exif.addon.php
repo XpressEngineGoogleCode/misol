@@ -20,7 +20,16 @@ if($called_position == 'after_module_proc' && Context::getResponseMethod() == 'H
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/imageinfo.js');
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/binaryajax.js');
   Context::addJsFile('./addons/soo_js_exif/js/imageinfo/exif.js');
-  //Context::addJsFile('./addons/soo_js_exif/js/imageinfo/jquery.exif.js');
   Context::addCssFile('./addons/soo_js_exif/style/exif.css');
+}
+if($called_position == 'before_module_init' && Context::getResponseMethod() == 'XMLRPC') {
+  if(Context::get('module') == 'addon' && Context::get('act') == 'soo_js_exif') {
+    if(Context::get('do') == 'cache') {
+      include('soo_js_exif.cache.php');
+    }
+    else if(Context::get('do') == 'load') {
+      include('soo_js_exif.load.php');
+    }
+  }
 }
 ?>

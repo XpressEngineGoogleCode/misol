@@ -131,7 +131,7 @@ if(Context::getResponseMethod() == 'HTML') {
         $output .= sprintf(' <frame id="new_frame" name="new_frame" src="%s" %s />', $addon_info->frame_page, $attrbt);
       }
 
-      $output .= sprintf(' <frame id="contents_frame" name="contents_frame" src="%s" frameborder="%s" />', $uri, $addon_info->frame_border);
+      $output .= sprintf(' <frame id="contents_frame" name="contents_frame" src="%s" frameborder="%s" scrolling="auto" />', $uri, $addon_info->frame_border);
 
       if($addon_info->frame_position == 'down') {
         $output .= sprintf(' <frame id="new_frame" name="new_frame" src="%s" %s />', $addon_info->frame_page, $attrbt);
