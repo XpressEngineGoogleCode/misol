@@ -25,8 +25,8 @@ if($exif_index == $_SERVER['REMOTE_ADDR']) {
   exit();
 }
 else if($exif_index == 'saved') {
-  $exif = FileHandler::readFile('./files/cache/addons/soo_js_exif/data/'.Context::getLangType().'/'.md5($exif->image_file).'.txt');
-  $buff_exif = unserialize($exif);
+  $exif_data = FileHandler::readFile('./files/cache/addons/soo_js_exif/data/'.Context::getLangType().'/'.md5($exif->image_file).'.txt');
+  $buff_exif = unserialize($exif_data);
 
   header("Content-Type: text/xml; charset=UTF-8");
   header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
