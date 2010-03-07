@@ -1,5 +1,46 @@
 // ⓒ 2010 김민수.
 // This addon uses MPL License based librarys, Binary Ajax 0.1.7, EXIF Reader 0.1.4, and MIT License based library ImageInfo 0.1.2, which is written by Jacob Seidelin.
+function SooExifInfoViewer(i) {
+
+  if(!sooExif_imgurl[i]) return;
+
+  if(sooExif_info_loader[i]) {
+    sooExif_printer(i);
+  }
+  else {
+  	sooExif_position[i] = sooExif_jquery_img[i].position();
+	  imgtop = sooExif_position[i].top + 'px';
+	  imgleft = sooExif_position[i].left + 'px';
+    document.getElementById('sooExif'+i).style.display = 'block';
+    document.getElementById('sooExif'+i).style.left = imgleft;
+    document.getElementById('sooExif'+i).style.top = imgtop;
+
+    var param = new Array();
+	  param['image_file'] = sooExif_imgurl[i];
+	  param['mid'] = current_mid;
+    param['do'] = 'load';
+    param['i'] = i;
+    var response_tags = new Array('error','message','i','exif','pc');
+    exec_xml('addon', 'soo_js_exif', param, SooExifLoader, response_tags);
+  }
+
+
+}
+
+function SooExifLoader(ret_obj, response_tags) {
+  var i = ret_obj['i'];
+  if(!sooExif_pc) sooExif_pc = ret_obj['pc'];
+
+  if(!ret_obj['exif']) {
+	  file = sooExif_imgurl[i];
+    ImageInfo.loadInfo(file, function() { sooExif_loop_controller(i) } )
+  }
+  else {
+    sooExif_xml[i] = ret_obj['exif'];
+    sooExif_loop_controller(i);
+  }
+}
+
 function sooExif_printer(i) {
   if(!sooExif_imgurl[i]) return;
 	if(typeof(sooExif_xml[i]) != "undefined") {
@@ -30,10 +71,12 @@ function sooExif_printer(i) {
 	}
 
 	if(typeof(sooExif_xml[i]) == "undefined") {
+    sooExif_xml[i] = exif;
 	  exif['pointer'] = i;
 	  exif['image_file'] = sooExif_imgurl[i];
 	  exif['mid'] = current_mid;
     exif['do'] = 'cache';
+    exif['pc'] = sooExif_pc;
     var response_tags = new Array('error','message');
     exec_xml('addon', 'soo_js_exif', exif);
   }
@@ -42,15 +85,15 @@ function sooExif_printer(i) {
 	imgtop = sooExif_position[i].top + 'px';
 	imgleft = sooExif_position[i].left + 'px';
 
-	sooExif_jquery_img[i]
-		.after('<span class=\'soo_exif\' id=\'sooExif'+i+'\' style="display:none; position:absolute; top:'+imgtop+'; left:'+imgleft+'">'+exif_info+'</span>')
-		.mouseenter(function(){
-			document.getElementById('sooExif'+i).style.display='block';
-		})
-		.mouseleave(function(){
-			if(sooExif_layer_mode) return;
-			document.getElementById('sooExif'+i).style.display="none";
-		});
+  if(!sooExif_layer_mode2[i]) {
+    document.getElementById('sooExif'+i).style.display = 'block';
+  }
+  document.getElementById('sooExif'+i).style.left = imgleft;
+  document.getElementById('sooExif'+i).style.top = imgtop;
+  document.getElementById('sooExif'+i).innerHTML = exif_info;
+
+  if(sooExif_info_loader[i]) return;
+
 	jQuery('#sooExif'+i)
 		.mouseenter(function(){
 			sooExif_layer_mode = true;
@@ -60,34 +103,34 @@ function sooExif_printer(i) {
 			sooExif_layer_mode = false;
 			document.getElementById('sooExif'+i).style.display="none";
 		});
+  sooExif_info_loader[i] = true;
 }
 
 
 
 function sooExif_loop_controller(i) {
-	sooExif_imgload_checker_loop_loaded++;
-	if(sooExif_imgload_checker_loop_loaded > sooExif_imgload_checker) {
-		ImageInfo = '';
-		return;
+	if(sooExif_info_loader[i]) {
 	}
-	sooExif_printer(i);
-	if(sooExif_imgload_checker_loop_loaded == sooExif_imgload_checker) {
-		ImageInfo = '';
-		sooExif_imgurl = '';
-    sooExif_jquery_img = '';
-    sooExif_position = '';
-    file = '';
-    EXIF = '';
+	else {
+	  sooExif_imgload_checker_loop_loaded++;
+	  if(sooExif_imgload_checker_loop_loaded > sooExif_imgload_checker) {
+	  	ImageInfo = '';
+	  	return;
+	  }
 	}
-}
 
+	sooExif_printer(i);
+}
+var sooExif_pc = '';
 var sooExif_layer_mode = false;
+var sooExif_layer_mode2 = [];
 var sooExif_imgurl = [];
 var sooExif_jquery_img = [];
 var sooExif_xml = []
 var sooExif_imgload_checker = 0;
 var sooExif_imgload_checker_loop_loaded = 0;
 var sooExif_position = [];
+var sooExif_info_loader = [];
 var sooExif_pointer = {
   "ImageDescription" : "Image Description",
   "Make" : "Make",
@@ -132,26 +175,18 @@ jQuery(document).ready(function () {
 			sooExif_jquery_img[i] = jQuery(this);
 			sooExif_imgload_checker++;
 			sooExif_imgurl[i] = this.src;
-
-	    var param = new Array();
-	    param['image_file'] = sooExif_imgurl[i];
-	    param['mid'] = current_mid;
-      param['do'] = 'load';
-      param['i'] = i;
-      var response_tags = new Array('error','message','i','exif');
-      exec_xml('addon', 'soo_js_exif', param, SooExifLoader, response_tags);
+			sooExif_layer_mode2[i] = false;
+			sooExif_jquery_img[i]
+			  .after('<span class=\'soo_exif\' id=\'sooExif'+i+'\' style="display:none; position:absolute;"><strong>Exif information loading...</strong><br /><img src="'+request_uri+'addons/soo_js_exif/image/loader.gif" alt="Now Loading..." /></span>')
+			  .mouseenter(function(){
+			    sooExif_layer_mode2[i] = false;
+			    SooExifInfoViewer(i);
+		    })
+		    .mouseleave(function(){
+		      sooExif_layer_mode2[i] = true;
+		      if(sooExif_layer_mode) return;
+			    document.getElementById('sooExif'+i).style.display="none";
+		    });
 		}
 	});
 });
-
-function SooExifLoader(ret_obj, response_tags) {
-  var i = ret_obj['i'];
-  if(!ret_obj['exif']) {
-	  file = sooExif_imgurl[i];
-    ImageInfo.loadInfo(file, function() { sooExif_loop_controller(i) } )
-  }
-  else {
-    sooExif_xml[i] = ret_obj['exif'];
-    sooExif_loop_controller(i);
-  }
-}

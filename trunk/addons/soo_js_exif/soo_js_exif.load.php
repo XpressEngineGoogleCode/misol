@@ -46,7 +46,7 @@ else {
   header("Cache-Control: no-store, no-cache, must-revalidate");
   header("Cache-Control: post-check=0, pre-check=0", false);
   header("Pragma: no-cache");
-  $xmlDoc  = "<response>\n<error>0</error>\n<message>success</message>\n<i>".$exif->pointer."</i>\n</response>";
+  $xmlDoc  = "<response>\n<error>0</error>\n<message>success</message>\n<i>".$exif->pointer."</i>\n<pc>".md5($_SERVER['REMOTE_ADDR'])."</pc>\n</response>";
   echo $xmlDoc;
   exit();
 
