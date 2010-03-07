@@ -4,10 +4,12 @@ function SooExifInfoViewer(i) {
 
   if(!sooExif_imgurl[i]) return;
 
-  if(sooExif_info_loader[i]) {
+  if(sooExif_info_loader2[i]) {
     sooExif_printer(i);
   }
   else {
+    if(!sooExif_info_loader2[i]) sooExif_info_loader2[i] = true;
+
   	sooExif_position[i] = sooExif_jquery_img[i].position();
 	  imgtop = sooExif_position[i].top + 'px';
 	  imgleft = sooExif_position[i].left + 'px';
@@ -131,6 +133,7 @@ var sooExif_imgload_checker = 0;
 var sooExif_imgload_checker_loop_loaded = 0;
 var sooExif_position = [];
 var sooExif_info_loader = [];
+var sooExif_info_loader2 = [];
 var sooExif_pointer = {
   "ImageDescription" : "Image Description",
   "Make" : "Make",
@@ -176,6 +179,8 @@ jQuery(document).ready(function () {
 			sooExif_imgload_checker++;
 			sooExif_imgurl[i] = this.src;
 			sooExif_layer_mode2[i] = false;
+			sooExif_info_loader[i] = false;
+			sooExif_info_loader2[i] = false;
 			sooExif_jquery_img[i]
 			  .after('<span class=\'soo_exif\' id=\'sooExif'+i+'\' style="display:none; position:absolute;"><strong>Exif information loading...</strong><br /><img src="'+request_uri+'addons/soo_js_exif/image/loader.gif" alt="Now Loading..." /></span>')
 			  .mouseenter(function(){
