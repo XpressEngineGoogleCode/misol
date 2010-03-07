@@ -2,25 +2,32 @@
 <component version="0.1">
     <title xml:lang="ko">洙 백과사전 입력</title>
     <title xml:lang="en">Soo Ency</title>
+    <title xml:lang="zh-TW">百科全書</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2007. 8. 16">
         <name xml:lang="ko">민수</name>
         <name xml:lang="en">Min-Soo Kim</name>
         <name xml:lang="zh-CN">金旻洙</name>
+        <name xml:lang="zh-TW">Min-Soo Kim</name>
         <description xml:lang="ko">국어, 영어, 일어 사전으로 단어에 링크를 쉽게 걸어줍니다.</description>
         <description xml:lang="en">You can insult the links to Korean, English, Japanese Dictionary.</description>
+        <description xml:lang="zh-TW">可插入韓文、英文、日文的字典連結。</description>
     </author>
     <extra_vars>
         <var name="soo_ency_display">
             <title xml:lang="ko">목록수</title>
             <title xml:lang="en">the number of items</title>
+      		<title xml:lang="zh-TW">項目數量</title>
             <description xml:lang="ko">1에서 100사이의 수를 입력해주세요.</description>
             <description xml:lang="en">Enter the number between 1 and 100.</description>
+      		<description xml:lang="zh-TW">請輸入數字 1~100 之間。</description>
 		</var>
         <var name="naver_api_key">
             <title xml:lang="ko">네이버 api key</title>
             <title xml:lang="en">Naver api key</title>
+            <title xml:lang="zh-TW">Naver api key</title>
             <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
             <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
+            <description xml:lang="zh-TW">請先從 http://openapi.naver.com/ 獲得 Naver API key 後再輸入。</description>
 		</var>
     </extra_vars>
 </component>

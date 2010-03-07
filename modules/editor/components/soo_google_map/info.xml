@@ -94,24 +94,24 @@
       <title xml:lang="ko">위도 입력칸</title>
       <title xml:lang="jp">緯度入力箱</title>
       <title xml:lang="en">Latitude Inserted Text Box</title>
-      <title xml:lang="zh-TW">Latitude Inserted Text Box</title>
+      <title xml:lang="zh-TW">輸入緯度</title>
       <title xml:lang="zh-CN">Latitude Inserted Text Box</title>
       <description xml:lang="ko">위치가 하나인 지도를 입력할 때 위치를 다른 문자열 입력 칸에 받고 싶으면 입력합니다. 예 : extra_vars1</description>
       <description xml:lang="jp">位置がひとつの地図を入力する時位置を他の文字列入力箱に受けたければ入力します. 例 : extra_vars1</description>
       <description xml:lang="en">If you want to get Latitude Info of One point map, insert here the id value of text box. example) extra_vars1</description>
-      <description xml:lang="zh-TW">If you want to get Latitude Info of One point map, insert here the id value of text box. example) extra_vars1</description>
+      <description xml:lang="zh-TW">如果想知道地圖上的某一點緯度的話，請輸入 id 值。 例) extra_vars1</description>
       <description xml:lang="zh-CN">If you want to get Latitude Info of One point map, insert here the id value of text box. example) extra_vars1</description>
     </var>
     <var name="soo_insert_lng">
       <title xml:lang="ko">경도 입력칸</title>
       <title xml:lang="jp">経度入力箱</title>
       <title xml:lang="en">Longitude Inserted Text Box</title>
-      <title xml:lang="zh-TW">Longitude Inserted Text Box</title>
+      <title xml:lang="zh-TW">輸入經度</title>
       <title xml:lang="zh-CN">Longitude Inserted Text Box</title>
       <description xml:lang="ko">위치가 하나인 지도를 입력할 때 위치를 다른 문자열 입력 칸에 받고 싶으면 입력합니다. 예 : extra_vars2</description>
       <description xml:lang="jp">位置がひとつの地図を入力する時位置を他の文字列入力箱に受けたければ入力します. 例 : extra_vars2</description>
       <description xml:lang="en">If you want to get Longitude Info of One point map, insert here the id value of text box. example) extra_vars2</description>
-      <description xml:lang="zh-TW">If you want to get Longitude Info of One point map, insert here the id value of text box. example) extra_vars2</description>
+      <description xml:lang="zh-TW">如果想知道地圖上的某一點經度的話，請輸入 id 值。 例) extra_vars2</description>
       <description xml:lang="zh-CN">If you want to get Longitude Info of One point map, insert here the id value of text box. example) extra_vars2</description>
     </var>
   </extra_vars>

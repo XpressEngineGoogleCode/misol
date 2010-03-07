@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   /modules/editor/components/yahoo_map/lang/zh-TW.lang.php
-     * @author translator: royallin
+     * @author royallin
      * @brief  編輯器模組 > Yahoo 地圖元件正體中文語言
      **/
 
@@ -21,6 +21,6 @@
     $lang->msg_no_result = "查無結果";
     $lang->msg_no_yahoo_xy = "想要輸出的結果";
 
-    $lang->msg_no_apikey = "使用 Yahoo 地圖必須要有 Yahoo api key。\n請選擇完模組後再輸入 api key &gt; 所見即得編輯器 &gt; <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=yahoo_map','SetupComponent');return false;\">插入 Yahoo 地圖</a>";
+    $lang->msg_no_apikey = "使用 Yahoo 地圖必須要有 Yahoo api key\n請選擇完模組後再輸入 api key &gt; 網頁編輯器 &gt; <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=yahoo_map','SetupComponent');return false;\">插入 Yahoo 地圖</a>";
     
 ?>

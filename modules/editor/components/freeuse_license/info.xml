@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component version="0.11">
     <title xml:lang="ko">정보공유라이선스 출력 컴포넌트</title>
+    <title xml:lang="zh-TW">資訊分享憑證</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 3. 16">
         <name xml:lang="ko">민수</name>
+        <name xml:lang="zh-TW">민수</name>
         <description xml:lang="ko">정보공유라이선스를 출력합니다.</description>
+        <description xml:lang="zh-TW">資訊分享憑證</description>
     </author>
 </component>
