@@ -3,6 +3,7 @@
   <grants>
     <grant name="view" default="guest">
       <title xml:lang="ko">열람</title>
+      <title xml:lang="zh-TW">檢視</title>
     </grant>
   </grants>
   <actions>
