@@ -4,7 +4,7 @@ if(!defined('__ZBXE__')) exit();
 // author misol (misol@korea.ac.kr)
 // brief Exif정보 캐시파일 생성
 // ⓒ 2010 김민수.
-
+if(md5($_SERVER['REMOTE_ADDR']) == Context::get("pc")) {
 
   $exif->ImageDescription = htmlspecialchars(strip_tags(Context::get("imagedescription")));// : "주제",
   $exif->Make = htmlspecialchars(strip_tags(Context::get("make"))); // : "카메라 제조사",
@@ -61,16 +61,14 @@ if(!defined('__ZBXE__')) exit();
     FileHandler::writeFile('./files/cache/addons/soo_js_exif/cand_data/'.Context::getLangType().'/'.md5($exif->image_file).'.txt', $exif_buff);
     FileHandler::writeFile('./files/cache/addons/soo_js_exif/index/'.Context::getLangType().'/'.md5($exif->image_file).'.txt', $_SERVER['REMOTE_ADDR']);
   }
-
-
-
-  header("Content-Type: text/xml; charset=UTF-8");
-  header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-  header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-  header("Cache-Control: no-store, no-cache, must-revalidate");
-  header("Cache-Control: post-check=0, pre-check=0", false);
-  header("Pragma: no-cache");
-  $xmlDoc  = "<response>\n<error>0</error>\n<message>success</message>\n</response>";
-  echo $xmlDoc;
-  exit();
+}
+header("Content-Type: text/xml; charset=UTF-8");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+$xmlDoc  = "<response>\n<error>0</error>\n<message>success</message>\n</response>";
+echo $xmlDoc;
+exit();
 ?>
