@@ -2,22 +2,27 @@
 <component version="0.2">
   <title xml:lang="ko">미솔's 유투브 글쓰기 도구 (Designed Habile)</title>
   <title xml:lang="en">misol's Youtube Component (Designed Habile)</title>
+  <title xml:lang="zh-TW">Youtube 元件 (Designed Habile)</title>
   <version>0.2+</version>
   <date>2009-09-02</date>
   <link>http://www.imsoo.net</link>
   <description xml:lang="ko">유투브 동영상을 삽입합니다.</description>
   <description xml:lang="en">You can insult Youtube Videos.</description>
+  <description xml:lang="zh-TW">可插入 Youtube 影片</description>
   <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
     <name xml:lang="ko">misol</name>
     <name xml:lang="en">misol</name>
     <name xml:lang="zh-CN">misol</name>
+    <name xml:lang="zh-TW">misol</name>
   </author>
   <extra_vars>
     <var name="soo_display">
       <title xml:lang="ko">목록수</title>
       <title xml:lang="en">the number of items</title>
+      <title xml:lang="zh-TW">項目數量</title>
       <description xml:lang="ko">1에서 50사이의 수를 입력해주세요.</description>
       <description xml:lang="en">Enter the number between 1 and 50.</description>
+      <description xml:lang="zh-TW">請輸入數字 1~50 之間。</description>
 		  </var>
   </extra_vars>
 </component>
