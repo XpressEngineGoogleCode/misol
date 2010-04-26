@@ -25,9 +25,11 @@ if($called_position == 'after_module_proc' && Context::getResponseMethod() == 'H
 if($called_position == 'before_module_init' && Context::getResponseMethod() == 'XMLRPC') {
   if(Context::get('module') == 'addon' && Context::get('act') == 'soo_js_exif') {
     if(Context::get('do') == 'cache') {
+      include_once('soo_js_exif.lib.php');
       include('soo_js_exif.cache.php');
     }
     else if(Context::get('do') == 'load') {
+      include_once('soo_js_exif.lib.php');
       include('soo_js_exif.load.php');
     }
   }
