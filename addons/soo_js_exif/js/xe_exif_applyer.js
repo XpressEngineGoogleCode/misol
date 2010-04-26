@@ -1,5 +1,7 @@
-// ⓒ 2010 김민수.
-// This addon uses MPL License based librarys, Binary Ajax 0.1.7, EXIF Reader 0.1.4, and MIT License based library ImageInfo 0.1.2, which is written by Jacob Seidelin.
+/*
+ ⓒ 2010 김민수.
+ This addon uses MPL License based librarys, Binary Ajax 0.1.7, EXIF Reader 0.1.4, and MIT License based library ImageInfo 0.1.2, which is written by Jacob Seidelin.
+*/
 function SooExifInfoViewer(i) {
 
   if(!sooExif_imgurl[i]) return;
@@ -177,7 +179,10 @@ jQuery(document).ready(function () {
 		if(!/modules|addons|classes|common|layouts|libs|widgets|widgetstyles/g.test(this.src)) {
 			sooExif_jquery_img[i] = jQuery(this);
 			sooExif_imgload_checker++;
-			sooExif_imgurl[i] = this.src;
+			sooExif_imgurl[i] = sooExif_jquery_img[i].attr("rawsrc");
+			if(!sooExif_imgurl[i]) {
+			  sooExif_imgurl[i] = this.src;
+			}
 			sooExif_layer_mode2[i] = false;
 			sooExif_info_loader[i] = false;
 			sooExif_info_loader2[i] = false;

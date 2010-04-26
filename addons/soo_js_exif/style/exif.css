@@ -1,22 +1,7 @@
-/* ⓒ 2010 김민수 */
 
-.soo_exif {
-	padding:5px;
-	display:block;
-	opacity:0.75;
-	-moz-opacity:0.75;
-	filter: alpha(opacity=75);
-	color:#ffffff;
-	background:#000000;
-	font-weight: normal;
-	font-size: 1.1em;
-	font-family: Times New Roman, 나눔고딕, 맑은 고딕;
-	line-height: 170%;
-	text-align: left;
-}
-.soo_exif strong {
-	font-size: 1.2em;
-}
+/* ⓒ 2010 hika */
 
-.soo_exif_hide { display:none; }
-.soo_exif_show { display:block; }
+.soo_exif{ display:block; opacity:0.8; filter:alpha(opacity=80); color:#fff; background:#000; font:11px Tahoma; line-height:1.6; padding:0 15px 12px 15px; margin:15px; border:1px solid #333; z-index:1000;}
+.soo_exif strong{ font-size:17px; line-height:2.5;}
+.soo_exif_hide{ display:none;}
+.soo_exif_show{ display:block;}
