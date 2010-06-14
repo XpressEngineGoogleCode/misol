@@ -98,7 +98,7 @@ class soo_google_map extends EditorHandler {
         if(Context::getLangType() == 'ko') $region = '.co.kr';
         else $region = '.com';
 
-      $header_script = '';
+      $header_script = '<style type="text/css"> .soo_google_map_ment { background-color: #ffffff; color: #000000; } </style>';
       if($map_count==1) {
         $header_script .= '<script src="http://maps.google'.$region.'/maps?file=api&amp;v=2&amp;key='.trim($this->soo_google_map_api_key).'" type="text/javascript"></script>'."\n";
       }
@@ -113,6 +113,7 @@ class soo_google_map extends EditorHandler {
         $ment = eregi_replace('</script>','&lt;/script&gt;',$ment);
         $ment = eregi_replace('<style>','&lt;style&gt;',$ment);
         $ment = eregi_replace('</style>','&lt;/style&gt;',$ment);
+        $ment = sprintf("<div class=\\\"soo_google_map_ment\\\">%s</div>",$ment);
         $lat = trim($xml_obj->attrs->map_lat);
         settype($lat,"float");
         $lng = trim($xml_obj->attrs->map_lng);
@@ -176,6 +177,7 @@ class soo_google_map extends EditorHandler {
           $ment = eregi_replace('</script>','&lt;/script&gt;',$ment);
           $ment = eregi_replace('<style>','&lt;style&gt;',$ment);
           $ment = eregi_replace('</style>','&lt;/style&gt;',$ment);
+          $ment = sprintf("<div class=\\\"soo_google_map_ment\\\">%s</div>",$ment);
           $lat = trim($xml_obj->attrs->{'map_lat'.$i});
           settype($lat,"float");
           $lng = trim($xml_obj->attrs->{'map_lng'.$i});
