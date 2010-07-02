@@ -8,9 +8,9 @@
     <description xml:lang="zh-TW">
       登入失敗達到一定次數時，在指定的時間內將無法登入。
     </description>
-  <version>0.2.3</version>
-  <date>2009-12-12</date>
-  <license>(C) 김민수 2009.</license>
+  <version>0.2.5</version>
+  <date>2010-07-02</date>
+  <license>(C) 김민수 2010.</license>
   <link>http://www.imsoo.net</link>
   <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
     <name xml:lang="ko">민수</name>
