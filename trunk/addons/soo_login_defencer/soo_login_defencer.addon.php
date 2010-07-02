@@ -14,7 +14,7 @@
 
     if(trim($id_attention)) {
       $title = '로그인 실패 기록 알림';
-      $content = sprintf('<h2>확인하지 않은 로그인 실패 기록이 있습니다.</h2><p>%s</p><p>*이 알림은 한번만 보입니다.<br />*이 메세지는 쪽지와 이메일로 발송됩니다.<br />발송 시각 : %s</p>',str_replace("\r\n","<br />",$id_attention),date('Y-m-d H:i:s P'));
+      $content = sprintf('<h2>확인하지 않은 로그인 실패 기록이 있습니다.</h2><p>%s</p><p>*이 알림은 한번만 보입니다.<br />*이 메시지는 쪽지와 이메일로 발송됩니다.<br />발송 시각 : %s</p>',str_replace("\r\n","<br />",$id_attention),date('Y-m-d H:i:s P'));
 
       $oCommunicationController = &getController('communication');
       $oCommunicationController->sendMessage($member_info->member_srl, $member_info->member_srl, $title, $content, true);
@@ -22,7 +22,7 @@
       if($member_info->email_address) {
         $view_url = Context::getRequestUri();
         $title = sprintf("%s @ %s",$title,$view_url);
-        $content = sprintf("%s<br /><br />From : <a href=\"%s\" target=\"_blank\">%s</a><br />To : %s(%s)",$content, $view_url, $view_url, $member_info->user_name, $member_info->user_id);
+        $content = sprintf("%s<hr /><p>From : <a href=\"%s\" target=\"_blank\">%s</a><br />To : %s(%s)</p>",$content, $view_url, $view_url, $member_info->user_name, $member_info->user_id);
         $oMail = new Mail();
         $oMail->setTitle($title);
         $oMail->setContent($content);
@@ -32,7 +32,7 @@
       }
 
       $script = sprintf('<script type="text/javascript">//<![CDATA['."\r\n".
-                        'alert("확인하지 않은 로그인 실패 기록이 있습니다.\n\n%s\n\n*이 알림은 한번만 보입니다.\n*이 메세지는 쪽지와 이메일로 발송됩니다.");'."\r\n".
+                        'alert("확인하지 않은 로그인 실패 기록이 있습니다.\n\n%s\n\n*이 알림은 한번만 보입니다.\n*이 메시지는 쪽지와 이메일로 발송됩니다.");'."\r\n".
                         '</script>',str_replace("\r\n","\\n",$id_attention));
       Context::addHtmlHeader($script);
       FileHandler::removeFile('./files/cache/addons/soo_login_defencer/id_attention/id_'.urlencode(trim($member_info->user_id)).'.php');
