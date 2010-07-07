@@ -9,11 +9,12 @@ if(!defined("__ZBXE__")) exit();
 if(Context::getResponseMethod() == 'HTML') {
 
   if($called_position == 'before_module_proc' && Context::get('module') != 'admin') {
+
+      $view_checker = 0;
+      if($addon_info->until) if(time() > strtotime($addon_info->until)) $view_checker = 1;
     $Member = &getModel('member');
     if($Member->isLogged()) {
       $MemberID=$Member->getLoggedUserID();
-      $view_checker = 0;
-      if($addon_info->until) if(time() > strtotime($addon_info->until)) $view_checker = 1;
       if($MemberID) {
         // member ID
         if($addon_info->but_group != '' || $addon_info->but_id != '') {
@@ -40,16 +41,16 @@ if(Context::getResponseMethod() == 'HTML') {
 
     //user-agent
     if($addon_info->except_useragent || $addon_info->do_useragent) {
-      if(trim($addon_info->except_useragent)) {
+      if(trim($addon_info->except_useragent) && isset($addon_info->except_useragent)) {
         $except_useragent = explode("\n",$addon_info->except_useragent);
         foreach($except_useragent as $value) {
-          if(trim($value)) if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 1;
+          if(trim($value) && trim($value) != '') if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 1;
         }
       }
-      if(trim($addon_info->do_useragent)) {
+      if(trim($addon_info->do_useragent) && isset($addon_info->do_useragent)) {
         $do_useragent = explode("\n",$addon_info->do_useragent);
         foreach($do_useragent as $value) {
-          if(trim($value)) if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 0;
+          if(trim($value) && trim($value) != '') if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 0;
         }
       }
     }
