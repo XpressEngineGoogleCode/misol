@@ -43,18 +43,13 @@ if(Context::getResponseMethod() == 'HTML') {
       if(trim($addon_info->except_useragent)) {
         $except_useragent = explode("\n",$addon_info->except_useragent);
         foreach($except_useragent as $value) {
-          if(trim($value)) if(strpos($_SERVER['HTTP_USER_AGENT'],trim($value)) !== false) $view_checker = 1;
+          if(trim($value)) if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 1;
         }
       }
       if(trim($addon_info->do_useragent)) {
         $do_useragent = explode("\n",$addon_info->do_useragent);
         foreach($do_useragent as $value) {
-          if(trim($value)) if(strpos($_SERVER['HTTP_USER_AGENT'],trim($value)) !== false) {
-            $message = FileHandler::readFile('./files/cache/addons/soo_parking/ip_'.$_SERVER['HTTP_USER_AGENT'].'.php');
-            $message .= "\nDate".date('Y-m-d H:i:s P')." IP".$_SERVER['REMOTE_ADDR'];
-            echo $message;
-            exit();
-          }
+          if(trim($value)) if(stristr($_SERVER['HTTP_USER_AGENT'],trim($value)) != FALSE) $view_checker = 0;
         }
       }
     }
