@@ -9,9 +9,12 @@ if(!defined("__ZBXE__")) exit();
 if(Context::getResponseMethod() == 'HTML') {
 
   if($called_position == 'before_module_proc' && Context::get('module') != 'admin') {
+    $view_checker = 0;
 
-      $view_checker = 0;
-      if($addon_info->until) if(time() > strtotime($addon_info->until)) $view_checker = 1;
+    // 시간 설정
+    if($addon_info->until) if(time() > strtotime($addon_info->until)) $view_checker = 1;
+
+    // 회원 관련된 예외상황 들
     $Member = &getModel('member');
     if($Member->isLogged()) {
       $MemberID=$Member->getLoggedUserID();
