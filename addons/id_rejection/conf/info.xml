@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon version="0.2">
     <title xml:lang="ko">특정 회원 거부</title>
+    <title xml:lang="zh-TW">封鎖特定會員</title>
     <author email_address="misol221@paran.com" link="http://www.imsoo.net" date="2008. 5. 4">
         <name xml:lang="ko">민수</name>
 		<name xml:lang="zh-CN">金旻洙</name>
+        <name xml:lang="zh-TW">Min-Soo Kim</name>
         <name xml:lang="en">Min-Soo Kim</name>
         <description xml:lang="ko">
+           특정 회원에게 백지를 출력함
+        </description>
+        <description xml:lang="zh-TW">
            특정 회원에게 백지를 출력함
         </description>
     </author>
     <extra_vars>
         <var name="imsoo_id_rej_view">
             <title xml:lang="ko">내용</title>
+            <title xml:lang="zh-TW">內容</title>
             <type>textarea</type>
             <description xml:lang="ko">거부된 회원에게 보여 줄 내용을 입력하세요.</description>
+            <description xml:lang="zh-TW">請輸入內容。</description>
         </var>
         <var name="but_id">
             <title xml:lang="ko">회원 ID</title>
+            <title xml:lang="zh-TW">會員 ID</title>
             <description xml:lang="ko">선택하신 회원에 적용 됩니다.
              회원 ID를 여러개 쓰려면
             ,(콤마)로 연결하여 입력하세요.
             (예 : 아이디1,아이디2,아이디3)
             </description>
+            <description xml:lang="zh-TW">
+             適用於選定的會員。 連續輸入會員 ID 時，請用逗號(，)連接。(例 : ID1, ID2, ID3)
+            </description>
         </var>
         <var name="but_group">
             <title xml:lang="ko">회원 그룹</title>
+            <title xml:lang="zh-TW">群組</title>
             <description xml:lang="ko">선택하신 회원그룹에 적용 됩니다.
             회원 그룹명을 여러개 쓰려면
             ,(콤마)로 연결하여 입력하세요.
             (예 : 그룹1,그룹2,그룹3)</description>
+            <description xml:lang="zh-TW">
+            適用於選定的會員群組。 連續輸入會員群組時，請用逗號(，)連接。(例 : 群組1, 群組2, 群組3)
+            </description>
         </var>
         <var name="but_list">
             <title xml:lang="ko">제외 모듈</title>
 			<title xml:lang="zh-CN">豁免模块</title>
             <title xml:lang="en">Escape Modules</title>
+			<title xml:lang="zh-TW">Escape Modules</title>
             <type>mid_list</type>
             <description xml:lang="ko">선택하신 모듈이 제외 됩니다. 애드온을 적용하지 않을 모듈을 선택하세요.</description>
 			<description xml:lang="zh-CN">可选择豁免模块。</description>
             <description xml:lang="en">Selected modules would be allowed to be scraped.</description>
+			<description xml:lang="zh-TW">Selected modules would be allowed to be scraped.</description>
         </var>
     </extra_vars>
 </addon>
