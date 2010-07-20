@@ -1,0 +1,15 @@
+.soo_link_popup_menu {
+  background:url("../addons/soo_mcrblog_link/images/scrap.png") no-repeat top right transparent !important;
+  clear:both;
+  padding:0;
+  height:100px;
+  margin:0px;
+}
+.soo_link_popup_menu a, .soo_link_popup_menu a span {
+  float:right;
+  text-indent: -100em; overflow: hidden;
+  height:100px;
+  width:100px;
+  cursor:pointer;
+  display:block;
+}

@@ -4,6 +4,7 @@
    * @file soo_login_defencer.addon.php
    * @author misol (misol@korea.ac.kr)
    * @brief 일정 시간동안 할 수 있는 로그인 횟수를 제한합니다.
+   * 중복 로그인 방지기능 추가 예정
    **/
   if(Context::getResponseMethod() == "HTML" && Context::get('is_logged') && $called_position == 'after_module_proc') {
     $member_info = Context::get('logged_info');
