@@ -132,5 +132,6 @@ function complete_search_bookinfo(ret_obj, response_tags, selected_image) {
   xInnerHtml(result_info_zone, soo_msg_total+total_bookinfo_no+soo_msg_result_num+bookinfo_start_end+bfpg + nxtpg);
   }
   xInnerHtml(list_zone, html);
+  setFixedPopupSize();
   location.href = '#page_top';
 }

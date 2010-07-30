@@ -14,9 +14,9 @@ class soo_youtube extends EditorHandler {
     $this->component_path = $component_path;
   }
 
-  function xml_api_request($uri) {
+  function xml_api_request($uri, $headers = null) {
     $rss = '';
-    $rss = FileHandler::getRemoteResource($uri, null, 3, 'GET', 'application/xml');
+    $rss = FileHandler::getRemoteResource($uri, null, 3, 'GET', 'application/xml', $headers);
 
     $rss = preg_replace("/<\?xml([.^>]*)\?>/i", "", $rss);
 
@@ -57,14 +57,36 @@ class soo_youtube extends EditorHandler {
     if(!$soo_display_set) $soo_display_set = '20';
     if(!$soo_result_start) $soo_result_start = '1';
     if(!$q_sort) $q_sort = 'relevance';
-    $uri = sprintf('http://gdata.youtube.com/feeds/api/videos?q=%s&start-index=%s&max-results=%s&orderby=%s&v=2&alt=rss',$query, $soo_result_start, $soo_display_set, $q_sort);
+	$langtype = array(
+		'ko' => 'ko',
+		'en' => 'en',
+		'zh-CN' => 'zh',
+		'jp' => 'ja',
+		'es' => 'eo',
+		'ru' => 'ru',
+		'fr' => 'fr',
+		'zh-TW' => 'zh',
+		'vi' => 'vi',
+		'mn' => 'mn'
+	);
 
-    $xml_doc = $this->xml_api_request($uri);
+	if(isset($langtype[Context::getLangType()])) $langtype = $langtype[Context::getLangType()];
+	else $langtype = 'en';
+
+	$headers =
+      array(
+		'X-GData-Key' => 'key=AI39si541gJ_PERbh5tkpMBDGcNRtzWArnSjtsWrHvvuidaoaErs2krFIHZ9PPKxePlZFeeJLD0W_DBIc7rOBD1qR0AKus5GHw',
+        'GData-Version' => '2',
+        'Connection' => 'close'
+      );
+
+    $uri = sprintf('http://gdata.youtube.com/feeds/api/videos?q=%s&lr=%s&start-index=%s&max-results=%s&orderby=%s&v=2&alt=rss&safeSearch=none&key=AI39si541gJ_PERbh5tkpMBDGcNRtzWArnSjtsWrHvvuidaoaErs2krFIHZ9PPKxePlZFeeJLD0W_DBIc7rOBD1qR0AKus5GHw',$query, $langtype, $soo_result_start, $soo_display_set, $q_sort);
+
+    $xml_doc = $this->xml_api_request($uri, $headers);
 
     $error_code = trim($xml_doc->errors->error->code->body);
     $error_message = trim($xml_doc->errors->error->internalreason->body);
     if($error_message) return new Object(-1, '::  Youtube API Error  ::'."\n".$error_code."\n".$error_message);
-
 
     $total_result_no = trim($xml_doc->rss->channel->{'opensearch:totalresults'}->body);
     $soo_result_start = trim($xml_doc->rss->channel->{'opensearch:startindex'}->body);

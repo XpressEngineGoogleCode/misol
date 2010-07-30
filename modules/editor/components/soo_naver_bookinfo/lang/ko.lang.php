@@ -2,7 +2,7 @@
     /**
      * @file   /modules/editor/components/soo_naver_bookinfo/lang/ko.lang.php
      * @author 민수 <misol221@paran.com>
-     * @brief  위지윅에디터(editor) 모듈 > 네이버 책 검색 입력 (soo_naver_bookinfo) 컴포넌트의 한국어 언어팩
+     * @brief  위지윅에디터(editor) 모듈 > 책 검색 입력 (soo_naver_bookinfo) 컴포넌트의 한국어 언어팩
      **/
 
     // 문구
@@ -87,5 +87,5 @@
     $lang->msg_no_result = "검색 결과가 없습니다.";
     $lang->soo_msg_cata_anywhere = "카테고리 선택시 범위 설정은 필수 입니다.\\n[확인]클릭시 책 제목으로 검색합니다.";
 
-    $lang->soo_bookinfo_msg_no_apikey = "api key가 있어야 합니다.\n api key를 관리자 >  위지윅에디터 > <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=soo_naver_bookinfo','SetupComponent');return false;\">미솔의 네이버 책 검색 입력 컴포넌트 설정</a>을 선택한 후 입력하여 주세요.<br />간단한 사용 설명서가 필요하시면 <a href=\"http://misol221.xpressengine.net/wiki/entry/책%20검색%20컴포넌트\" target=\"_blank\">http://misol221.xpressengine.net/wiki/entry/책%20검색%20컴포넌트</a>를 확인하세요.";
+    $lang->soo_bookinfo_msg_no_apikey = "api key가 있어야 합니다.\n api key를 관리자 >  위지윅에디터 > <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=soo_naver_bookinfo','SetupComponent');return false;\">미솔의 책 검색 입력 컴포넌트 설정</a>을 선택한 후 입력하여 주세요.<br />간단한 사용 설명서가 필요하시면 <a href=\"http://misol221.xpressengine.net/wiki/entry/책%20검색%20컴포넌트\" target=\"_blank\">http://misol221.xpressengine.net/wiki/entry/책%20검색%20컴포넌트</a>를 확인하세요.";
 ?>
