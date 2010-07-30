@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component version="0.2">
-  <title xml:lang="ko">미솔의 네이버 책 검색 입력</title>
-  <title xml:lang="en">misol's Book Info. Component</title>
+  <title xml:lang="ko">미솔의 책 검색 입력</title>
+  <title xml:lang="en">misol's Book Information Component</title>
   <title xml:lang="zh-TW">書籍資料</title>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <date>2010-01-28</date>
   <link>http://www.imsoo.net</link>
-  <description xml:lang="ko">책 정보를 검색해서 입력할 수 있습니다. 네이버 api키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
+  <description xml:lang="ko">책 정보를 검색해서 입력할 수 있습니다. 네이버 오픈API를 이용합니다. 네이버 API키를 발급 받아서 등록을 해주셔야 정상적인 사용이 가능합니다.</description>
   <description xml:lang="en">You can insert book information from Naver.com Database via Naver Open Api.</description>
   <description xml:lang="zh-TW">可透過 Naver Open API 由 Naver 資料庫插入書籍資料。</description>
   <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
@@ -31,12 +31,12 @@
       <description xml:lang="zh-TW">請輸入數字 1~100 之間。</description>
     </var>
     <var name="naver_api_key">
-      <title xml:lang="ko">네이버 api key</title>
-      <title xml:lang="en">Naver api key</title>
-      <title xml:lang="zh-TW">Naver api key</title>
-      <description xml:lang="ko">http://openapi.naver.com/ 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
-      <description xml:lang="en">Please get Naver Map API key from http://openapi.naver.com/ first and then input the key.</description>
-      <description xml:lang="zh-TW">請先從 http://openapi.naver.com/ 獲得 Naver API key 後再輸入。</description>
+      <title xml:lang="ko">네이버 API 키</title>
+      <title xml:lang="en">Naver API key</title>
+      <title xml:lang="zh-TW">Naver API key</title>
+      <description xml:lang="ko">http://dev.naver.com/openapi/register 에서 네이버 API KEY를 발급 받으신 후 입력해주세요.</description>
+      <description xml:lang="en">Please get Naver Map API key at http://dev.naver.com/openapi/register first and then input the key.</description>
+      <description xml:lang="zh-TW">請先從 http://dev.naver.com/openapi/register 獲得 Naver API key 後再輸入。</description>
     </var>
   </extra_vars>
 </component>
