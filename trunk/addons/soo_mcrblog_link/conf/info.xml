@@ -18,6 +18,16 @@
 		<name xml:lang="zh-TW">Min-Soo Kim</name>
 	</author>
 	<extra_vars>
+		<var name="url_shorten" type="select">
+			<title xml:lang="ko">주소 줄이기 사용</title>
+			<options value="0">
+				<title xml:lang="ko">사용</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">사용 안함</title>
+			</options>
+			<description xml:lang="ko">스크랩 하는 주소의 길이를 줄여줍니다. http://tln.kr/ 를 이용합니다. 사용하지 않으시려면 사용 안함으로 설정해주세요. (기본값: 사용함)</description>
+		</var>
 		<var name="text_position" type="select">
 			<title xml:lang="ko">위치</title>
 			<options value="0">
