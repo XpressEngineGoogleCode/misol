@@ -1,73 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
-  <title xml:lang="ko">요약 책갈피</title>
-  <description xml:lang="ko">
-    Facebook, Twitter, me2day, Yozm에 해당 글을 책갈피 할 수 있게 합니다.
-    ㅠㅠ; 디자인은 못 하겠어요.
-  </description>
-  <version>0.1.2</version>
-  <date>2010-07-07</date>
-  <license>Free Use, Free Modify, Free Distribution.</license>
-  <link>http://www.imsoo.net</link>
-  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
-    <name xml:lang="ko">민수</name>
-    <name xml:lang="en">Min-Soo Kim</name>
-    <name xml:lang="zh-CN">金旻洙</name>
-    <name xml:lang="zh-TW">Min-Soo Kim</name>
-  </author>
-  <extra_vars>
-    <var name="text_position" type="select">
-      <title xml:lang="ko">위치</title>
-      <options value="0">
-        <title xml:lang="ko">아래</title>
-      </options>
-      <options value="1">
-        <title xml:lang="ko">위</title>
-      </options>
-      <description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 글을 기준으로 글의 위/아래를 정할 수 있습니다.</description>
-    </var>
-    <var name="button_type" type="select">
-      <title xml:lang="ko">버튼 모양</title>
-      <options value="0">
-        <title xml:lang="ko">이미지</title>
-      </options>
-      <options value="1">
-        <title xml:lang="ko">버튼 기본</title>
-      </options>
-      <options value="large">
-        <title xml:lang="ko">큰 버튼</title>
-      </options>
-      <options value="xLarge">
-        <title xml:lang="ko">아주 큰 버튼</title>
-      </options>
-      <options value="red">
-        <title xml:lang="ko">빨간 버튼</title>
-      </options>
-      <options value="large red">
-        <title xml:lang="ko">큰 빨간 버튼</title>
-      </options>
-      <options value="xLarge red">
-        <title xml:lang="ko">아주 큰 빨간 버튼</title>
-      </options>
-      <options value="blue">
-        <title xml:lang="ko">파란 버튼</title>
-      </options>
-      <options value="large blue">
-        <title xml:lang="ko">큰 파란 버튼</title>
-      </options>
-      <options value="xLarge blue">
-        <title xml:lang="ko">아주 큰 파란 버튼</title>
-      </options>
-      <options value="green">
-        <title xml:lang="ko">초록 버튼</title>
-      </options>
-      <options value="large green">
-        <title xml:lang="ko">큰 초록 버튼</title>
-      </options>
-      <options value="xLarge green">
-        <title xml:lang="ko">아주 큰 초록 버튼</title>
-      </options>
-      <description xml:lang="ko">버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.</description>
-    </var>
-  </extra_vars>
+	<title xml:lang="ko">요약 책갈피</title>
+	<description xml:lang="ko">
+		Facebook, Twitter, me2day, Yozm, Cyworld에 해당 글을 책갈피 할 수 있게 합니다.
+		ㅠㅠ; 디자인은 못 하겠어요.
+		사용권은 크리에이티브 커먼스 저작자표시-동일조건변경허락 2.0 대한민국 라이선스를 따릅니다. 사용권에 대한 자세한 사항은 http://creativecommons.org/licenses/by-sa/2.0/kr/ 를 참조하세요.
+		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+	</description>
+	<version>0.2</version>
+	<date>2010-08-14</date>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+		<name xml:lang="ko">민수</name>
+		<name xml:lang="en">Min-Soo Kim</name>
+		<name xml:lang="zh-CN">金旻洙</name>
+		<name xml:lang="zh-TW">Min-Soo Kim</name>
+	</author>
+	<extra_vars>
+		<var name="text_position" type="select">
+			<title xml:lang="ko">위치</title>
+			<options value="0">
+				<title xml:lang="ko">아래</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">위</title>
+			</options>
+			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 글을 기준으로 글의 위/아래를 정할 수 있습니다.</description>
+		</var>
+		<var name="button_type" type="select">
+			<title xml:lang="ko">버튼 모양</title>
+			<options value="0">
+				<title xml:lang="ko">이미지</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">버튼 기본</title>
+			</options>
+			<options value="large">
+				<title xml:lang="ko">큰 버튼</title>
+			</options>
+			<options value="xLarge">
+				<title xml:lang="ko">아주 큰 버튼</title>
+			</options>
+			<options value="red">
+				<title xml:lang="ko">빨간 버튼</title>
+			</options>
+			<options value="large red">
+				<title xml:lang="ko">큰 빨간 버튼</title>
+			</options>
+			<options value="xLarge red">
+				<title xml:lang="ko">아주 큰 빨간 버튼</title>
+			</options>
+			<options value="blue">
+				<title xml:lang="ko">파란 버튼</title>
+			</options>
+			<options value="large blue">
+				<title xml:lang="ko">큰 파란 버튼</title>
+			</options>
+			<options value="xLarge blue">
+				<title xml:lang="ko">아주 큰 파란 버튼</title>
+			</options>
+			<options value="green">
+				<title xml:lang="ko">초록 버튼</title>
+			</options>
+			<options value="large green">
+				<title xml:lang="ko">큰 초록 버튼</title>
+			</options>
+			<options value="xLarge green">
+				<title xml:lang="ko">아주 큰 초록 버튼</title>
+			</options>
+			<description xml:lang="ko">버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.</description>
+		</var>
+		<var name="cyworld_key_uri">
+			<title xml:lang="ko">싸이월드 스크랩 URI</title>
+			<description xml:lang="ko">입력하시면, 싸이월드로도 스크랩 하실 수 있습니다. http://devsquare.nate.com/openApi/registerNc 에서 키를 발급받을때 입력한 도메인을 포함한 XE 절대경로 (http를 포함해서 써주세요.)
+				예 ) http://example.com/xe/</description>
+		</var>
+		<var name="cyworld_key">
+			<title xml:lang="ko">싸이월드 스크랩 API키</title>
+			<description xml:lang="ko">입력하시면, 싸이월드로도 스크랩 하실 수 있습니다. http://devsquare.nate.com/openApi/registerNc 에서 발급받은 키</description>
+		</var>
+	</extra_vars>
 </addon>
