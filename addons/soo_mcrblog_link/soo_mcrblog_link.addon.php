@@ -20,6 +20,14 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 } elseif (Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
 	$document_srl = intval(Context::get('target_srl'));
 	$url = getFullUrl('','document_srl',$document_srl);
+
+	if($addon_info->url_shorten != 1) {
+		// 주소 줄이기 http://tln.kr 이용.
+		$headers = array('User-Agent' => 'XpressEngine MicroBlogLinker Addon by misol (misol@korea.ac.kr; http://www.imsoo.net/; twitter @misol221)');
+		$shorten_url = trim(FileHandler::getRemoteResource('http://tln.kr/?mode=shorten&link='.urlencode($url), null, 3, 'GET', 'application/xml', $headers));
+		if(substr($shorten_url, 0, 13) == 'http://tln.kr') $url = $shorten_url;
+	}
+
 	$url_len = strlen($url);
 	$urlencode_url = urlencode($url);
 
