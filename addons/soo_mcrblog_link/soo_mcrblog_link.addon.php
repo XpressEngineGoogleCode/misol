@@ -14,8 +14,23 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if($button_class == 'button' && $addon_info->button_type != 1) $button_class .= ' '.$addon_info->button_type;
 
-	if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div><!--BeforeDocument($1,$2)-->" , $output);
-	else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div>", $output);
+	if($addon_info->ex_use) {
+		$document_srl = intval(Context::get('document_srl'));
+		$oDocumentModel = &getModel('document');
+		$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'), false, false);
+
+		if($oDocument->isExists()) {
+			$document = $oDocument->getTransContent(false,false,false,false);
+			if($addon_info->text_position == 1) $output = str_replace($document,"<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>".$document ,$output);
+			else $output = str_replace($document,$document."<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>",$output);
+		}
+
+		unset($oDocumentModel);
+		unset($oDocument);
+	} else {
+		if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div><!--BeforeDocument($1,$2)-->" , $output);
+		else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div>", $output);
+	}
 
 } elseif (Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
 	$document_srl = intval(Context::get('target_srl'));
@@ -86,7 +101,8 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			} else {
 				$content = Context::getLang('msg_is_secret');
 			}
-			$lastupdate = $oDocument->getUpdate('YmdHis');
+			$lastupdate = $oDocument->getRegdate('YmdHis');
+			if($lastupdate < $oDocument->getUpdate('YmdHis')) $lastupdate = $oDocument->getUpdate('YmdHis');
 			$uri = $oDocument->getPermanentUrl();
 
 			unset($oModuleInfo);
@@ -107,7 +123,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 				$print_xml .= '<OriginOrder>OriginContentsText01</OriginOrder>'."\n";
 			}
 			$print_xml .= sprintf("<Url><![CDATA[%s]]></Url>\n",$uri);
-			$print_xml .= sprintf("<LastUpdateDate>%d</LastUpdateDate>\n",$lastupdate);
+			$print_xml .= sprintf("<LastUpdateDate>%s</LastUpdateDate>\n",$lastupdate);
 			$print_xml .= "</Post>\n</PostInfo>";
 
 			FileHandler::writeFile('./files/cache/addons/soo_mcrblog_link/'.md5($addon_info->cyworld_key).'/cyxml/document_srl/'.$document_srl.'.xml', $print_xml);
