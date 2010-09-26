@@ -11,13 +11,18 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if(!isset($addon_info->button_type) || (is_numeric($addon_info->button_type) && intval($addon_info->button_type) == 0)) Context::addCssFile('./addons/soo_mcrblog_link/css/style.css');
 	elseif($addon_info->button_type =='oneBtn') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn.css');
+	elseif($addon_info->button_type =='oneBtn_mini') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mini.css');
 	else $button_class = 'button';
 
+	// 오른쪽 정렬이 기본값
+	if(!$addon_info->text_align) $addon_info->text_align = 'right';
+
 	// 드롭다운 없는 스크랩 버튼
-	if($addon_info->button_type =='oneBtn') {
+	if($addon_info->button_type =='oneBtn' || $addon_info->button_type =='oneBtn_mini') {
 		Context::addJsFile('./addons/soo_mcrblog_link/js/oneBtn.js');
+		$width = '150';
+		if($addon_info->button_type =='oneBtn_mini') $width = $width - 52;
 		if($addon_info->ex_use) { // 확장 ShopXE 등
-			$width = '150';
 			$document_srl = intval(Context::get('document_srl'));
 			$oDocumentModel = &getModel('document');
 			$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'), false, false);
@@ -30,22 +35,21 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 					$width = $width + 24;
 					$btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
 				}
-				if($addon_info->text_position == 1) $output = str_replace($document,"<div style=\"text-align:center\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>".$document ,$output);
-				else $output = str_replace($document,$document."<div style=\"text-align:center\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>",$output);
+				if($addon_info->text_position == 1) $output = str_replace($document,"<div style=\"text-align:".$addon_info->text_align."\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>".$document ,$output);
+				else $output = str_replace($document,$document."<div style=\"text-align:".$addon_info->text_align."\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>",$output);
 			}
 
 			unset($oDocumentModel);
 			unset($oDocument);
 		} else {
-			$width = '150';
 			$btn_text = '';
 			$btn_text .= "<a title=\"Facebook\" href=\"#\" onclick=\"sooscrap = window.open('','sooLinker','width=770,height=450');soo_Linker(0,$1);return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a title=\"Twitter\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,$1);return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a title=\"me2day\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,$1);return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a title=\"Yozm\" href=\"#\" onclick=\"sooscrap = window.open('','yozmscrap','width=450,height=350');soo_Linker(3,$1);return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
 			if($addon_info->cyworld_key_uri != '' && $addon_info->cyworld_key != '') {
 				$width = $width + 24;
 				$btn_text .= "<a title=\"Cyworld\" href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,$1);return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
 			}
-			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div style=\"text-align:center\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div><!--BeforeDocument($1,$2)-->" , $output);
-			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div style=\"text-align:center;\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>", $output);
+			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div style=\"text-align:".$addon_info->text_align.";\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div><!--BeforeDocument($1,$2)-->" , $output);
+			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div style=\"text-align:".$addon_info->text_align.";\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>", $output);
 		}
 	} else { // 드롭다운 메뉴가 있는 스크랩 메뉴
 		if($button_class == 'button' && $addon_info->button_type != 1) $button_class .= ' '.$addon_info->button_type;
@@ -57,15 +61,15 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 			if($oDocument->isExists()) {
 				$document = $oDocument->getTransContent(false,false,false,false);
-				if($addon_info->text_position == 1) $output = str_replace($document,"<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>".$document ,$output);
-				else $output = str_replace($document,$document."<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>",$output);
+				if($addon_info->text_position == 1) $output = str_replace($document,"<div class=\"soo_link_popup_menu\" style=\"text-align:".$addon_info->text_align.";\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>".$document ,$output);
+				else $output = str_replace($document,$document."<div class=\"soo_link_popup_menu\" style=\"text-align:".$addon_info->text_align.";\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" onclick=\"return false\"><span class=\"SooLinkerAddon_".$document_srl."\">".Context::getLang('cmd_scrap')."</span></a></div>",$output);
 			}
 
 			unset($oDocumentModel);
 			unset($oDocument);
 		} else {
-			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div><!--BeforeDocument($1,$2)-->" , $output);
-			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div class=\"soo_link_popup_menu\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" style=\"float:right;\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div>", $output);
+			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div class=\"soo_link_popup_menu\" style=\"text-align:".$addon_info->text_align.";\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div><!--BeforeDocument($1,$2)-->" , $output);
+			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div class=\"soo_link_popup_menu\" style=\"text-align:".$addon_info->text_align.";\"><a href=\"#popup_menu_area\" class=\"".$button_class."\" onclick=\"return false\"><span class=\"SooLinkerAddon_$1\">".Context::getLang('cmd_scrap')."</span></a></div>", $output);
 		}
 	}
 
@@ -118,7 +122,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			else $cy_xml_mtime = 0;
 
 			if($cy_xml_mtime < $oDocument->getUpdateTime()) {
-
 				if(!$document_srl) return;
 				// model 객체 생성 
 				$oModuleModel = &getModel('module');
@@ -179,7 +182,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		header("Cache-Control: no-store, no-cache, must-revalidate");
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
-
 		print("<response>\r\n<menus>\r\n");
 		printf("<item>\r\n<url><![CDATA[window.open('http://www.facebook.com/sharer.php?u=%s&t=%s', 'facebookscrap','width=770,height=450')]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
 		printf("<item>\r\n<url><![CDATA[http://twitter.com/home/?status=%s]]></url>\r\n<str>Twitter</str>\r\n<icon>%saddons/soo_mcrblog_link/images/twitter.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode($title_cut_str.' '.$url),Context::getRequestUri());
@@ -189,7 +191,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			printf("<item>\r\n<url><![CDATA[window.open('http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s', 'cyopenscrap','width=450,height=410')]]></url>\r\n<alturl><![CDATA[http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s]]></alturl>\r\n<str>Cyworld</str>\r\n<icon>%saddons/soo_mcrblog_link/images/cyworld.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencoded_xml_url, $addon_info->cyworld_key,$urlencoded_xml_url, $addon_info->cyworld_key,Context::getRequestUri());
 		}
 		print("</menus>\r\n<error>0</error>\r\n<message>success</message>\r\n</response>");
-
 		Context::close();
 		exit();
 	}
