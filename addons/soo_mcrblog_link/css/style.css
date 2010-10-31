@@ -1,2 +1,5 @@
 .soo_link_popup_menu,.soo_link_popup_menu * { margin:0px; padding:0; height:100px; width:100%; }
 .soo_link_popup_menu a span { background:url("../addons/soo_mcrblog_link/images/scrap.png") no-repeat top right transparent !important; clear:both; text-indent: -100em; overflow: hidden; height:100px; width:100px; cursor:pointer; display:inline-block; text-align:left; }
+/* IE6 css fixer v0.9: Thu, 28 Oct 2010 11:35:39 +0200 */
+/* add zoom:1; display:inline; to inline-block elements */
+* html .soo_link_popup_menu a span {zoom:1; display:inline;}
