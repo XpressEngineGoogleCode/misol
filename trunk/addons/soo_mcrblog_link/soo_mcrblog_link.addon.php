@@ -8,20 +8,30 @@ if(!defined("__ZBXE__")) exit();
 if(isCrawler()) return;
 if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML') {
 	$button_class = '';
+	$mobile_set = false;
+	if(class_exists('Mobile')) {
+		if(Mobile::isFromMobilePhone()) {
+			$mobile_set = true;
+			if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
+		}
+	}
 
 	if(!isset($addon_info->button_type) || (is_numeric($addon_info->button_type) && intval($addon_info->button_type) == 0)) Context::addCssFile('./addons/soo_mcrblog_link/css/style.css');
 	elseif($addon_info->button_type =='oneBtn') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn.css');
 	elseif($addon_info->button_type =='oneBtn_mini') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mini.css');
+	elseif($addon_info->button_type =='oneBtn_mobile') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mobile.css');
 	else $button_class = 'button';
 
 	// 오른쪽 정렬이 기본값
 	if(!$addon_info->text_align) $addon_info->text_align = 'right';
 
 	// 드롭다운 없는 스크랩 버튼
-	if($addon_info->button_type =='oneBtn' || $addon_info->button_type =='oneBtn_mini') {
+	if($addon_info->button_type =='oneBtn' || $addon_info->button_type =='oneBtn_mini' || $addon_info->button_type =='oneBtn_mobile') {
 		Context::addJsFile('./addons/soo_mcrblog_link/js/oneBtn.js');
 		$width = '150';
 		if($addon_info->button_type =='oneBtn_mini') $width = $width - 52;
+		elseif($addon_info->button_type =='oneBtn_mobile') $width = $width - 10;
+
 		if($addon_info->ex_use) { // 확장 ShopXE 등
 			$document_srl = intval(Context::get('document_srl'));
 			$oDocumentModel = &getModel('document');
@@ -30,10 +40,13 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			if($oDocument->isExists()) {
 				$document = $oDocument->getTransContent(false,false,false,false);
 				$btn_text = '';
-				$btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('','sooLinker','width=770,height=450');soo_Linker(0,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,".$document_srl.");return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a href=\"#\" onclick=\"sooscrap = window.open('','yozmscrap','width=450,height=350');soo_Linker(3,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
+				if($mobile_set == true) $btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(0,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,".$document_srl.");return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(3,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
+				else  $btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('','sooLinker','width=770,height=450');soo_Linker(0,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,".$document_srl.");return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a href=\"#\" onclick=\"sooscrap = window.open('','yozmscrap','width=450,height=350');soo_Linker(3,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
 				if($addon_info->cyworld_key_uri != '' && $addon_info->cyworld_key != '') {
 					$width = $width + 24;
-					$btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
+					if($addon_info->button_type =='oneBtn_mobile') $width = $width + 11;
+					if($mobile_set == true) $btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(4,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
+					else $btn_text .= "<a href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,".$document_srl.");return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
 				}
 				if($addon_info->text_position == 1) $output = str_replace($document,"<div style=\"text-align:".$addon_info->text_align."\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>".$document ,$output);
 				else $output = str_replace($document,$document."<div style=\"text-align:".$addon_info->text_align."\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>",$output);
@@ -43,10 +56,13 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			unset($oDocument);
 		} else {
 			$btn_text = '';
-			$btn_text .= "<a title=\"Facebook\" href=\"#\" onclick=\"sooscrap = window.open('','sooLinker','width=770,height=450');soo_Linker(0,$1);return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a title=\"Twitter\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,$1);return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a title=\"me2day\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,$1);return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a title=\"Yozm\" href=\"#\" onclick=\"sooscrap = window.open('','yozmscrap','width=450,height=350');soo_Linker(3,$1);return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
+			if($mobile_set == true) $btn_text .= "<a title=\"Facebook\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(0,$1);return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a title=\"Twitter\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,$1);return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a title=\"me2day\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,$1);return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a title=\"Yozm\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(3,$1);return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
+			else $btn_text .= "<a title=\"Facebook\" href=\"#\" onclick=\"sooscrap = window.open('','sooLinker','width=770,height=450');soo_Linker(0,$1);return false;\"><span class=\"SooLinkerAddon Facebook\">Facebook</span></a><a title=\"Twitter\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(1,$1);return false;\"><span class=\"SooLinkerAddon Twitter\">Twitter</span></a><a title=\"me2day\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(2,$1);return false;\"><span class=\"SooLinkerAddon me2day\">me2day</span></a><a title=\"Yozm\" href=\"#\" onclick=\"sooscrap = window.open('','yozmscrap','width=450,height=350');soo_Linker(3,$1);return false;\"><span class=\"SooLinkerAddon Yozm\">Yozm</span></a>";
 			if($addon_info->cyworld_key_uri != '' && $addon_info->cyworld_key != '') {
 				$width = $width + 24;
-				$btn_text .= "<a title=\"Cyworld\" href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,$1);return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
+				if($addon_info->button_type =='oneBtn_mobile') $width = $width + 11;
+				if($mobile_set == true) $btn_text .= "<a title=\"Cyworld\" href=\"#\" onclick=\"sooscrap = window.open('');soo_Linker(4,$1);return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
+				else $btn_text .= "<a title=\"Cyworld\" href=\"#\" onclick=\"sooscrap = window.open('','cyopenscrap','width=450,height=410');soo_Linker(4,$1);return false;\"><span class=\"SooLinkerAddon Cyworld\">Cyworld</span></a>";
 			}
 			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<div style=\"text-align:".$addon_info->text_align.";\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div><!--BeforeDocument($1,$2)-->" , $output);
 			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)--><div style=\"text-align:".$addon_info->text_align.";\"><div style=\"width:".$width."px;\" class=\"soo_link_popup_menu\"><span class=\"SooLinkerAddon Scrap\">".Context::getLang('cmd_scrap')."</span>".$btn_text."</div></div>", $output);
@@ -76,6 +92,14 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 } elseif (Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
 	$document_srl = intval(Context::get('target_srl'));
 	$url = getFullUrl('','document_srl',$document_srl);
+
+	$mobile_set = false;
+	if(class_exists('Mobile')) {
+		if(Mobile::isFromMobilePhone()) {
+			$mobile_set = true;
+			if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
+		}
+	}
 
 	if($addon_info->url_shorten != 1) {
 		// 주소 줄이기 http://tln.kr 이용.
@@ -183,12 +207,15 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
 		print("<response>\r\n<menus>\r\n");
-		printf("<item>\r\n<url><![CDATA[window.open('http://www.facebook.com/sharer.php?u=%s&t=%s', 'facebookscrap','width=770,height=450')]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
+		if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
+		else printf("<item>\r\n<url><![CDATA[window.open('http://www.facebook.com/sharer.php?u=%s&t=%s', 'facebookscrap','width=770,height=450')]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
 		printf("<item>\r\n<url><![CDATA[http://twitter.com/home/?status=%s]]></url>\r\n<str>Twitter</str>\r\n<icon>%saddons/soo_mcrblog_link/images/twitter.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode($title_cut_str.' '.$url),Context::getRequestUri());
 		printf("<item>\r\n<url><![CDATA[http://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s]]></url>\r\n<str>me2day</str>\r\n<icon>%saddons/soo_mcrblog_link/images/me2day.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$url), $tag_list,Context::getRequestUri());
-		printf("<item>\r\n<url><![CDATA[window.open('http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s', 'yozmscrap','width=450,height=350')]]></url>\r\n<alturl><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></alturl>\r\n<str>Yozm</str>\r\n<icon>%saddons/soo_mcrblog_link/images/yozm.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_cut_str.' '.$url), $urlencode_url, urlencode($title_cut_str.' '.$url),Context::getRequestUri());
+		if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></url>\r\n<alturl><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></alturl>\r\n<str>Yozm</str>\r\n<icon>%saddons/soo_mcrblog_link/images/yozm.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_cut_str.' '.$url), $urlencode_url, urlencode($title_cut_str.' '.$url),Context::getRequestUri());
+		else printf("<item>\r\n<url><![CDATA[window.open('http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s', 'yozmscrap','width=450,height=350')]]></url>\r\n<alturl><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></alturl>\r\n<str>Yozm</str>\r\n<icon>%saddons/soo_mcrblog_link/images/yozm.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_cut_str.' '.$url), $urlencode_url, urlencode($title_cut_str.' '.$url),Context::getRequestUri());
 		if($addon_info->cyworld_key_uri != '' && $addon_info->cyworld_key != '') {
-			printf("<item>\r\n<url><![CDATA[window.open('http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s', 'cyopenscrap','width=450,height=410')]]></url>\r\n<alturl><![CDATA[http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s]]></alturl>\r\n<str>Cyworld</str>\r\n<icon>%saddons/soo_mcrblog_link/images/cyworld.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencoded_xml_url, $addon_info->cyworld_key,$urlencoded_xml_url, $addon_info->cyworld_key,Context::getRequestUri());
+			if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s]]></url>\r\n<alturl><![CDATA[http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s]]></alturl>\r\n<str>Cyworld</str>\r\n<icon>%saddons/soo_mcrblog_link/images/cyworld.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", $urlencoded_xml_url, $addon_info->cyworld_key,$urlencoded_xml_url, $addon_info->cyworld_key,Context::getRequestUri());
+			else printf("<item>\r\n<url><![CDATA[window.open('http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s', 'cyopenscrap','width=450,height=410')]]></url>\r\n<alturl><![CDATA[http://api.cyworld.com/openscrap/post/v1/?xu=%s&sid=%s]]></alturl>\r\n<str>Cyworld</str>\r\n<icon>%saddons/soo_mcrblog_link/images/cyworld.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencoded_xml_url, $addon_info->cyworld_key,$urlencoded_xml_url, $addon_info->cyworld_key,Context::getRequestUri());
 		}
 		print("</menus>\r\n<error>0</error>\r\n<message>success</message>\r\n</response>");
 		Context::close();
