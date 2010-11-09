@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">컴포넌트 코드 모바일 페이지에서 처리</title>
+	<description xml:lang="ko">
+		모바일 페이지에서 보이지 않는 컴포넌트들을 처리해줍니다.
+	</description>
+	<version>0.1</version>
+	<date>2010-11-07</date>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
+		<name xml:lang="ko">misol</name>
+	</author>
+</addon>

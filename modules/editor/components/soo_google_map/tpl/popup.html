@@ -4,46 +4,46 @@
 <!--%import("../lang")-->
 {@Context::addHtmlHeader(
 '<script language="javascript" type="text/javascript">//<![CDATA[<!--'."\n".
-'  var no_result="'.$lang->msg_no_result.'";'."\n".
-'  var dragmarkertext="'.$lang->soo_drag_marker_text.'";'."\n".
-'  var soo_saved="'.$lang->soo_locations_saved.'";'."\n".
-'  var soo_save="'.$lang->soo_locations_save.'";'."\n".
-'  var soo_nulledit="'.$lang->soo_locations_nulledit.'";'."\n".
-'  var soo_editing="'.$lang->soo_locations_editing.'";'."\n".
-'  var soo_edit="'.$lang->soo_locations_edit.'";'."\n".
+'	var no_result="'.$lang->msg_no_result.'";'."\n".
+'	var dragmarkertext="'.$lang->soo_drag_marker_text.'";'."\n".
+'	var soo_saved="'.$lang->soo_locations_saved.'";'."\n".
+'	var soo_save="'.$lang->soo_locations_save.'";'."\n".
+'	var soo_nulledit="'.$lang->soo_locations_nulledit.'";'."\n".
+'	var soo_editing="'.$lang->soo_locations_editing.'";'."\n".
+'	var soo_edit="'.$lang->soo_locations_edit.'";'."\n".
 '//-->]]>'."\n".'</script>'."\n");} 
-<div id="popHeadder">
-  <h1 class="xeAdmin">{$component_info->title} ver. {$component_info->version}</h1>
+<div id="popHeader">
+  <h1 class="componentTitle">{$component_info->title} ver. {$component_info->version}</h1>
 </div>
-<div id="map_canvas"></div>
 <div id="map_popBody">
+<div id="map_canvas"></div>
   <input type="hidden" id="lat" value="" />
   <input type="hidden" id="lng" value="" />
   <input type="hidden" id="map_zoom" value="" />
   <table border="0" width="100%">
 	  <tr>
-		  <td bgcolor="#D0D0D0" width="100">{$lang->soo_width}</td>
-		  <td><input type="text" class="inputTypeText" id="width" value="" />px</td>
-		  <td bgcolor="#D0D0D0" width="100"><strong>{$lang->soo_search}</strong></td>
+		  <td bgcolor="#D0D0D0" width="70"><label for="width">{$lang->soo_width}</label></td>
+		  <td><input type="text" class="inputTypeText" id="width" value="" /></td>
+		  <td bgcolor="#D0D0D0" width="70"><strong><label for="address1">{$lang->soo_search}</label></strong></td>
 		  <td>
 		    <form action="#" onsubmit="showLocation(this.address.value); return false">
-          <div style="float:left;"><input type="text" name="address" value="" /></div>
+          <div style="float:left;"><input type="text" name="address" id="address1" value="" /></div>
           <div style="float:left; padding-left: 2px;"><span class="button red"><input type="submit" value="{$lang->cmd_search}" /></span></div>
         </form>
       </td>
 	  </tr>
 	  <tr>
-		  <td bgcolor="#D0D0D0" width="100">{$lang->soo_height}</td>
-		  <td><input type="text" class="inputTypeText" id="height" value="" />px</td>
-		  <td rowspan="3" bgcolor="#D0D0D0" width="100">{$lang->soo_result}</td>
-		  <td rowspan="3"><div class="result_list_box" id="result_list_layer">{$lang->about_soo_result_use}</div></td>
+		  <td bgcolor="#D0D0D0" width="70"><label for="height">{$lang->soo_height}</label></td>
+		  <td><input type="text" class="inputTypeText" id="height" value="" /></td>
+		  <td rowspan="3" bgcolor="#D0D0D0" width="60">{$lang->soo_result}</td>
+		  <td rowspan="3"><div class="result_list_box" id="result_list_layer">{$lang->about_soo_result_use}<br />Maps API by Google.</div></td>
 	  </tr>
 	  <tr>
-		  <td bgcolor="#D0D0D0" width="100">{$lang->soo_ment}</td>
+		  <td bgcolor="#D0D0D0" width="70"><label for="ment">{$lang->soo_ment}</label></td>
 		  <td><input type="text" class="inputTypeText" id="ment" value="" /></td>
 	  </tr>
 	  <tr>
-		  <td bgcolor="#D0D0D0" width="100">{$lang->soo_locations}</td>
+		  <td bgcolor="#D0D0D0" width="70"><label for="locations">{$lang->soo_locations}</label></td>
 		  <td>
 		    <span id="save_form">
 		      <form action="#" onsubmit="soo_save_location(this.locations.value); return false" id="form_to_save">
