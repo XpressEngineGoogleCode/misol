@@ -20,6 +20,7 @@
   $lang->soo_result = "搜索结果";
   $lang->soo_drag_marker_text = "在这里生成地标图.";
   $lang->about_soo_result_use = "即使不知道地名，用鼠标<strong>拖动画面</strong>也可以设定您要找的地址位置。<br /> 在地址搜索输入匡里输入地区名字后按地址搜索，这里会显示相关地址。";
+  $lang->view_map = 'A map is located here.<br />Click here to view the map.';
 
   // error messages
   $lang->msg_no_result = "没有找到您要查找的地址。";

@@ -19,6 +19,7 @@
     $lang->soo_result = "搜尋結果";
     $lang->soo_drag_marker_text = "在此標示";
     $lang->about_soo_result_use = "可藉由拖曳地圖或標示來選擇地區。<br />也可使用搜尋的方式尋找位置。將會在此顯示結果。";
+	$lang->view_map = 'A map is located here.<br />Click here to view the map.';
 
     $lang->msg_no_result = "沒有結果";
     $lang->msg_no_apikey = "Google API KEY尚未輸入。你需要在此輸入 <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=soo_google_map','SetupComponent');return false;\"></a>.";

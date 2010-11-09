@@ -18,6 +18,7 @@
     $lang->soo_result = "Search result";
     $lang->soo_drag_marker_text = "Marker would be placed here.";
     $lang->about_soo_result_use = "You can select the place by dragging maps or dragging marker.<br />You can use searching box to find out the location. The result would be shown up here.";
+	$lang->view_map = 'A map is located here.<br />Click here to view the map.';
 
     $lang->msg_no_result = "No result.";
     $lang->msg_no_apikey = "You did not insult the Google API KEY. You should enter it <a href=\"#\" onclick=\"popopen('./?module=editor&amp;act=dispEditorAdminSetupComponent&amp;component_name=soo_google_map','SetupComponent');return false;\">here</a>.";
