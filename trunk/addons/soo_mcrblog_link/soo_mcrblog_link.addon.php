@@ -4,18 +4,41 @@ if(!defined("__ZBXE__")) exit();
 // author : misol (misol@korea.ac.kr)
 // license : Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국) http://creativecommons.org/licenses/by-sa/2.0/kr/
 // brief : 마이크로 블로그에 글의 링크를 퍼갈 수 있게 합니다.
+
+// called position이 애드온이 동작하는 코드가 없는 곳에서- 여기서 끝
+if($called_position != 'before_display_content' && $called_position != 'before_module_init') return;
 // 로봇에게는 보이지 않음.
 if(isCrawler()) return;
-if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML') {
-	$button_class = '';
+
+// 스마트폰 접속인지 확인하는 부분. XE 모든 버전에서 지원하지 않는 기능이므로 해당 기능이 있는지 먼저 확인. Mobile 이 좀 더 최신 버전이지만 구 버전에서도 애드온이 켜져있으면 smartphoneXE가 존재.
+if(!isset($mobile_set)) {
 	$mobile_set = false;
 	if(class_exists('Mobile')) {
 		if(Mobile::isFromMobilePhone()) {
 			$mobile_set = true;
-			if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
+		}
+	} elseif(class_exists('smartphoneXE')) {
+		if(smartphoneXE::isFromSmartPhone()) {
+			$mobile_set = true;
 		}
 	}
+}
 
+if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML') {
+	// 하단 자바스크립트 이동을 지원하는지 XE 버전으로 체크
+	$body_js_support = false;
+	if(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">")) {
+		$body_js_support = true;
+	}
+
+	$button_class = '';
+
+	// 모바일 접속인 경우 모바일 버튼 설정
+	if($mobile_set == true) {
+		if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
+	}
+
+	// 버튼 설정별로 다른 CSS 파일을 불러옵니다.
 	if(!isset($addon_info->button_type) || (is_numeric($addon_info->button_type) && intval($addon_info->button_type) == 0)) Context::addCssFile('./addons/soo_mcrblog_link/css/style.css');
 	elseif($addon_info->button_type =='oneBtn') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn.css');
 	elseif($addon_info->button_type =='oneBtn_mini') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mini.css');
@@ -27,7 +50,12 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	// 드롭다운 없는 스크랩 버튼
 	if($addon_info->button_type =='oneBtn' || $addon_info->button_type =='oneBtn_mini' || $addon_info->button_type =='oneBtn_mobile') {
-		Context::addJsFile('./addons/soo_mcrblog_link/js/oneBtn.js');
+		if($body_js_support == false) {
+			Context::addJsFile('./addons/soo_mcrblog_link/js/oneBtn.min.js');
+		} else {
+			Context::addJsFile('./addons/soo_mcrblog_link/js/oneBtn.min.js', false, '', null, 'body');
+		}
+		// 기본 가로 크기 설정. IE7에서 이렇게 해야 잘 보이길래
 		$width = '150';
 		if($addon_info->button_type =='oneBtn_mini') $width = $width - 52;
 		elseif($addon_info->button_type =='oneBtn_mobile') $width = $width - 10;
@@ -89,17 +117,9 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		}
 	}
 
-} elseif (Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
+} elseif ($called_position == 'before_module_init' && Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
 	$document_srl = intval(Context::get('target_srl'));
 	$url = getFullUrl('','document_srl',$document_srl);
-
-	$mobile_set = false;
-	if(class_exists('Mobile')) {
-		if(Mobile::isFromMobilePhone()) {
-			$mobile_set = true;
-			if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
-		}
-	}
 
 	if($addon_info->url_shorten != 1) {
 		// 주소 줄이기 http://tln.kr 이용.
@@ -140,6 +160,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		$title_cut_str = substr($title_str,0,$idx);
 		if(strlen($title_cut_str) < $title_str_len) $title_cut_str .= '...';
 
+		// 싸이월드 스크랩을 사용하는 경우에는 싸이월드쪽 크롤러가 읽을 수 있게 xml파일 생성.
 		if($addon_info->cyworld_key_uri != '' && $addon_info->cyworld_key != '') {
 			$cy_xml_path = FileHandler::getRealPath('./files/cache/addons/soo_mcrblog_link/'.md5($addon_info->cyworld_key).'/cyxml/document_srl/'.$document_srl.'.xml');
 			if(file_exists($cy_xml_path)) $cy_xml_mtime = filemtime($cy_xml_path);
