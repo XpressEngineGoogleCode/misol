@@ -117,7 +117,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		}
 	}
 
-} elseif ($called_position == 'before_module_init' && Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu') {
+} elseif ($called_position == 'before_module_init' && Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu' && Context::getResponseMethod() == 'XMLRPC') {
 	$document_srl = intval(Context::get('target_srl'));
 	$url = getFullUrl('','document_srl',$document_srl);
 
