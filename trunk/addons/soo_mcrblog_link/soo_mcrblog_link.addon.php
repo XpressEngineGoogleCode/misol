@@ -8,7 +8,7 @@ if(!defined("__ZBXE__")) exit();
 // called position이 애드온이 동작하는 코드가 없는 곳에서- 여기서 끝
 if($called_position != 'before_display_content' && $called_position != 'before_module_init') return;
 // 로봇에게는 보이지 않음.
-if(isCrawler()) return;
+if(function_exists('isCrawler')) if(isCrawler()) return;
 
 // 스마트폰 접속인지 확인하는 부분. XE 모든 버전에서 지원하지 않는 기능이므로 해당 기능이 있는지 먼저 확인. Mobile 이 좀 더 최신 버전이지만 구 버전에서도 애드온이 켜져있으면 smartphoneXE가 존재.
 if(!isset($mobile_set)) {
@@ -36,11 +36,13 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	// 모바일 접속인 경우 모바일 버튼 설정
 	if($mobile_set == true) {
 		if(isset($addon_info->mobile_button_type) && $addon_info->mobile_button_type != 'none') $addon_info->button_type = $addon_info->mobile_button_type;
+		Context::addJsFile("./common/js/jquery.js");
+		Context::addJsFile("./common/js/xml_handler.js");
 	}
 
 	// 버튼 설정별로 다른 CSS 파일을 불러옵니다.
-	if(!isset($addon_info->button_type) || (is_numeric($addon_info->button_type) && intval($addon_info->button_type) == 0)) Context::addCssFile('./addons/soo_mcrblog_link/css/style.css');
-	elseif($addon_info->button_type =='oneBtn') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn.css');
+	if(!isset($addon_info->button_type) || (is_numeric($addon_info->button_type) && intval($addon_info->button_type) == 0)) $addon_info->button_type = 'oneBtn';
+	if($addon_info->button_type =='oneBtn') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn.css');
 	elseif($addon_info->button_type =='oneBtn_mini') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mini.css');
 	elseif($addon_info->button_type =='oneBtn_mobile') Context::addCssFile('./addons/soo_mcrblog_link/css/oneBtn_mobile.css');
 	else $button_class = 'button';
@@ -120,6 +122,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 } elseif ($called_position == 'before_module_init' && Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonMenu' && Context::getResponseMethod() == 'XMLRPC') {
 	$document_srl = intval(Context::get('target_srl'));
 	$url = getFullUrl('','document_srl',$document_srl);
+	$original_url = $url;
 
 	if($addon_info->url_shorten != 1) {
 		// 주소 줄이기 http://tln.kr 이용.
@@ -228,8 +231,8 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
 		print("<response>\r\n<menus>\r\n");
-		if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
-		else printf("<item>\r\n<url><![CDATA[window.open('http://www.facebook.com/sharer.php?u=%s&t=%s', 'facebookscrap','width=770,height=450')]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", $urlencode_url, urlencode($title_str),$urlencode_url, urlencode($title_str),Context::getRequestUri());
+		if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://m.facebook.com/sharer.php?u=%s&t=%s]]></url>\r\n<alturl><![CDATA[http://m.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode($original_url), urlencode($title_str),urlencode($original_url), urlencode($title_str),Context::getRequestUri());
+		else printf("<item>\r\n<url><![CDATA[window.open('http://www.facebook.com/sharer.php?u=%s&t=%s', 'facebookscrap','width=770,height=450')]]></url>\r\n<alturl><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></alturl>\r\n<str>Facebook</str>\r\n<icon>%saddons/soo_mcrblog_link/images/facebook.gif</icon>\r\n<target>javascript</target>\r\n</item>\r\n", urlencode($original_url), urlencode($title_str),urlencode($original_url), urlencode($title_str),Context::getRequestUri());
 		printf("<item>\r\n<url><![CDATA[http://twitter.com/home/?status=%s]]></url>\r\n<str>Twitter</str>\r\n<icon>%saddons/soo_mcrblog_link/images/twitter.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode($title_cut_str.' '.$url),Context::getRequestUri());
 		if($mobile_set == true) printf("<item>\r\n<url><![CDATA[http://m.me2day.net/p/posts/new?new_post[body]=%s&new_post[tags]=%s]]></url>\r\n<str>me2day</str>\r\n<icon>%saddons/soo_mcrblog_link/images/me2day.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$url), $tag_list,Context::getRequestUri());
 		else printf("<item>\r\n<url><![CDATA[http://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s]]></url>\r\n<str>me2day</str>\r\n<icon>%saddons/soo_mcrblog_link/images/me2day.gif</icon>\r\n<target>default</target>\r\n</item>\r\n", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$url), $tag_list,Context::getRequestUri());
