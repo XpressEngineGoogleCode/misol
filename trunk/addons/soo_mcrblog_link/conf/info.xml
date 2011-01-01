@@ -2,6 +2,7 @@
 <addon version="0.2">
 	<title xml:lang="ko">요약 책갈피</title>
 	<title xml:lang="en">SNS Bookmarker</title>
+	<title xml:lang="zh-TW">社交書籤</title>
 	<description xml:lang="ko">
 		Facebook, Twitter, me2day, Yozm, Cyworld에 해당 글을 책갈피 할 수 있게 합니다.
 		가로로 긴 버튼 이미지는 크으은바다님께서 제공해 주셨습니다. 크으은 바다님 고맙습니다.
@@ -15,6 +16,12 @@
 		Source code is opened on http://misol.googlecode.com/ .
 		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
 	</description>
+	<description xml:lang="zh-TW">
+		可將文章轉貼到 Facebook, Twitter, me2day, Yozm 或 Cyworld 等網站。
+		KeoEuEun Bada provided Wide Button. Thanks K. Bada.
+		Source code is opened on http://misol.googlecode.com/ .
+		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+	</description>
 	<version>1.0</version>
 	<date>2010-12-16</date>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
@@ -22,6 +29,7 @@
 	<author email_address="misol@korea.ac.kr" link="http://twitter.com/misol221">
 		<name xml:lang="ko">민수</name>
 		<name xml:lang="en">Min-Soo Kim</name>
+		<name xml:lang="zh-TW">Min-Soo Kim</name>
 	</author>
 	<extra_vars>
 		<var name="ex_use" type="select">
