@@ -31,8 +31,10 @@ $http_langtype = array(
 	'zh-tw'
 );
 
+// 브라우저마다 대소문자는 다르므로 전부 소문자로 바꿔서 비교.
 $http_user_lang = str_replace($http_langtype, $xe_langtype, strtolower(trim($_SERVER['HTTP_ACCEPT_LANGUAGE'])));
 
+// 사이트가 지원하는 언어중에서만 선택
 $lang_supported = Context::get('lang_supported');
 
 $http_user_lang = explode(',', $http_user_lang);
