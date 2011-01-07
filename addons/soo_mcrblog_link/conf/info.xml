@@ -3,24 +3,39 @@
 	<title xml:lang="ko">요약 책갈피</title>
 	<title xml:lang="en">SNS Bookmarker</title>
 	<title xml:lang="zh-TW">社交書籤</title>
+	<title xml:lang="zh-CN">SNS 书签</title>
 	<description xml:lang="ko">
 		Facebook, Twitter, me2day, Yozm, Cyworld에 해당 글을 책갈피 할 수 있게 합니다.
 		가로로 긴 버튼 이미지는 크으은바다님께서 제공해 주셨습니다. 크으은 바다님 고맙습니다.
 		소스 코드를 보고 싶으신 분은 http://misol.googlecode.com/ 을 방문하세요.
 		사용권은 크리에이티브 커먼스 저작자표시-동일조건변경허락 2.0 대한민국 라이선스를 따릅니다. 사용권에 대한 자세한 사항은 http://creativecommons.org/licenses/by-sa/2.0/kr/ 를 참조하세요.
 		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+		
+		번역을 도와주신 분 : royallin (zh-TW), 박문호 (zh-CN)
 	</description>
 	<description xml:lang="en">
 		Link a document to Facebook, Twitter, me2day, Yozm, or Cyworld.
 		KeoEuEun Bada provided Wide Button. Thanks K. Bada.
 		Source code is opened on http://misol.googlecode.com/ .
 		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+		
+		Translators : royallin (zh-TW), 박문호 (zh-CN)
 	</description>
 	<description xml:lang="zh-TW">
 		可將文章轉貼到 Facebook, Twitter, me2day, Yozm 或 Cyworld 等網站。
 		KeoEuEun Bada provided Wide Button. Thanks K. Bada.
 		Source code is opened on http://misol.googlecode.com/ .
 		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+		
+		Translators : royallin (zh-TW), 박문호 (zh-CN)
+	</description>
+	<description xml:lang="zh-CN">
+		Link a document to Facebook, Twitter, me2day, Yozm, or Cyworld.
+		KeoEuEun Bada provided Wide Button. Thanks K. Bada.
+		Source code is opened on http://misol.googlecode.com/ .
+		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+		
+		Translators : royallin (zh-TW), 박문호 (zh-CN)
 	</description>
 	<version>1.0</version>
 	<date>2010-12-16</date>
@@ -30,18 +45,30 @@
 		<name xml:lang="ko">민수</name>
 		<name xml:lang="en">Min-Soo Kim</name>
 		<name xml:lang="zh-TW">Min-Soo Kim</name>
+		<name xml:lang="zh-CN">Min-Soo Kim</name>
 	</author>
 	<extra_vars>
+		<var name="tag">
+			<title xml:lang="ko">해시 태그</title>
+			<title xml:lang="en">Hash Tag</title>
+			<title xml:lang="zh-CN">哈希标签</title>
+			<description xml:lang="ko">트위터, 미투데이, 요즘으로 글을 가져갈 때 포함될 태그를 설정할 수 있습니다.</description>
+			<description xml:lang="en">Hash tag with a scrapped document.</description>
+			<description xml:lang="zh-CN">Hash tag with a scrapped document.</description>
+		</var>
 		<var name="ex_use" type="select">
 			<title xml:lang="ko">지원 모듈 확장</title>
 			<title xml:lang="en">Extention</title>
+			<title xml:lang="zh-CN">模块扩展</title>
 			<options value="0">
 				<title xml:lang="ko">사용 안함</title>
 				<title xml:lang="en">OFF</title>
+				<title xml:lang="zh-CN">关闭</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">사용</title>
 				<title xml:lang="en">ON</title>
+				<title xml:lang="zh-CN">开启</title>
 			</options>
 			<description xml:lang="ko">스크랩 기능을 적용하는 모듈을 확장합니다. 확장 기능을 사용하면 ShopXE와 같은 모듈에서 스크랩 기능을 이용할 수 있습니다.
 			하지만 확장 기능은 문서 모듈에서 해당 문서를 한번 더 호출하기 때문에 데이터베이스 모듈에 약간 부담을 줄 수 있습니다.
@@ -50,115 +77,148 @@
 			However, it can make DB server overload.
 			Board module or Textyle module does not require Extention.
 			(default : OFF)</description>
+			<description xml:lang="zh-CN">Extend applying modules. Extention will allow you to add scrap button on many modules like ShopXE.
+			However, it can make DB server overload.
+			Board module or Textyle module does not require Extention.
+			(default : OFF)</description>
 		</var>
 		<var name="url_shorten" type="select">
 			<title xml:lang="ko">주소 줄이기 사용</title>
 			<title xml:lang="en">Tiny Linker</title>
+			<title xml:lang="zh-CN">开启短网址</title>
 			<options value="0">
 				<title xml:lang="ko">사용</title>
 				<title xml:lang="en">ON</title>
+				<title xml:lang="zh-CN">开启</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">사용 안함</title>
 				<title xml:lang="en">OFF</title>
+				<title xml:lang="zh-CN">关闭</title>
 			</options>
 			<description xml:lang="ko">스크랩 하는 주소의 길이를 줄여줍니다. http://tln.kr/ 를 이용합니다. 사용하지 않으시려면 사용 안함으로 설정해주세요. (기본값: 사용함)</description>
 			<description xml:lang="en">Shorten link URL. http://tln.kr/ provides URL shortening service. If you want full URL with your website title, OFF this option. (default : ON)</description>
+			<description xml:lang="zh-CN">利用http://tln.kr/ 缩短转的地址。默认是开启。</description>
 		</var>
 		<var name="text_position" type="select">
 			<title xml:lang="ko">위/아래 위치</title>
 			<title xml:lang="en">Vertical position</title>
+			<title xml:lang="zh-CN">上/下 位子</title>
 			<options value="0">
 				<title xml:lang="ko">아래</title>
 				<title xml:lang="en">bottom</title>
+				<title xml:lang="zh-CN">下</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">위</title>
 				<title xml:lang="en">top</title>
+				<title xml:lang="zh-CN">上</title>
 			</options>
 			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 글을 기준으로 글의 위/아래를 정할 수 있습니다.</description>
 			<description xml:lang="en">Where the scrap button is located. Top of a document or bottom of it.</description>
+			<description xml:lang="zh-CN">指定转到语句的位子。指定文字的上方或下方</description>
 		</var>
 		<var name="text_align" type="select">
 			<title xml:lang="ko">왼쪽/가운데/오른쪽 정렬</title>
 			<title xml:lang="en">Horizontal position</title>
+			<title xml:lang="zh-CN">左边/中间/右边的排序</title>
 			<options value="left">
 				<title xml:lang="ko">왼쪽</title>
 				<title xml:lang="en">left</title>
+				<title xml:lang="zh-CN">左边</title>
 			</options>
 			<options value="center">
 				<title xml:lang="ko">가운데</title>
 				<title xml:lang="en">centre</title>
+				<title xml:lang="zh-CN">中间</title>
 			</options>
 			<options value="right">
 				<title xml:lang="ko">오른쪽</title>
 				<title xml:lang="en">right</title>
+				<title xml:lang="zh-CN">右边</title>
 			</options>
 			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 버튼이 왼쪽 정렬될지, 가운데 정렬될지, 오른쪽 정렬이 될 지 선택할 수 있습니다.</description>
 			<description xml:lang="en">Where the scrap button is located. Left/centre/right of a document.</description>
+			<description xml:lang="zh-CN">Where the scrap button is located. Left/centre/right of a document.</description>
 		</var>
 		<var name="button_type" type="select">
 			<title xml:lang="ko">PC환경 버튼 모양</title>
 			<title xml:lang="en">Shape of button (PC)</title>
+			<title xml:lang="zh-CN">Shape of button (PC)</title>
 			<options value="oneBtn">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼</title>
 				<title xml:lang="en">Wide button provided by K. Bada</title>
+				<title xml:lang="zh-CN">没有下拉菜单的图片按钮</title>
 			</options>
 			<options value="oneBtn_mini">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼_2</title>
 				<title xml:lang="en">Wide button provided by K. Bada Edit.2</title>
+				<title xml:lang="zh-CN">没有下拉菜单的图片按钮2</title>
 			</options>
 			<options value="oneBtn_mobile">
 				<title xml:lang="ko">모바일 버튼</title>
 				<title xml:lang="en">For Mobile</title>
+				<title xml:lang="zh-CN">移动设备</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">버튼 기본</title>
 				<title xml:lang="en">XE default button</title>
+				<title xml:lang="zh-CN">默认按钮</title>
 			</options>
 			<options value="large">
 				<title xml:lang="ko">큰 버튼</title>
 				<title xml:lang="en">Big XE default button</title>
+				<title xml:lang="zh-CN">大按钮</title>
 			</options>
 			<options value="xLarge">
 				<title xml:lang="ko">아주 큰 버튼</title>
 				<title xml:lang="en">Very big XE default button</title>
+				<title xml:lang="zh-CN">超大按钮</title>
 			</options>
 			<options value="red">
 				<title xml:lang="ko">빨간 버튼</title>
 				<title xml:lang="en">XE red button</title>
+				<title xml:lang="zh-CN">红色按钮</title>
 			</options>
 			<options value="large red">
 				<title xml:lang="ko">큰 빨간 버튼</title>
 				<title xml:lang="en">Big XE red button</title>
+				<title xml:lang="zh-CN">红色大按钮</title>
 			</options>
 			<options value="xLarge red">
 				<title xml:lang="ko">아주 큰 빨간 버튼</title>
 				<title xml:lang="en">Very big XE red button</title>
+				<title xml:lang="zh-CN">红色的超大按钮</title>
 			</options>
 			<options value="blue">
 				<title xml:lang="ko">파란 버튼</title>
 				<title xml:lang="en">XE blue button</title>
+				<title xml:lang="zh-CN">蓝色按钮</title>
 			</options>
 			<options value="large blue">
 				<title xml:lang="ko">큰 파란 버튼</title>
 				<title xml:lang="en">Big XE blue button</title>
+				<title xml:lang="zh-CN">蓝色大按钮</title>
 			</options>
 			<options value="xLarge blue">
 				<title xml:lang="ko">아주 큰 파란 버튼</title>
 				<title xml:lang="en">Very big XE blue button</title>
+				<title xml:lang="zh-CN">蓝色的超大按钮</title>
 			</options>
 			<options value="green">
 				<title xml:lang="ko">초록 버튼</title>
 				<title xml:lang="en">XE green button</title>
+				<title xml:lang="zh-CN">绿色按钮</title>
 			</options>
 			<options value="large green">
 				<title xml:lang="ko">큰 초록 버튼</title>
 				<title xml:lang="en">Big XE green button</title>
+				<title xml:lang="zh-CN">绿色大按钮</title>
 			</options>
 			<options value="xLarge green">
 				<title xml:lang="ko">아주 큰 초록 버튼</title>
 				<title xml:lang="en">Very big XE green button</title>
+				<title xml:lang="zh-CN">绿色的超大按钮</title>
 			</options>
 			<description xml:lang="ko"><![CDATA[버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.<br />아래는 이미지 버튼 2개의 미리보기 입니다.<br />
 			<ul>
@@ -170,25 +230,35 @@
 				<li>Wide button : <br /><img alt="Wide button by K. Bada" src="./addons/soo_mcrblog_link/images/scrapbar.png" /><br />Click each site image. K. Bada provided it.</li>
 				<li>For Mobile : <br /><img alt="For Mobile" src="./addons/soo_mcrblog_link/images/mobile_scrapbar.png" /><br />Click each site image. Bigger site image for touch mobile situation.</li>
 			</ul>]]></description>
+			<description xml:lang="zh-CN"><![CDATA[Select button type. XE buttons will have drop down menu.<br />Here is some preview images.
+			<ul>
+				<li>Wide button : <br /><img alt="Wide button by K. Bada" src="./addons/soo_mcrblog_link/images/scrapbar.png" /><br />Click each site image. K. Bada provided it.</li>
+				<li>For Mobile : <br /><img alt="For Mobile" src="./addons/soo_mcrblog_link/images/mobile_scrapbar.png" /><br />Click each site image. Bigger site image for touch mobile situation.</li>
+			</ul>]]></description>
 		</var>
 		<var name="mobile_button_type" type="select">
 			<title xml:lang="ko">모바일 환경 버튼 모양</title>
 			<title xml:lang="en">Shape of button (Mobile)</title>
+			<title xml:lang="zh-CN">移动设备模样的按钮</title>
 			<options value="none">
 				<title xml:lang="ko">PC 버튼 설정과 동일</title>
 				<title xml:lang="en">As the PC setting</title>
+				<title xml:lang="zh-CN">pc和一样设置</title>
 			</options>
 			<options value="oneBtn">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼</title>
 				<title xml:lang="en">Wide button by K. Bada</title>
+				<title xml:lang="zh-CN">没有下拉菜单的图片按钮</title>
 			</options>
 			<options value="oneBtn_mini">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼_2</title>
 				<title xml:lang="en">Wide button by K. Bada Edit.2</title>
+				<title xml:lang="zh-CN">没有下拉菜单的图片按钮2</title>
 			</options>
 			<options value="oneBtn_mobile">
 				<title xml:lang="ko">모바일 버튼</title>
 				<title xml:lang="en">For Mobile</title>
+				<title xml:lang="zh-CN">移动设备按钮</title>
 			</options>
 			<description xml:lang="ko"><![CDATA[모바일 환경에서 버튼 모양을 PC 환경과 다르게 설정할 수 있습니다.<br />
 			이는 PC환경과 달리 손가락으로 조작 해야하는 터치폰 환경(넥서스원, 아이폰 등)을 고려한 것입니다.<br />
@@ -198,22 +268,30 @@
 			Touch phone usually controlled with finger (not a mouse pointer).<br />
 			The For Mobile option will show a little bigger button than Wide button for easy touching.<br />
 			smartphone XE addon or XE Core 1.4.4 and upper edition required.]]></description>
+			<description xml:lang="zh-CN"><![CDATA[Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)<br />
+			Touch phone usually controlled with finger (not a mouse pointer).<br />
+			The For Mobile option will show a little bigger button than Wide button for easy touching.<br />
+			smartphone XE addon or XE Core 1.4.4 and upper edition required.]]></description>
 		</var>
 		<var name="cyworld_key_uri">
 			<title xml:lang="ko">싸이월드 스크랩 URI</title>
 			<title xml:lang="en">Cyworld scrap URI (Optional)</title>
+			<title xml:lang="zh-CN">转到韩国赛我的url</title>
 			<description xml:lang="ko">입력하시면, 싸이월드로도 스크랩 하실 수 있습니다. http://devsquare.nate.com/openApi/registerNc 에서 키를 발급받을때 입력한 도메인을 포함한 XE 절대경로 (http를 포함해서 써주세요.)
 				예 ) http://example.com/xe/</description>
 			<description xml:lang="en">This is an optional item. If you want to use Cyworld scrap API, fill in this blank.
 				Enter URI+XE location that you wrote on http://devsquare.nate.com/openApi/registerNc to get API Key (please inclued http://)
 				eg.) http://example.com/xe/</description>
+			<description xml:lang="zh-CN">输入的话能转到赛我里</description>
 		</var>
 		<var name="cyworld_key">
 			<title xml:lang="ko">싸이월드 스크랩 API키</title>
 			<title xml:lang="en">Cyworld API Key (Optional)</title>
+			<title xml:lang="zh-CN">韩国赛我api</title>
 			<description xml:lang="ko">입력하시면, 싸이월드로도 스크랩 하실 수 있습니다. http://devsquare.nate.com/openApi/registerNc 에서 발급받은 키</description>
 			<description xml:lang="en">This is an optional item. If you want to use Cyworld scrap API, fill in this blank.
 				API Key, you get from http://devsquare.nate.com/openApi/registerNc</description>
+			<description xml:lang="zh-CN">输入获得的api key的话能转 这里获取keyhttp://devsquare.nate.com/openApi/registerNc</description>
 		</var>
 	</extra_vars>
 </addon>
