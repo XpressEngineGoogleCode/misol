@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">접속 도구 차단기</title>
+	<description xml:lang="ko">
+		지정된 접속 도구(User-Agent) 값을 갖는 접속은 차단합니다.
+	</description>
+	<version>0.1</version>
+	<date>2010-12-16</date>
+	<license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons 저작자표시 2.0 대한민국 라이선스</license>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol221@paran.com" link="http://www.imsoo.net">
+		<name xml:lang="ko">민수(misol)</name>
+		<name xml:lang="en">misol</name>
+	</author>
+	<extra_vars>
+		<var name="do_useragent" type="textarea">
+			<title xml:lang="ko">차단할 User-Agent</title>
+			<description xml:lang="ko">해당 User-Agent가 포함하는 문자열 일부를 쓰세요. 여러 개를 쓸 때는 줄을 바꿔서 구분하세요. 쓰여진 문자열을 포함하는 접속자에게는 404 Not Found페이지를 표시합니다. (예 : firefox, 대소문자를 구분하지 않습니다.)</description>
+		</var>
+	</extra_vars>
+</addon>

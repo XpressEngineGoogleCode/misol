@@ -11,8 +11,8 @@ if(class_exists('smartphoneXE')) {
 }
 $nac = 'soo_for_muzik_player';
 if($called_position == 'before_module_init') {
-  if(Context::get('outframe')) {
-    $_SESSION['soo_for_muzik_player']['outframe'] = false;
+  if(Context::get('outframe')=='true') {
+    $_SESSION['soo_for_muzik_player']['outframe'] = 2;
     FileHandler::writeFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt',1);
   }
 }
@@ -20,7 +20,7 @@ if(Context::get('fr')) {
   Context::addJsFile('./addons/soo_for_muzik_player/js/frame_loader.js');
 }
 // 프레임을 사용하지 않도록 세션이 정의되어 있으면 작동하지 않음.
-if($_SESSION['soo_for_muzik_player']['outframe'] === false) return;
+if($_SESSION['soo_for_muzik_player']['outframe'] == 2) return;
 // 로봇일 경우 동작 안함.
 if(function_exists('isCrawler')) {
   if(isCrawler()) return;
@@ -60,7 +60,7 @@ if(Context::getResponseMethod() == 'HTML') {
     $check = FileHandler::readFile('./files/cache/addons/soo_for_muzik_player/ip/ip_'.urlencode($_SERVER['REMOTE_ADDR']).'.txt');
     if($check) {
       // 세션을 전역 변수처럼 사용. (애드온 사용 순서가 순차적으로 적용되니까.)
-      $_SESSION['soo_for_muzik_player']['outframe'] = false;
+      $_SESSION['soo_for_muzik_player']['outframe'] = 2;
       return;
     }
   } elseif($called_position == 'before_display_content') {

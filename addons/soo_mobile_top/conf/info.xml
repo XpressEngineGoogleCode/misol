@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">모바일 최상단 스크롤</title>
+	<title xml:lang="en">Scroll to top on Mobile</title>
+	<description xml:lang="ko">
+		스마트폰이나 아이팟에서 접속하면 보이는 모바일 뷰 페이지에서 페이지가 모두 표시되면 최상단으로 스크롤 되게 합니다.
+	</description>
+	<version>1</version>
+	<date>2010-11-29</date>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol@korea.ac.kr" link="http://twitter.com/misol221">
+		<name xml:lang="ko">민수</name>
+		<name xml:lang="en">Min-Soo Kim</name>
+	</author>
+</addon>

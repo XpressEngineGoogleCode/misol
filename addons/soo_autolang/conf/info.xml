@@ -3,20 +3,26 @@
 	<title xml:lang="ko">자동 언어 선택</title>
 	<title xml:lang="zh-TW">自動選擇語言</title>
 	<title xml:lang="en">Auto-language select</title>
+	<title xml:lang="jp">自動言語選択</title>
 	<description xml:lang="ko">
 		HTTP_ACCEPT_LANGUAGE 정보에 따라 홈페이지의 언어를 자동으로 선택합니다.
-		
-		번역을 도와주신 분 : royallin(zh-TW)
+
+		번역을 도와주신 분 : royallin(zh-TW), MinKi Kim (canfas@gmail.com) (Japanese)
 	</description>
 	<description xml:lang="zh-TW">
 		HTTP_ACCEPT_LANGUAGE 會自動選擇網頁語言
-		
-		Translator : royallin (zh-TW)
+
+		Translator : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese)
 	</description>
 	<description xml:lang="en">
 		Automatically select preferred language, according to HTTP_ACCEPT_LANGUAGE information.
-		
-		Translators : royallin (zh-TW)
+
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese)
+	</description>
+	<description xml:lang="jp">
+		HTTP_ACCEPT_LANGUAGE 情報でホームページの言語を自動変換します。
+
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese)
 	</description>
 	<version>1.0</version>
 	<date>2010-12-23</date>
