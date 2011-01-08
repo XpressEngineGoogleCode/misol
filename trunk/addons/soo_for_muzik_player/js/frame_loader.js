@@ -1,3 +1,5 @@
+var is_sooframe;
+
 jQuery(document).ready(function () {
   if(typeof(window.parent.is_sooframe) == "undefined" && typeof(_isPoped) == "undefined") {
     var params = new Array();
@@ -27,4 +29,3 @@ function SooFrameSetter(ret_obj, response_tags) {
   }
 }
 parent.document.title = document.title;
-var is_sooframe;

@@ -140,9 +140,15 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if($oDocument->isExists()) {
 		$title_str = $oDocument->getTitleText();
+		if($addon_info->tag) $title_str .= ' #'.$addon_info->tag;
+
 		$title_str_len = strlen($title_str);
 		$tag_list = $oDocument->get('tag_list');
 		$tag_list = implode(', ',$tag_list);
+		if($addon_info->tag) {
+			if($tag_list) $tag_list .= ', '.$addon_info->tag;
+			else $tag_list = $addon_info->tag;
+		}
 		$tag_list = urlencode($tag_list);
 
 		$str_cut_allow = 134 - $url_len;

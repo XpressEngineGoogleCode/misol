@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">구글 anlytics</title>
+	<description xml:lang="ko">
+		Google anlytics를 답니다.
+	</description>
+	<version>1.0</version>
+	<date>2010-12-16</date>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
+		<name xml:lang="ko">민수</name>
+		<name xml:lang="en">Min-Soo Kim</name>
+	</author>
+	<extra_vars>
+		<var name="api_key">
+			<title xml:lang="ko">웹 속성 ID</title>
+			<description xml:lang="ko">UA-1234567-8 과 같은 키</description>
+		</var>
+	</extra_vars>
+</addon>
