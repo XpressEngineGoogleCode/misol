@@ -17,6 +17,8 @@
 	</author>
 	<extra_vars>
 		<var name="jquery_url" type="select">
+			<title xml:lang="ko">jQuery 경로</title>
+			<title xml:lang="en">jQuery CDN provider</title>
 			<options value="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.min.js">
 				<title xml:lang="ko">Microsoft (jQuery 1.4.2, XE 1.4.4 에 포함된 것과 같은 버전) (권장)</title>
 				<title xml:lang="en">Microsoft (jQuery 1.4.2) (recommanded)</title>
