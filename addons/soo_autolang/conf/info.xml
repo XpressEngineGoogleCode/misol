@@ -9,32 +9,32 @@
 	<description xml:lang="ko">
 		HTTP_ACCEPT_LANGUAGE 정보에 따라 홈페이지의 언어를 자동으로 선택합니다.
 
-		번역을 도와주신 분 : royallin(zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		번역을 도와주신 분 : royallin(zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<description xml:lang="zh-TW">
 		HTTP_ACCEPT_LANGUAGE 會自動選擇網頁語言
 
-		Translator : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		Translator : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<description xml:lang="en">
 		Automatically select preferred language, according to HTTP_ACCEPT_LANGUAGE information.
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<description xml:lang="jp">
 		HTTP_ACCEPT_LANGUAGE 情報でホームページの言語を自動変換します。
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<description xml:lang="mn">
 		HTTP_ACCEPT_LANGUAGE  мэдээлэл дагаж вэб хуудасний хэл сонгоно
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<description xml:lang="vi">
 		HTTP_ACCEPT_LANGUAGE Ngôn ngữ chương trình tại trang chủ tự động thay đổi được.
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), 옴바(Mongolian), 오현(Vietnamese)
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese)
 	</description>
 	<version>1.0</version>
 	<date>2010-12-23</date>
