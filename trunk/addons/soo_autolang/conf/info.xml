@@ -15,7 +15,7 @@
 	<description xml:lang="zh-TW">
 		HTTP_ACCEPT_LANGUAGE 會自動選擇網頁語言
 
-		Translator : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="en">
 		Automatically select preferred language, according to HTTP_ACCEPT_LANGUAGE information.
