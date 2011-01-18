@@ -1,7 +1,7 @@
 <?php
 if(!defined("__ZBXE__")) exit();
 // soo_autolang.addon.php 언어 자동 선택 애드온
-// written by Kim, Min-Soo. 김민수에 의해 작성되었습니다.
+// by Kim, Min-Soo. 김민수에 의해 작성되었습니다.
 // misol is Min-Soo's ID on the internet. 김민수와 misol은 동일인입니다.
 // This code is distributed under Creative Commons Attribution 2.0 Korea license, http://creativecommons.org/licenses/by/2.0/kr/ .
 // 이 코드는 크리에이티브 커먼즈 저작자표시 2.0 대한민국 사용권에 따르는 조건으로 배포합니다. 자세한 내용은 http://creativecommons.org/licenses/by/2.0/kr/ 를 참조하세요.
@@ -44,6 +44,7 @@ if(is_array($lang_supported)) {
 	foreach($http_user_lang as $user_key => $user_val) {
 		if($auto_selected == -1) break;
 		foreach($lang_supported as $key => $val) {
+			if($auto_selected == -1) break;
 			$user_val_arr = explode(';', $user_val);
 			if(!isset($user_val_arr[1])) $user_val_arr[1] = 'q=1';
 			if(trim($key) == trim($user_val_arr[0]) && trim($user_val_arr[1]) != 'q=0') {

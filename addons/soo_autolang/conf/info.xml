@@ -10,40 +10,40 @@
 	<description xml:lang="ko">
 		HTTP_ACCEPT_LANGUAGE 정보에 따라 홈페이지의 언어를 자동으로 선택합니다.
 
-		번역을 도와주신 분 : royallin(zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		번역을 도와주신 분 : royallin(Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="zh-TW">
 		HTTP_ACCEPT_LANGUAGE 會自動選擇網頁語言
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="en">
 		Automatically select preferred language, according to HTTP_ACCEPT_LANGUAGE information.
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="jp">
 		HTTP_ACCEPT_LANGUAGE 情報でホームページの言語を自動変換します。
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="mn">
 		HTTP_ACCEPT_LANGUAGE  мэдээлэл дагаж вэб хуудасний хэл сонгоно
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="vi">
 		HTTP_ACCEPT_LANGUAGE Ngôn ngữ chương trình tại trang chủ tự động thay đổi được.
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
 	<description xml:lang="es">
 		El idoma de la página sera elegido por información de HTTP_ACCEPT_LANGUAGE.
 
-		Translators : royallin (zh-TW), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), 오현(Vietnamese), SuP(Spanish)
+		Translators : royallin (Taiwanese), MinKi Kim (canfas@gmail.com) (Japanese), Umbaa(Mongolian), ForHanbi(Vietnamese), SuP(Spanish)
 	</description>
-	<version>1.0</version>
-	<date>2010-12-23</date>
+	<version>1.0.1</version>
+	<date>2011-01-18</date>
 	<license link="http://creativecommons.org/licenses/by/2.0/kr/">Creative Commons License Attribution 2.0 Korea (크리에이티브 커먼즈 저작자표시 2.0 대한민국 라이선스)</license>
 	<link>http://www.imsoo.net</link>
 	<author email_address="misol221@paran.com" link="http://www.imsoo.net">
