@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
 	<title xml:lang="ko">구글 anlytics</title>
+	<title xml:lang="zh-TW">Google Anlytics(分析)</title>
 	<description xml:lang="ko">
 		Google anlytics를 답니다.
+	</description>
+	<description xml:lang="zh-TW">
+		Google Anlytics(分析)附加元件。
 	</description>
 	<version>1.0</version>
 	<date>2010-12-16</date>
@@ -11,11 +15,14 @@
 	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
 		<name xml:lang="ko">민수</name>
 		<name xml:lang="en">Min-Soo Kim</name>
+		<name xml:lang="zh-TW">Min-Soo Kim</name>
 	</author>
 	<extra_vars>
 		<var name="api_key">
 			<title xml:lang="ko">웹 속성 ID</title>
+			<title xml:lang="zh-TW">帳戶 ID</title>
 			<description xml:lang="ko">UA-1234567-8 과 같은 키</description>
+			<description xml:lang="zh-TW">請輸入帳戶 ID 。(例 UA-1234567-8 </description>
 		</var>
 	</extra_vars>
 </addon>
