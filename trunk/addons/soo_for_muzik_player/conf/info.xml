@@ -1,97 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
-  <title xml:lang="ko">배경 음악 재생기를 위한 프레임 나누기 도구</title>
-  <title xml:lang="en">Frame set Maker for Wide Music Player</title>
-  <description xml:lang="ko">
-    배경 음악 재생기가 음악을 재생할 때, 음악이 끊기지 않도록 프레임을 나눠줍니다.
-  </description>
-  <description xml:lang="en">
-    When you use this addon, it will make a frame set to lay a wide music player.
-  </description>
-  <version>0.2.7</version>
-  <date>2010-06-16</date>
-  <link>http://www.imsoo.net</link>
-  <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
-    <name xml:lang="ko">민수(misol)</name>
-    <name xml:lang="en">Min-Soo Kim(misol)</name>
-    <name xml:lang="zh-CN">金旻洙(misol)</name>
-  </author>
-  <extra_vars>
-    <var name="frame_position" type="select">
-      <title xml:lang="ko">추가할 프레임 위치</title>
-      <title xml:lang="en">Position of New Frame</title>
-      <options value="up">
-        <title xml:lang="ko">위</title>
-        <title xml:lang="en">Upper</title>
-      </options>
-      <options value="down">
-        <title xml:lang="ko">아래</title>
-        <title xml:lang="en">Down</title>
-      </options>
-      <options value="left">
-        <title xml:lang="ko">왼쪽</title>
-        <title xml:lang="en">Left</title>
-      </options>
-      <options value="right">
-        <title xml:lang="ko">오른쪽</title>
-        <title xml:lang="en">Right</title>
-      </options>
-      <description xml:lang="ko">새로 추가될 프레임이 화면에서 위치할 곳을 지정합니다. 음악 재생기용으로 사용한다면, 음악 재생기의 화면상 위치가 됩니다.</description>
-      <description xml:lang="en">Position of new frame on your window that would be used for a music player.</description>
-    </var>
-    <var name="frame_page" type="text">
-      <title xml:lang="ko">추가할 프레임 페이지</title>
-      <title xml:lang="en">Site of New Frame</title>
-      <description xml:lang="ko">새로 추가될 프레임의 페이지를 지정합니다. 음악 재생기용으로 사용한다면, 음악 재생기의 위치가 됩니다. (URL)</description>
-      <description xml:lang="en">Site of new frame that would be used for a music player. (URL)</description>
-    </var>
-    <var name="frame_size" type="text">
-      <title xml:lang="ko">추가할 프레임 높이/너비</title>
-      <title xml:lang="en">Height/Width of New Frame</title>
-      <description xml:lang="ko">새로 추가될 프레임의 페이지의 높이/너비를 지정합니다. 새로 추가되는 프레임이 위나 아래에 위치하면 높이 설정값이며, 왼쪽이나 오른쪽에 위치하면 너비 설정값입니다. (기본값 : 20) (단위 : px)</description>
-      <description xml:lang="en">Height/Width of new frame. If new frame is on the left, set width of it, or it is on the bottom, set height of it. (eg. Height of music player.) (default value : 20) (unit : px)</description>
-    </var>
-    <var name="frame_border" type="select">
-      <title xml:lang="ko">프레임 테두리 표시</title>
-      <title xml:lang="en">Border display</title>
-      <options value="0">
-        <title xml:lang="ko">표시 안함</title>
-        <title xml:lang="en">do not.</title>
-      </options>
-      <options value="1">
-        <title xml:lang="ko">표시</title>
-        <title xml:lang="en">do.</title>
-      </options>
-      <description xml:lang="ko">프레임 사이에 테두리 표시 (기본값 : 표시 안함)</description>
-      <description xml:lang="en">Border between frames. (default value : do not display.)</description>
-    </var>
-    <var name="frame_resize" type="select">
-      <title xml:lang="ko">프레임 크기 변경 가능 여부</title>
-      <title xml:lang="en">Allow Resize</title>
-      <options value="noresize">
-        <title xml:lang="ko">불가</title>
-        <title xml:lang="en">Disallow</title>
-      </options>
-      <options value="Y">
-        <title xml:lang="ko">가능</title>
-        <title xml:lang="en">Allow</title>
-      </options>
-      <description xml:lang="ko">새로 추가된 프레임의 크기 변경을 허용 합니까? (기본값 : 불가)</description>
-      <description xml:lang="en">Allow frame resizing. (default value : Disallow)</description>
-    </var>
-    <var name="frame_scroll" type="select">
-      <title xml:lang="ko">프레임 스크롤바 표시</title>
-      <title xml:lang="en">Scrollbar display</title>
-      <options value="0">
-        <title xml:lang="ko">표시 안함</title>
-        <title xml:lang="en">do not.</title>
-      </options>
-      <options value="1">
-        <title xml:lang="ko">표시</title>
-        <title xml:lang="en">do.</title>
-      </options>
-      <description xml:lang="ko">새로 생긴 프레임에 스크롤바 표시 (기본값 : 표시 안함)</description>
-      <description xml:lang="en">Display scrollbar on the new frame. (default value : do not display.)</description>
-    </var>
-  </extra_vars>
+	<title xml:lang="ko">배경 음악 재생기를 위한 프레임 나누기 도구</title>
+	<title xml:lang="en">Frame set Maker for Wide Music Player</title>
+	<description xml:lang="ko">
+		배경 음악 재생기가 음악을 재생할 때, 음악이 끊기지 않도록 프레임을 나눠줍니다.
+	</description>
+	<description xml:lang="en">
+		When you use this addon, it will make a frame set to lay a wide music player.
+	</description>
+	<version>0.3</version>
+	<date>2011-01-23</date>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
+		<name xml:lang="ko">민수(misol)</name>
+		<name xml:lang="en">Min-Soo Kim(misol)</name>
+	</author>
+	<extra_vars>
+		<var name="frame_position" type="select">
+			<title xml:lang="ko">추가할 프레임 위치</title>
+			<title xml:lang="en">Position of New Frame</title>
+			<options value="up">
+				<title xml:lang="ko">위</title>
+				<title xml:lang="en">Upper</title>
+			</options>
+			<options value="down">
+				<title xml:lang="ko">아래</title>
+				<title xml:lang="en">Down</title>
+			</options>
+			<options value="left">
+				<title xml:lang="ko">왼쪽</title>
+				<title xml:lang="en">Left</title>
+			</options>
+			<options value="right">
+				<title xml:lang="ko">오른쪽</title>
+				<title xml:lang="en">Right</title>
+			</options>
+			<description xml:lang="ko">새로 추가될 프레임이 화면에서 위치할 곳을 지정합니다. 음악 재생기용으로 사용한다면, 음악 재생기의 화면상 위치가 됩니다.</description>
+			<description xml:lang="en">Position of new frame on your window that would be used for a music player.</description>
+		</var>
+		<var name="frame_page" type="text">
+			<title xml:lang="ko">추가할 프레임 페이지</title>
+			<title xml:lang="en">Site of New Frame</title>
+			<description xml:lang="ko">새로 추가될 프레임의 페이지를 지정합니다. 음악 재생기용으로 사용한다면, 음악 재생기의 위치가 됩니다. (URL)</description>
+			<description xml:lang="en">Site of new frame that would be used for a music player. (URL)</description>
+		</var>
+		<var name="frame_size" type="text">
+			<title xml:lang="ko">추가할 프레임 높이/너비</title>
+			<title xml:lang="en">Height/Width of New Frame</title>
+			<description xml:lang="ko">새로 추가될 프레임의 페이지의 높이/너비를 지정합니다. 새로 추가되는 프레임이 위나 아래에 위치하면 높이 설정값이며, 왼쪽이나 오른쪽에 위치하면 너비 설정값입니다. (기본값 : 20) (단위 : px)</description>
+			<description xml:lang="en">Height/Width of new frame. If new frame is on the left, set width of it, or it is on the bottom, set height of it. (eg. Height of music player.) (default value : 20) (unit : px)</description>
+		</var>
+		<var name="frame_border">
+			<title xml:lang="ko">프레임 테두리</title>
+			<title xml:lang="en">Frame Border</title>
+			<description xml:lang="ko">프레임 사이에 테두리 두께 (기본값 : 0, 단위 : 픽셀, 정수)</description>
+			<description xml:lang="en">Border between frames. (default value : 0, measure : pixel, integer)</description>
+		</var>
+		<var name="frame_resize" type="select">
+			<title xml:lang="ko">프레임 크기 변경 가능 여부</title>
+			<title xml:lang="en">Allow Resize</title>
+			<options value="noresize">
+				<title xml:lang="ko">불가</title>
+				<title xml:lang="en">Disallow</title>
+			</options>
+			<options value="Y">
+				<title xml:lang="ko">가능</title>
+				<title xml:lang="en">Allow</title>
+			</options>
+			<description xml:lang="ko">새로 추가된 프레임의 크기 변경을 허용 합니까? (기본값 : 불가)</description>
+			<description xml:lang="en">Allow frame resizing. (default value : Disallow)</description>
+		</var>
+		<var name="frame_scroll" type="select">
+			<title xml:lang="ko">프레임 스크롤바 표시</title>
+			<title xml:lang="en">Scrollbar display</title>
+			<options value="0">
+				<title xml:lang="ko">표시 안함</title>
+				<title xml:lang="en">do not.</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">표시</title>
+				<title xml:lang="en">do.</title>
+			</options>
+			<description xml:lang="ko">새로 생긴 프레임에 스크롤바 표시 (기본값 : 표시 안함)</description>
+			<description xml:lang="en">Display scrollbar on the new frame. (default value : do not display.)</description>
+		</var>
+	</extra_vars>
 </addon>
