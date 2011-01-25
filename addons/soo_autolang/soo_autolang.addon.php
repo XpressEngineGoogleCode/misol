@@ -35,7 +35,9 @@ $xe_langtype = array(
 
 	'vi',
 
-	'mn'
+	'mn',
+
+	'tr'
 );
 $http_langtype = array(
 	'ko-kr','ko-kp',
@@ -62,7 +64,9 @@ $http_langtype = array(
 
 	'vi-vn',
 
-	'mn-mn'
+	'mn-mn',
+
+	'tr-tr'
 );
 
 // 브라우저마다 대소문자는 다르므로 전부 소문자로 바꿔서 비교.
