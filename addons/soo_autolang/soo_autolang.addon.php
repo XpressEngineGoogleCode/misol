@@ -9,7 +9,7 @@ if(!defined("__ZBXE__")) exit();
 if($_COOKIE['lang_type']) return;
 if($called_position != 'before_module_init' || Context::get('module')=='admin') return;
 
-// 언어-지역 코드 변환용 배열. XE 언어 코드와 같은 것은 제외. 참고 : http://forums.mozilla.or.kr/viewtopic.php?p=33268
+// 언어-지역 코드 변환용 배열. XE 언어 코드와 같은 것은 제외.
 $xe_langtype = array(
 	'ko','ko',
 
@@ -39,6 +39,7 @@ $xe_langtype = array(
 
 	'tr'
 );
+// HTTP Accept-Language code 참고 : http://forums.mozilla.or.kr/viewtopic.php?p=33268
 $http_langtype = array(
 	'ko-kr','ko-kp',
 
