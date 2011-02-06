@@ -30,8 +30,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	// 왼쪽 정렬이 기본값
 	if(!$addon_info->text_align) $addon_info->text_align = 'left';
 
-	// 기본 가로 크기 설정. IE7에서 이렇게 해야 잘 보이길래
-	$width = '140';
 	Context::loadLang($addon_path.'lang');
 	$sns_share = Context::getlang('sns_share');
 	Context::set('facebook_share', sprintf($sns_share,Context::getlang('facebook')));
@@ -44,6 +42,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		$oContext =& Context::getInstance();
 		$oContext->_addJsFile("./common/js/jquery.js", '', -1000000);
 		$oContext->_addJsFile("./common/js/common.js", '', -1000000);
+		$oContext->_addJsFile("./common/js/xml_handler.js", '', -100000);
 	}
 
 	$soo_linker_lite_skin = 'default';
@@ -51,29 +50,31 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	$oTemplate = new TemplateHandler();
 	$template_btn_text = $oTemplate->compile('./addons/sns_linker_lite/skin/'.$soo_linker_lite_skin, 'index');
 
-	if($addon_info->ex_use) { // 확장 ShopXE 등
-		$document_srl = intval(Context::get('document_srl'));
-		$oDocumentModel = &getModel('document');
-		$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'), false, false);
+	if($addon_info->ex_use != 2) {
+		if($addon_info->ex_use == 1) { // 확장 ShopXE 등
+			$document_srl = intval(Context::get('document_srl'));
+			$oDocumentModel = &getModel('document');
+			$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'), false, false);
 
-		if($oDocument->isExists()) {
-			$document = $oDocument->getTransContent(false,false,false,false);
-			$btn_text = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'',$document_srl),$template_btn_text);
+			if($oDocument->isExists()) {
+				$document = $oDocument->getTransContent(false,false,false,false);
+				$btn_text = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'',$document_srl),$template_btn_text);
 
+				$btn_text = "<div style=\"text-align:".$addon_info->text_align."\">".$btn_text."</div>";
+
+				if($addon_info->text_position == 1) $output = str_replace($document,$btn_text.$document ,$output);
+				else $output = str_replace($document,$document.$btn_text,$output);
+			}
+
+			unset($oDocumentModel);
+			unset($oDocument);
+		} else {
+			$btn_text = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'','$1'),$template_btn_text);
 			$btn_text = "<div style=\"text-align:".$addon_info->text_align."\">".$btn_text."</div>";
 
-			if($addon_info->text_position == 1) $output = str_replace($document,$btn_text.$document ,$output);
-			else $output = str_replace($document,$document.$btn_text,$output);
+			if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , $btn_text."<!--BeforeDocument($1,$2)-->" , $output);
+			else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)-->".$btn_text, $output);
 		}
-
-		unset($oDocumentModel);
-		unset($oDocument);
-	} else {
-		$btn_text = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'','$1'),$template_btn_text);
-		$btn_text = "<div style=\"text-align:".$addon_info->text_align."\">".$btn_text."</div>";
-
-		if($addon_info->text_position == 1) $output=preg_replace("/<\!--BeforeDocument\(([0-9]*),([0-9\-]*)\)-->/i" , $btn_text."<!--BeforeDocument($1,$2)-->" , $output);
-		else $output=preg_replace("/<\!--AfterDocument\(([0-9]*),([0-9\-]*)\)-->/i" , "<!--AfterDocument($1,$2)-->".$btn_text, $output);
 	}
 
 	$btn_text = array();
