@@ -10,9 +10,9 @@ class SooHTMLDisplayHandler {
 		$addon_info = Context::get('soo_jquery_unload');
 
 		if(!$addon_info->jquery_ui_css) {
-			$addon_info->jquery_url = 'http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.min.js';
-			$addon_info->jqueryui_url = 'http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.7/jquery-ui.min.js';
-			$addon_info->jquery_ui_css = './common/js/plugins/ui/jquery-ui.css';
+			$addon_info->jquery_url = 'http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js';
+			$addon_info->jqueryui_url = 'http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js';
+			$addon_info->jquery_ui_css = 'http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/smoothness/jquery-ui.css';
 		}
 
 		$lang_type = Context::getLangType();
