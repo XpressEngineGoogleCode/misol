@@ -66,7 +66,7 @@ class SooHTMLDisplayHandler {
 				'<script type="text/javascript" src="./'
 			);
 			$after_script = array(
-				'<script type="text/javascript" src="'.$addon_info->jquery_url.'"></script>',
+				'<script type="text/javascript" src="'.$addon_info->jquery_url.'"></script><script type="text/javascript">if(typeof(jQuery)==\'undefined\'){document.write(unescape("%3Cscript src=\''.$request_uri.'common/js/jquery.js\' type=\'text/javascript\'%3E%3C/script%3E"));}</script>',
 				'<script type="text/javascript" src="'.$addon_info->jqueryui_url.'"></script>',
 				'<link rel="stylesheet" href="'.$addon_info->jquery_ui_css.'" type="text/css" charset="UTF-8" media="all" />',
 				'<link rel="stylesheet" href="'.$request_uri,
