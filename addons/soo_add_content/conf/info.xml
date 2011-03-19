@@ -12,8 +12,8 @@
 	<description xml:lang="zh-TW">
 		可以在討論板上面或下面插入想要的內容。
 	</description>
-	<version>0.2.3</version>
-	<date>2010-08-08</date>
+	<version>0.3</version>
+	<date>2011-03-20</date>
 	<link>http://www.imsoo.net</link>
 	<author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
 		<name xml:lang="ko">민수</name>
@@ -22,17 +22,49 @@
 	</author>
 	<extra_vars>
 		<var name="soo_top" type="textarea">
-			<title xml:lang="ko">게시물 본문 상단 내용 입력</title>
-			<title xml:lang="en">something before Board Contents</title>
-			<title xml:lang="zh-TW">討論板上端</title>
+			<title xml:lang="ko">게시물 본문 상단 내용 입력(공통)</title>
+			<title xml:lang="en">something before Board Contents(Common)</title>
+			<title xml:lang="zh-TW">討論板上端(Common)</title>
 			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
 			<description xml:lang="en">Enter something you want to display at the upper end of board contents. (HTML)</description>
 			<description xml:lang="zh-TW">輸入想要顯示在討論板上端的內容 (HTML)</description>
 		</var>
 		<var name="soo_bottom" type="textarea">
-			<title xml:lang="ko">게시물 본문 하단 내용 입력</title>
-			<title xml:lang="en">something after Board Contents</title>
-			<title xml:lang="zh-TW">討論板下端</title>
+			<title xml:lang="ko">게시물 본문 하단 내용 입력(공통)</title>
+			<title xml:lang="en">something after Board Contents(Common)</title>
+			<title xml:lang="zh-TW">討論板下端(Common)</title>
+			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+			<description xml:lang="en">Enter something you want to display at the lower end of board contents. (HTML)</description>
+			<description xml:lang="zh-TW">輸入想要顯示在討論板下端的內容 (HTML)</description>
+		</var>
+		<var name="soo_top_pc" type="textarea">
+			<title xml:lang="ko">게시물 본문 상단 내용 입력(PC)</title>
+			<title xml:lang="en">something before Board Contents(PC)</title>
+			<title xml:lang="zh-TW">討論板上端(PC)</title>
+			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+			<description xml:lang="en">Enter something you want to display at the upper end of board contents. (HTML)</description>
+			<description xml:lang="zh-TW">輸入想要顯示在討論板上端的內容 (HTML)</description>
+		</var>
+		<var name="soo_bottom_pc" type="textarea">
+			<title xml:lang="ko">게시물 본문 하단 내용 입력(PC)</title>
+			<title xml:lang="en">something after Board Contents(PC)</title>
+			<title xml:lang="zh-TW">討論板下端(PC)</title>
+			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+			<description xml:lang="en">Enter something you want to display at the lower end of board contents. (HTML)</description>
+			<description xml:lang="zh-TW">輸入想要顯示在討論板下端的內容 (HTML)</description>
+		</var>
+		<var name="soo_top_m" type="textarea">
+			<title xml:lang="ko">게시물 본문 상단 내용 입력(Mobile)</title>
+			<title xml:lang="en">something before Board Contents(Mobile)</title>
+			<title xml:lang="zh-TW">討論板上端(Mobile)</title>
+			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
+			<description xml:lang="en">Enter something you want to display at the upper end of board contents. (HTML)</description>
+			<description xml:lang="zh-TW">輸入想要顯示在討論板上端的內容 (HTML)</description>
+		</var>
+		<var name="soo_bottom_m" type="textarea">
+			<title xml:lang="ko">게시물 본문 하단 내용 입력(Mobile)</title>
+			<title xml:lang="en">something after Board Contents(Mobile)</title>
+			<title xml:lang="zh-TW">討論板下端(Mobile)</title>
 			<description xml:lang="ko">출력될 내용을 입력해 주세요. (HTML 코드 입력 가능)</description>
 			<description xml:lang="en">Enter something you want to display at the lower end of board contents. (HTML)</description>
 			<description xml:lang="zh-TW">輸入想要顯示在討論板下端的內容 (HTML)</description>
