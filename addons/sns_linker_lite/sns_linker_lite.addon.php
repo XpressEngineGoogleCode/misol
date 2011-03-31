@@ -38,11 +38,16 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	Context::set('yozm_share', sprintf($sns_share,Context::getlang('yozm')));
 	Context::set('clog_share', sprintf($sns_share,Context::getlang('clog')));
 
-	if(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">")) {
+	if(version_compare(__ZBXE_VERSION__, '1.4.5', ">=")) {
 		$oContext =& Context::getInstance();
-		$oContext->_addJsFile("./common/js/jquery.js", '', -1000000);
-		$oContext->_addJsFile("./common/js/common.js", '', -1000000);
-		$oContext->_addJsFile("./common/js/xml_handler.js", '', -100000);
+		$oContext->addJsFile('./common/js/jquery.js', false, '',-100000000);
+		$oContext->addJsFile('./common/js/common.js', false, '',-10000000);
+		$oContext->addJsFile('./common/js/xml_handler.js', false, '',-1000000);
+	} elseif(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">")) {
+		$oContext =& Context::getInstance();
+		$oContext->_addJsFile('./common/js/jquery.js', '', -1000000);
+		$oContext->_addJsFile('./common/js/common.js', '', -1000000);
+		$oContext->_addJsFile('./common/js/xml_handler.js', '', -100000);
 	}
 
 	$soo_linker_lite_skin = 'default';
