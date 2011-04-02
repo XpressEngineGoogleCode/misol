@@ -1,0 +1,1 @@
+jQuery(window).load(function(){if(window.pageYOffset==0){window.scrollTo(0,1)}});
