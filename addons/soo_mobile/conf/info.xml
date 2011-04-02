@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">미솔의 모바일 셋</title>
+	<description xml:lang="ko">
+		스마트폰이나 아이팟에서 접속하면 보이는 모바일 뷰 페이지에서, 적당한 기본 스타일들을 정의합니다.
+		자주 사용되지만, XE에서 기본으로 불러들이지 않아, 일부 애드온 작동에 영향을 줄 수 있는 자바스크립트들을 불러옵니다.
+		페이지 로딩이 완료되면 페이지를 최상단으로 스크롤하여, 페이지에 집중할 수 있게 합니다.
+	</description>
+	<version>1</version>
+	<date>2011-02-16</date>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol@korea.ac.kr" link="http://twitter.com/misol221">
+		<name xml:lang="ko">민수</name>
+		<name xml:lang="en">Min-Soo Kim</name>
+	</author>
+</addon>
