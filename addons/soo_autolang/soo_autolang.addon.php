@@ -90,7 +90,7 @@ if(is_array($lang_supported) && is_array($http_user_lang)) {
 				if($auto_selected != -1) {
 					if(Context::getLangType() != $key) {
 						$_COOKIE['lang_type'] = $key;
-						setcookie('lang_type',$key);
+						setcookie('lang_type',$key,time()+31536000,'/');
 						Context::set('l',$key);
 						Context::setLangType($key);
 
