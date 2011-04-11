@@ -5,7 +5,7 @@ if(!defined("__ZBXE__")) exit();
 // brief 브라우저로 접속시 프레임을 나눕니다.
 // ⓒ 2010-2011 김민수.
 // 특정 액션에서 동작 안함
-if(Context::get('module') == 'admin' || Context::get('outframe_set') == true || $_SESSION['soo_for_muzik_player']['outframe'] == 2) return;
+if(in_array(Context::get('module'), array('admin','editor')) || Context::get('outframe_set') == true || $_SESSION['soo_for_muzik_player']['outframe'] == 2) return;
 // 로봇일 경우 동작 안함.
 if(function_exists('isCrawler')) if(isCrawler()) return;
 
@@ -116,7 +116,7 @@ if(Context::getResponseMethod() == 'HTML') {
 			$title = Context::getBrowserTitle();
 			$output = '';
 			$output .= '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
-   "http://www.w3.org/TR/html4/frameset.dtd">
+	"http://www.w3.org/TR/html4/frameset.dtd">
 	<html>
 	<head>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -150,7 +150,7 @@ if(Context::getResponseMethod() == 'HTML') {
 			Context::setResponseMethod('JSON');
 
 		} else {
-			Context::addJsFile('./addons/soo_for_muzik_player/js/frame_loader.js');
+			Context::addJsFile('./addons/soo_for_muzik_player/js/soo_fld.js');
 		}
 	}
 	return;
