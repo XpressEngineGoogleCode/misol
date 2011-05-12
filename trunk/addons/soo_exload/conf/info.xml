@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">공통 외부 로드</title>
+	<title xml:lang="en">Common Exload</title>
+	<description xml:lang="ko">
+		XE 공통 파일을 외부에서 불러옵니다.
+	</description>
+	<description xml:lang="en">
+		Load common files of XE from external server.
+	</description>
+	<version>0.1</version>
+	<date>2011-05-13</date>
+	<link>http://www.imsoo.net</link>
+	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
+		<name xml:lang="ko">민수 (misol)</name>
+		<name xml:lang="en">misol</name>
+	</author>
+</addon>
