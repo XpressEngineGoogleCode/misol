@@ -93,7 +93,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	$output = str_replace(array('###__SNS_BOOKMARKER_BY_MID__###','###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###','###__SNS_BOOKMARKER_BY_URL__###'),$btn_text,$output);
 
-} elseif ($called_position == 'before_module_init' && Context::get('module') == 'SooLinkerAddon' && Context::get('act') == 'getSooLinkerAddonUrls' && Context::getResponseMethod() == 'XMLRPC') {
+} elseif ($called_position == 'before_module_init' && Context::get('addon') == 'SooLinkerAddon' && Context::get('addonFunc') == 'getSooLinkerAddonUrls') {
 	$document_srl = intval(Context::get('document_srl'));
 	if($document_srl > 0) $url = getFullUrl('','document_srl',$document_srl);
 	elseif(Context::get('curr_url')) $url = Context::get('soo_url');
@@ -158,27 +158,27 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		else $twitter_title = $title_cut_str;
 
 
-		header("Content-Type: text/xml; charset=UTF-8");
+		header("Content-Type: text/html; charset=UTF-8");
 		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		header("Cache-Control: no-store, no-cache, must-revalidate");
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
-		print("<response>\r\n<urls>");
+		print("{\"urls\":[");
 		if($mobile_set == true) {
-			printf("<url><![CDATA[http://m.facebook.com/sharer.php?u=%s&t=%s]]></url>", urlencode($original_url), urlencode($title_str));
-			printf("<url><![CDATA[http://mobile.twitter.com/home/?status=%s]]></url>", urlencode($twitter_title.' '.$url));
-			printf("<url><![CDATA[http://m.me2day.net/p/posts/new?new_post[body]=%s&new_post[tags]=%s]]></url>", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
-			printf("<url><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></url>", urlencode($original_url), urlencode($title_cut_str));
-			printf("<url><![CDATA[http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s]]></url>", urlencode($original_url));
+			printf("\"https://m.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($original_url), urlencode($title_str));
+			printf("\"https://twitter.com/share?text=%s&url=%s\",", urlencode($twitter_title), urlencode($url));
+			printf("\"http://m.me2day.net/p/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
+			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($original_url), urlencode($title_cut_str));
+			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($original_url));
 		} else {
-			printf("<url><![CDATA[http://www.facebook.com/sharer.php?u=%s&t=%s]]></url>", urlencode($original_url), urlencode($title_str));
-			printf("<url><![CDATA[http://twitter.com/share?text=%s&url=%s]]></url>", urlencode($twitter_title), urlencode($url));
-			printf("<url><![CDATA[http://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s]]></url>", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
-			printf("<url><![CDATA[http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s]]></url>", urlencode($original_url), urlencode($title_cut_str));
-			printf("<url><![CDATA[http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s]]></url>", urlencode($original_url));
+			printf("\"https://www.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($original_url), urlencode($title_str));
+			printf("\"https://twitter.com/share?text=%s&url=%s\",", urlencode($twitter_title), urlencode($url));
+			printf("\"https://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
+			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($original_url), urlencode($title_cut_str));
+			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($original_url));
 		}
-		print("</urls>\r\n<error>0</error>\r\n<message>success</message>\r\n</response>");
+		print("]}");
 		Context::close();
 		exit();
 	}

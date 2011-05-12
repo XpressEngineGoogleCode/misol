@@ -5,7 +5,7 @@ var SooLinkerWindowSize = new Array();
 if(navigator.userAgent.indexOf('Android') != -1) {
 	SooLinkerWindowSize = Array('', '', '', '', '');
 } else {
-	SooLinkerWindowSize = Array('width=770,height=450', 'width=500,height=450', '', 'width=450,height=350', 'width=450,height=410');
+	SooLinkerWindowSize = Array('width=800,height=500', 'width=500,height=450', '', 'width=450,height=350', 'width=450,height=410');
 }
 function soo_Linker(service, id_type, id) {
 	var sooscrap;
@@ -17,24 +17,21 @@ function soo_Linker(service, id_type, id) {
 	if(SooLinkerXML[id_type][id]) {
 		rps = SooLinkerXML[id_type][id];
 
-		soo_target = rps['urls']['url'][service];
+		soo_target = rps.urls[service];
 
 		sooscrap.location.href = soo_target;
 		sooscrap.document.getElementById('state').innerHTML = "Redirecting...<br /><a href=\""+soo_target+"\">"+soo_target+"</a>";
-		return false;
+		return;
 	}
-	var params = new Array();
-	params['mid'] = current_mid;
-	params[id_type] = id;
-	params['soo_url'] = current_url;
-	params['doc_title'] = document.title;
-	var response_tags = new Array('error','message','urls');
-	exec_xml('SooLinkerAddon', 'getSooLinkerAddonUrls', params, function(rps, tags) {
-			soo_target = rps['urls']['url'][service];
+
+	jQuery.post(current_url,
+		{'addon':'SooLinkerAddon','addonFunc':'getSooLinkerAddonUrls','mid':current_mid,'id_type':id,'soo_url':current_url,'doc_title':document.title},
+		function(rps) {
+			soo_target = rps.urls[service];
 
 			sooscrap.location.href = soo_target;
 			sooscrap.document.getElementById('state').innerHTML = "Redirecting...<br /><a href=\""+soo_target+"\">"+soo_target+"</a>";
 			SooLinkerXML[id_type][id] = rps;
-			return false;
-		}, response_tags);
+		}, 'json');
+	return;
 }
