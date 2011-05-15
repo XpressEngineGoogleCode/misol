@@ -98,17 +98,9 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	if($document_srl > 0) $url = getFullUrl('','document_srl',$document_srl);
 	elseif(Context::get('curr_url')) $url = Context::get('soo_url');
 	else $url = getFullUrl('','mid',Context::get('mid'));
-	$original_url = $url;
 
-	// us7.kr도 쓰려 했으나, 주소를 전부 소문자로 바꿔버려서(코멘트도 지침ㅠ) tln.kr만 사용.
-	if($mobile_set == true || Context::get('curr_url')) {
-		$shorten_url = trim(FileHandler::getRemoteResource('http://tln.kr/?mode=shorten&link='.urlencode($url), null, 3, 'GET', 'application/xml', $headers));
-		if(substr($shorten_url, 0, 13) == 'http://tln.kr') $url = $shorten_url;
-	}
-
-	// 트위터 문자열 제한에 알맞게 문자를 자르기 위해 주소 길이 재기. 모바일 환경이 아니라면 t.co가 이용됨. 20자를 22자로 어림해도 큰 문제 없을듯.
-	if($mobile_set == true) $url_len = strlen($url);
-	else $url_len = 22;
+	// 트위터 문자열 제한에 알맞게 문자를 자르기 위해 주소 길이 재기.. t.co가 이용됨. 20자를 22자로 어림해도 큰 문제 없을듯.
+	$url_len = 22;
 
 	if($document_srl > 0) {
 		// document model 객체 생성 
@@ -166,17 +158,17 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		header("Pragma: no-cache");
 		print("{\"urls\":[");
 		if($mobile_set == true) {
-			printf("\"https://m.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($original_url), urlencode($title_str));
+			printf("\"https://m.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($url), urlencode($title_str));
 			printf("\"https://twitter.com/share?text=%s&url=%s\",", urlencode($twitter_title), urlencode($url));
-			printf("\"http://m.me2day.net/p/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
-			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($original_url), urlencode($title_cut_str));
-			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($original_url));
+			printf("\"http://m.me2day.net/p/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$url), $tag_list);
+			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($url), urlencode($title_cut_str));
+			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($url));
 		} else {
-			printf("\"https://www.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($original_url), urlencode($title_str));
+			printf("\"https://www.facebook.com/sharer.php?u=%s&t=%s\",", urlencode($url), urlencode($title_str));
 			printf("\"https://twitter.com/share?text=%s&url=%s\",", urlencode($twitter_title), urlencode($url));
-			printf("\"https://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$original_url), $tag_list);
-			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($original_url), urlencode($title_cut_str));
-			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($original_url));
+			printf("\"https://me2day.net/posts/new?new_post[body]=%s&new_post[tags]=%s\",", urlencode('"'.str_replace('"','\\"',$title_cut_str).'":'.$url), $tag_list);
+			printf("\"http://yozm.daum.net/api/popup/prePost?sourceid=0&link=%s&prefix=%s\",", urlencode($url), urlencode($title_cut_str));
+			printf("\"http://csp.cyworld.com/bi/bi_recommend_pop.php?url=%s\"", urlencode($url));
 		}
 		print("]}");
 		Context::close();

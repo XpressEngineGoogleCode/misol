@@ -1,0 +1,23 @@
+<!--%import("css/oneBtn.css")-->
+<!--@if(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">"))-->
+	<!--%import("js/oneBtn.min.js",type="body")-->
+<!--@else-->
+	<!--%import("js/oneBtn.min.js")-->
+<!--@endif-->
+<ul class="SooLinkerContainer">
+	<li><a class="SooLinkerAddon Facebook" title="{$facebook_share}" href="http://www.facebook.com/" onclick="soo_Linker(0,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$facebook_share}
+	</a></li>
+	<li><a class="SooLinkerAddon Twitter" title="{$twitter_share}" href="http://twitter.com/" onclick="soo_Linker(1,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$twitter_share}
+	</a></li>
+	<li><a class="SooLinkerAddon me2day" title="{$me2day_share}" href="http://me2day.net/" onclick="soo_Linker(2,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$me2day_share}
+	</a></li>
+	<li><a class="SooLinkerAddon Yozm" title="{$yozm_share}" href="http://yozm.daum.net/" onclick="soo_Linker(3,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$yozm_share}
+	</a></li>
+	<li><a class="SooLinkerAddon Cyworld" title="{$clog_share}" href="http://www.cyworld.com/" onclick="soo_Linker(4,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$clog_share}
+	</a></li>
+</ul>
