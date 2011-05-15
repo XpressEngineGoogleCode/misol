@@ -15,30 +15,16 @@ class SooExloadDisplayHandler {
 
 		$output = str_replace(
 			array(
-				'<link rel="stylesheet" href="./common/css/default.css" type="text/css" charset="UTF-8" media="all" />',
-				'<link rel="stylesheet" href="./common/css/button.css" type="text/css" charset="UTF-8" media="all" />',
-				'<link rel="stylesheet" href="./common/js/plugins/ui/jquery-ui.css" type="text/css" charset="UTF-8" media="all" />',
 				'<script type="text/javascript" src="./common/js/jquery.js"></script>',
-				'<script type="text/javascript" src="./common/js/x.js"></script>',
-				'<script type="text/javascript" src="./common/js/common.js"></script>',
-				'<script type="text/javascript" src="./common/js/js_app.js"></script>',
-				'<script type="text/javascript" src="./common/js/xml_handler.js"></script>',
-				'<script type="text/javascript" src="./common/js/xml_js_filter.js"></script>',
 				'<script type="text/javascript" src="./common/js/plugins/ui/jquery-ui.packed.js"></script>',
-				'<script type="text/javascript" src="./common/js/plugins/ui/jquery.ui.datepicker-ko.js"></script>'
+				'<link rel="stylesheet" href="./common/js/plugins/ui/jquery-ui.css" type="text/css" charset="UTF-8" media="all" />',
+				'<script type="text/javascript" src="./common/js/'
 			),
 			array(
-				'<link rel="stylesheet" href="https://files.ucloud.com/pf/D600737_206749_928585" type="text/css" charset="UTF-8" media="all" />',
-				'<link rel="stylesheet" href="https://files.ucloud.com/pf/D600737_206749_928573" type="text/css" charset="UTF-8" media="all" />',
-				'<link rel="stylesheet" href="https://files.ucloud.com/pf/D600737_206749_928801" type="text/css" charset="UTF-8" media="all" />',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928594"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928516"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928581"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928507"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928518"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928512"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928815"></script>',
-				'<script type="text/javascript" src="https://files.ucloud.com/pf/D600737_206749_928819"></script>'
+				'<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>',
+				'<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>',
+				'<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/smoothness/jquery-ui.css" type="text/css" charset="UTF-8" media="all" />',
+				'<script type="text/javascript" src="https://misol.googlecode.com/svn/xe_web/common/js/'
 			),
 			$output);
 
