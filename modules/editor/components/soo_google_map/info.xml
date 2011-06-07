@@ -10,8 +10,8 @@
   <description xml:lang="en">You can insert Google Maps.</description>
   <description xml:lang="zh-TW">必須要先註冊才可使用 Google 地圖。</description>
   <description xml:lang="zh-CN">必須要先註冊才可使用Google地图。</description>
-  <version>0.3.3</version>
-  <date>2010-11-06</date>
+  <version>0.5</version>
+  <date>2011-06-07</date>
   <license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons Attribution-Share Alike 2.0 Korea License.</license>
   <author email_address="misol@korea.ac.kr" link="http://www.imsoo.net">
     <name xml:lang="ko">김민수(misol)</name>
