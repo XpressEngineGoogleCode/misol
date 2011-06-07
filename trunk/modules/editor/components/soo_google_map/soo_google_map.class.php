@@ -270,8 +270,9 @@ class soo_google_map extends EditorHandler {
 		}
 
 		if(Context::getResponseMethod() != 'HTML' || $this->mobile_set == true) {
-			$style = 'text-align:center; vertical-align:middle; width: 100%; margin:15px 0px;';
-			$view_code = '<div style="'.$style.'"><a href="'.$altMapLinkParas.'" target="_blank">'.Context::getLang('view_map').'</a></div>';
+			$style = 'text-align:center; width: 100%; margin:15px 0px;';
+			$view_code = '<div style="'.$style.'"><a href="'.$altMapLinkParas.'" target="_blank"><img src="'.
+			$this->getImageMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom, $width, $height).'" /><br />'.Context::getLang('view_map').'</a></div>';
 		} else {
 			$view_code = '<div id="ggl_map_canvas'.$map_count.'" style="width: '.$width.'px; height: '.$height.'px"></div>'."\n".
 				'<script language="javascript" type="text/javascript">//<![CDATA['."\n".
@@ -284,6 +285,20 @@ class soo_google_map extends EditorHandler {
 	}
 
 	function altViewGMap() {
+		if(class_exists('Mobile')) {
+			if(Mobile::isMobileCheckByAgent()) {
+				$this->mobile_set = true;
+			}
+		}
+
+		if($this->mobile_set == true) {
+			return $this->viewImageMap();
+		} else {
+			return $this->viewScriptMap();
+		}
+	}
+	
+	function viewScriptMap() {
 		// 모바일 및 RSS용 페이지 필요.
 		$header_script = '';
 		$region = '';
@@ -414,5 +429,100 @@ class soo_google_map extends EditorHandler {
 		exit();
 
 	}
+
+	function viewImageMap() {
+		header("Content-Type: text/html; charset=UTF-8");
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+		header("Cache-Control: no-store, no-cache, must-revalidate");
+		header("Cache-Control: post-check=0, pre-check=0", false);
+		header("Pragma: no-cache");
+		header("Set-Cookie: ");
+		print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"'."\n".
+			'"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
+			'<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head><meta http-equiv="Content-type" content="text/html;charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><style type="text/css">'."\n".
+			'html { height: 100%; }body { height: 100%; margin: 0px; padding: 0px }</style><title></title></head><body>';
+
+		// 모바일용 페이지 필요.
+		$location_no = Context::get('location_no');
+		if($location_no>1) {
+			for($i=0;$i<$location_no;$i++) {
+				$ment = str_replace(array('[[STS[[',']]STS]]','[[STS_EQ]]'),array('<','>','='),Context::get('ment'.$i));
+				if($ment) {
+					$ment = htmlspecialchars($ment);
+				}
+
+				$lat = trim(Context::get('map_lat'.$i));
+				settype($lat,"float");
+				$lng = trim(Context::get('map_lng'.$i));
+				settype($lng,"float");
+				$marker_lng = trim(Context::get('marker_lng'.$i));
+				settype($marker_lng,"float");
+				$marker_lat = trim(Context::get('marker_lat'.$i));
+				settype($marker_lat,"float");
+				$zoom = trim(Context::get('map_zoom'.$i));
+				settype($zoom,"int");
+				if(!$lat || !$lng || !$marker_lng || !$marker_lat || !$zoom) {
+					break;
+				}
+
+				$image_src = $this->getImageMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom);
+				$map_href = $this->getGoogleMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom, $ment);
+
+				if($ment) $ment = sprintf("<h2>%s</h2>",$ment);
+
+				print '<div>'.'<a href="'.$map_href.'">'.$ment.'<img src="'.$image_src.'" alt="Google Maps" /></a></div><hr />';
+
+			}
+
+		} else {
+			$lat = trim(Context::get('map_lat'.$i));
+			settype($lat,"float");
+			$lng = trim(Context::get('map_lng'.$i));
+			settype($lng,"float");
+			$marker_lng = trim(Context::get('marker_lng'.$i));
+			settype($marker_lng,"float");
+			$marker_lat = trim(Context::get('marker_lat'.$i));
+			settype($marker_lat,"float");
+			$zoom = trim(Context::get('map_zoom'.$i));
+			settype($zoom,"int");
+			$ment = str_replace(array('[[STS[[',']]STS]]','[[STS_EQ]]'),array('<','>','='),Context::get('ment'));
+			if($ment) {
+				$ment = htmlspecialchars($ment);
+			}
+			// 파라미터 입력
+			$image_src = $this->getImageMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom);
+			$map_href = $this->getGoogleMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom, $ment);
+
+			$ment = str_replace(array('[[STS[[',']]STS]]','[[STS_EQ]]'),array('<','>','='),Context::get('ment'));
+			if($ment) {
+				$ment = htmlspecialchars($ment);
+				$ment = preg_replace('/&lt;br([^&]*)&gt;/i','<br />',$ment);
+				$ment = preg_replace('/&lt;hr([^&]*)&gt;/i','<hr />',$ment);
+				$ment = preg_replace('/&lt;([a-z]*)&gt;/i','<\\1>',$ment);
+				$ment = preg_replace('/&lt;\/([a-z]*)&gt;/i','</\\1>',$ment);
+				$ment = eregi_replace('<script>','&lt;script&gt;',$ment);
+				$ment = eregi_replace('</script>','&lt;/script&gt;',$ment);
+				$ment = eregi_replace('<style>','&lt;style&gt;',$ment);
+				$ment = eregi_replace('</style>','&lt;/style&gt;',$ment);
+			}
+			if($ment) $ment = sprintf("<h2>%s</h2>",$ment);
+
+			print '<div>'.'<a href="'.$map_href.'">'.$ment.'<img src="'.$image_src.'" alt="Google Maps" /></a></div><hr />';
+
+		}
+
+		print '<address><a href="http://www.xpressengine.com/">XE</a> Editor Component by MinSoo Kim(<a href="http://twitter.com/misol221">@misol221</a>) using Google Maps API.</address></body></html>';
+		exit();
+
+	}
+
+	function getImageMapLink($center, $marker, $zoom, $width=320, $height=400) {
+		return sprintf("http://maps.google.com/maps/api/staticmap?center=%s&zoom=%s&size=%sx%s&markers=size:mid|%s&sensor=false", $center, $zoom, intval($width), intval($height), $marker);
+	}
+
+	function getGoogleMapLink($center, $marker, $zoom, $ment = '') {
+		return sprintf("http://maps.google.com?ll=%s&z=%s&q=%s@%s&iwloc=A", $center, $zoom, urlencode($ment), $marker);
+	}
+
 }
 ?>
