@@ -14,8 +14,12 @@
     <name xml:lang="en">misol</name>
   </author>
   <extra_vars>
-    <var name="view_message" type="textarea">
-      <title xml:lang="ko">공사중 표시 내용</title>
+    <var name="view_message_en" type="textarea">
+      <title xml:lang="ko">공사중 표시 내용(영문)</title>
+      <description xml:lang="ko">지정되지 않은 회원이 볼 메세지. HTML을 사용해서 완전한 문서로 작성해야 합니다.</description>
+    </var>
+    <var name="view_message_ko" type="textarea">
+      <title xml:lang="ko">공사중 표시 내용(국문)</title>
       <description xml:lang="ko">지정되지 않은 회원이 볼 메세지. HTML을 사용해서 완전한 문서로 작성해야 합니다.</description>
     </var>
     <var name="except_useragent" type="textarea">

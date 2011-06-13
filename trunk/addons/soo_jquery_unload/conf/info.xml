@@ -8,37 +8,24 @@
 	<description xml:lang="en">
 		Load jQuery, jQueryUI and some common files from public CDN servers.
 	</description>
-	<version>0.3</version>
-	<date>2011-05-13</date>
+	<version>0.4</version>
+	<date>2011-05-28</date>
 	<link>http://www.imsoo.net</link>
 	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
 		<name xml:lang="ko">민수 (misol)</name>
 		<name xml:lang="en">misol</name>
 	</author>
 	<extra_vars>
-		<var name="jquery_url" type="select">
+		<var name="jquery" type="select">
 			<title xml:lang="ko">jQuery 경로</title>
 			<title xml:lang="en">jQuery CDN provider</title>
-
-			<options value="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
-				<title xml:lang="ko">Google APIs (jQuery 1.5.2) (보안접속)</title>
-				<title xml:lang="en">Google APIs (jQuery 1.5.2) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+			<options value="://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
 				<title xml:lang="ko">Google APIs (jQuery 1.5.2)</title>
 				<title xml:lang="en">Google APIs (jQuery 1.5.2)</title>
 			</options>
-			<options value="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.2.min.js">
-				<title xml:lang="ko">Microsoft (jQuery 1.5.2) (보안접속)</title>
-				<title xml:lang="en">Microsoft (jQuery 1.5.2) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.2.min.js">
+			<options value="://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.2.min.js">
 				<title xml:lang="ko">Microsoft (jQuery 1.5.2)</title>
 				<title xml:lang="en">Microsoft (jQuery 1.5.2)</title>
-			</options>
-			<options value="http://code.jquery.com/jquery-1.5.2.min.js">
-				<title xml:lang="ko">jQuery.com (jQuery 1.5.2)</title>
-				<title xml:lang="en">jQuery.com (jQuery 1.5.2)</title>
 			</options>
 			<description xml:lang="ko">
 				jQuery를 불러올 경로를 선택합니다.
@@ -51,82 +38,50 @@
 				Microsoft HTTPS might provide TLS 1.0 connection with 256bit code.
 				Google HTTPS might provide TLS 1.0 connection with 128bit code.</description>
 		</var>
-		<var name="jqueryui_url" type="select">
+		<var name="jqueryui" type="select">
 			<title xml:lang="ko">jQueryUI 경로</title>
 			<title xml:lang="en">jQueryUI CDN provider</title>
-			<options value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js">
-				<title xml:lang="ko">Google APIs (jqueryUI 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Google APIs (jqueryUI 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js">
+			<options value="://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js">
 				<title xml:lang="ko">Google APIs (jqueryUI 1.8.12)</title>
 				<title xml:lang="en">Google APIs (jqueryUI 1.8.12)</title>
 			</options>
-			<options value="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/jquery-ui.min.js">
-				<title xml:lang="ko">Microsoft (jqueryUI 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Microsoft (jqueryUI 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/jquery-ui.min.js">
+			<options value="://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/jquery-ui.min.js">
 				<title xml:lang="ko">Microsoft (jqueryUI 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI 1.8.12)</title>
 			</options>
 			<description xml:lang="ko">
 				jQueryUI를 불러올 경로를 선택합니다.
-				jQueryUI는 2011년 5월 12일 현재 1.8.12 버전이 최신 버전입니다.
 			</description>
 			<description xml:lang="en">Select a jQueryUI CDN provider and version of jQuery.</description>
 		</var>
-		<var name="jquery_ui_css" type="select">
+		<var name="ui_css" type="select">
 			<title xml:lang="ko">jQueryUI CSS 경로</title>
 			<title xml:lang="en">jQueryUI CSS CDN provider</title>
-			<options value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
-				<title xml:lang="ko">Google APIs (jqueryUI theme smoothness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Google APIs (jqueryUI theme smoothness 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
+
+			<options value="://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css">
 				<title xml:lang="ko">Google APIs (jqueryUI theme smoothness 1.8.12)</title>
 				<title xml:lang="en">Google APIs (jqueryUI theme smoothness 1.8.12)</title>
 			</options>
-			<options value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-darkness/jquery-ui.css">
-				<title xml:lang="ko">Google APIs (jqueryUI theme UI-Darkness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Google APIs (jqueryUI theme UI-Darkness 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-darkness/jquery-ui.css">
+			<options value="://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-darkness/jquery-ui.css">
 				<title xml:lang="ko">Google APIs (jqueryUI theme UI-Darkness 1.8.12)</title>
 				<title xml:lang="en">Google APIs (jqueryUI theme UI-Darkness 1.8.12)</title>
 			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/jquery-ui.css">
-				<title xml:lang="ko">Google APIs (jqueryUI theme UI-Lightness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Google APIs (jqueryUI theme UI-Lightness 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/jquery-ui.css">
+			<options value="://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/jquery-ui.css">
 				<title xml:lang="ko">Google APIs (jqueryUI theme UI-Lightness 1.8.12)</title>
 				<title xml:lang="en">Google APIs (jqueryUI theme UI-Lightness 1.8.12)</title>
 			</options>
 
-			<options value="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/smoothness/jquery-ui.css">
+			<options value="://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/smoothness/jquery-ui.css">
 				<title xml:lang="ko">Microsoft (jqueryUI theme smoothness 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI theme smoothness 1.8.12)</title>
 			</options>
-			<options value="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/smoothness/jquery-ui.css">
-				<title xml:lang="ko">Microsoft (jqueryUI theme smoothness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Microsoft (jqueryUI theme smoothness 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-darkness/jquery-ui.css">
+			<options value="://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-darkness/jquery-ui.css">
 				<title xml:lang="ko">Microsoft (jqueryUI theme UI-Darkness 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI theme UI-Darkness 1.8.12)</title>
 			</options>
-			<options value="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-darkness/jquery-ui.css">
-				<title xml:lang="ko">Microsoft (jqueryUI theme UI-Darkness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Microsoft (jqueryUI theme UI-Darkness 1.8.12) (HTTPS connection)</title>
-			</options>
-			<options value="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-lightness/jquery-ui.css">
+			<options value="://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-lightness/jquery-ui.css">
 				<title xml:lang="ko">Microsoft (jqueryUI theme UI-Lightness 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI theme UI-Lightness 1.8.12)</title>
-			</options>
-			<options value="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/themes/ui-lightness/jquery-ui.css">
-				<title xml:lang="ko">Microsoft (jqueryUI theme UI-Lightness 1.8.12) (보안접속)</title>
-				<title xml:lang="en">Microsoft (jqueryUI theme UI-Lightness 1.8.12) (HTTPS connection)</title>
 			</options>
 
 			<description xml:lang="ko">
