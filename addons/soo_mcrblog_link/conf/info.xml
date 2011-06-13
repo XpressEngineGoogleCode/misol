@@ -53,8 +53,8 @@
 		Use twitter button API with t.co link shortening service which is the offical twitter link shortener
 		By the way, API t.co might be un reasonal to environment of mobile devices, so this code use another API with external linkshortening service (us7.kr, tln.kr)
 	</description>
-	<version>1.2</version>
-	<date>2011-05-15</date>
+	<version>1.2.1</version>
+	<date>2011-06-14</date>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
 	<link>http://www.imsoo.net</link>
 	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">

@@ -20,11 +20,11 @@ if(!isset($mobile_set)) {
 if($mobile_set == true) {
 	$oContext =& Context::getInstance();
 	$oContext->addJsFile('./common/js/jquery.js', false, '',-100000000);
-	$oContext->addJsFile('./common/js/common.js', false, '',-10000000);
-	$oContext->addJsFile('./common/js/xml_handler.js', false, '',-1000000);
+	//$oContext->addJsFile('./common/js/common.js', false, '',-10000000);
+	//$oContext->addJsFile('./common/js/xml_handler.js', false, '',-1000000);
 
-	$oContext->addJsFile('./common/js/js_app.js');
-	$oContext->addJsFile('./common/js/xml_js_filter.js');
+	//$oContext->addJsFile('./common/js/js_app.js');
+	//$oContext->addJsFile('./common/js/xml_js_filter.js');
 
 	$oContext->addJsFile('./addons/soo_mobile/js/scrolltop.js');
 
