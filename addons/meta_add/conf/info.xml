@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon version="0.2">
 	<title xml:lang="ko">Meta Tag 입력기</title>
-	<title xml:lang="zh-TW">輸入 Meta 標籤</title>
+	<title xml:lang="zh-TW">Meta 標籤</title>
 	<description xml:lang="ko">Meta 입력기</description>
-	<description xml:lang="zh-TW">輸入 Meta 資料</description>
+	<description xml:lang="zh-TW">輸入 Meta標籤資料</description>
 	<version>0.2</version>
 	<date>2011-06-14</date>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>

@@ -26,7 +26,7 @@
         제한 횟수만큼 로그인을 시도하면 로그인이 지정된 시간만큼 금지됩니다. (기본 값 : 5)
       </description>
       <description xml:lang="zh-TW">
-        設定登入的次數限制。(預設 : 5)
+        設定登入的次數限制。(預設：5)
       </description>
     </var>
     <var name="set_time">
@@ -36,7 +36,7 @@
         로그인이 금지되었을 때 정지할 시간. (단위 : 분, 기본 값 : 1)
       </description>
       <description xml:lang="zh-TW">
-        禁止登入的時間限制。(單位： 分，預設： 1)
+        禁止登入的時間限制。(單位：分，預設：1)
       </description>
     </var>
   </extra_vars>
