@@ -204,8 +204,7 @@ class soo_google_map extends EditorHandler {
 					'var ggl_marker'.$map_count.' = new google.maps.Marker({ position: ggl_markerlatlng'.$map_count.', map: ggl_map'.$map_count.', draggable: false});'."\n".
 					'ggl_marker'.$map_count.'.setMap(ggl_map'.$map_count.');'."\n";
 				if($ment) {
-					$header_script .= 'infowindow = new google.maps.InfoWindow({content: "'.$ment.'", disableAutoPan: true}).open(ggl_map'.$map_count.',ggl_marker'.$map_count.')'."\n".
-					'infowindow.open(ggl_map'.$map_count.',ggl_marker'.$map_count.');'."\n";
+					$header_script .= 'infowindow = new google.maps.InfoWindow({content: "'.$ment.'", disableAutoPan: true}).open(ggl_map'.$map_count.',ggl_marker'.$map_count.')'."\n";
 				}
 				$header_script .= '}'."\n".'//-->'."\n".'//]]>'."\n".'</script>';
 			Context::addHtmlHeader($header_script);
@@ -277,14 +276,14 @@ class soo_google_map extends EditorHandler {
 			$view_code = '<div id="ggl_map_canvas'.$map_count.'" style="width: '.$width.'px; height: '.$height.'px"></div>'."\n".
 				'<script language="javascript" type="text/javascript">//<![CDATA['."\n".
 				'<!--'."\n".
-				'xAddEventListener(window, "load", ggl_map_init'.$map_count.');'."\n".
-				'xAddEventListener(window, "load", function() { setTimeout(ggl_map_init'.$map_count.',1501); });'."\n".
+				'jQuery(window).load(function() { ggl_map_init'.$map_count.'(); });'."\n".
 				'//-->'."\n".'//]]></script>'."\n";
 		}
 		return $view_code;
 	}
 
 	function altViewGMap() {
+		$this->mobile_set = false;
 		if(class_exists('Mobile')) {
 			if(Mobile::isMobileCheckByAgent()) {
 				$this->mobile_set = true;
