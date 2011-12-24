@@ -59,8 +59,6 @@
 			if(!$addon_info->set_time) $addon_info->set_time = 1;
 			$ip_based_info = Context::get('soo_login_defencer_ip_based_info');
 
-
-			//로그인 성공시 기록 삭제
 			if($oModule->getError() == -1) {
 				//로그인 실패시 기록.
 				$user_id = trim(Context::get('user_id'));
@@ -80,9 +78,6 @@
 					FileHandler::writeFile('./files/cache/addons/soo_login_defencer/id_attention/id_'.md5($user_id).'.php',$id_attention);
 				}
 				$output = str_replace($oModule->getMessage(), $oModule->getMessage()."\r\n".'로그인을 '.$ip_based_info->frequency.'회 시도하였습니다.'."\r\n".$addon_info->frequency.'회 시도하면 차단됩니다.', $output);
-			}
-			else {
-				FileHandler::removeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php');
 			}
 		}
 		if($called_position == 'before_module_init') {
@@ -104,23 +99,25 @@
 			$ip_based_info = trim(str_replace(array('<?php /**','**/ ?>'),array('',''),$ip_based_info));
 			$ip_based_info = unserialize($ip_based_info);
 
+			if((time() - $ip_based_info->date) >= ($addon_info->set_time * 120)) {
+				$ip_based_info->userid = urlencode($user_id);
+				$ip_based_info->frequency = 0;
+				$ip_based_info->date = time();
+				FileHandler::removeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php');
+			}
+
 			if($ip_based_info->frequency >= $addon_info->frequency) {
 				if((time() - $ip_based_info->date) < ($addon_info->set_time * 60)) {
 					if(!$ip_based_info->is_denied) {
 						$ip_based_info->is_denied = true;
 						$ip_based_info->date = time();
 						$ip_denied_info = '<?php /**'.serialize($ip_based_info).'**/ ?>';
-						FileHandler::writeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php',$ip_denied_info);
 
+						// 올바른 비밀번호일때는 패스
+						if(!(md5(trim(Context::get('password'))) == $member_info->password && $member_info->user_id == $user_id && $member_info->member_srl)) 
+							FileHandler::writeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php',$ip_denied_info);
 
-						$member_info = $oMemberModel->getMemberInfoByUserID($user_id);
-						if(defined('__XE__')) {
-							if ($config->identifier == 'email_address') {
-								$member_info = $oMemberModel->getMemberInfoByEmailAddress($user_id);
-								$member_info->user_id = $member_info->email_address;
-							}
-						}
-						if($user_id && $member_info->user_id == $user_id) {
+						if($user_id && $member_info->user_id == $user_id && $member_info->member_srl) {
 							$id_attention = FileHandler::readFile('./files/cache/addons/soo_login_defencer/id_attention/id_'.md5($user_id).'.php');
 							$id_attention = $id_attention."\r\n\r\n";
 							$id_attention .= '<?php /**'."시간 : ".date('Y-m-d H:i:s P')."\r\n -접속 IP : ".$_SERVER['REMOTE_ADDR']."\r\n -방어 프로그램 동작 : ".$addon_info->set_time.'분간 로그인이 차단되었습니다. **/ ?>';
@@ -140,10 +137,6 @@
 					}
 					Context::close();
 					exit();
-				} else {
-					$ip_based_info->userid = urlencode($user_id);
-					$ip_based_info->frequency = 0;
-					$ip_based_info->date = time();
 				}
 			}
 
@@ -154,8 +147,12 @@
 			Context::set('soo_login_defencer_ip_based_info', $ip_based_info);
 
 			$ip_based_info = '<?php /**'.serialize($ip_based_info).'**/ ?>';
-			FileHandler::writeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php',$ip_based_info);
+
+			// 비밀번호 옳을 때는 패스.
+			if(!(md5(trim(Context::get('password'))) == $member_info->password && $member_info->user_id == $user_id && $member_info->member_srl)) 
+				FileHandler::writeFile('./files/cache/addons/soo_login_defencer/ip_'.$_SERVER['REMOTE_ADDR'].'.php',$ip_based_info);
 
 		}
 	}
-?>
+
+/** End of file soo_login_defencer.addon.php **/
