@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">구글 플러스 단추 달기</title>
+	<title xml:lang="en">Google Plus button</title>
+	<description xml:lang="ko">구글 플러스(https://plus.google.com)의 +1 버튼을 답니다.</description>
+	<description xml:lang="en">Add Google Plus, +1 button on your site. What is Google Plus button? See http://www.google.com/+1/button/ .</description>
+	<version>0.2.2</version>
+	<date>2011-10-09</date>
+	<license xml:lang="en" link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea</license>
+	<license xml:lang="ko" link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License 저작자표시-동일조건변경허락 2.0 대한민국</license>
+	<link>http://www.imsoo.net/</link>
+	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
+		<name xml:lang="ko">김민수</name>
+		<name xml:lang="en">Min-Soo Kim</name>
+	</author>
+	<extra_vars>
+		<var name="size" type="select">
+			<title xml:lang="ko">단추 크기</title>
+			<title xml:lang="en">Button Size</title>
+			<options value="standard">
+				<title xml:lang="ko">일반 크기</title>
+				<title xml:lang="en">Standard</title>
+			</options>
+			<options value="small">
+				<title xml:lang="ko">작은 크기</title>
+				<title xml:lang="en">Small</title>
+			</options>
+			<options value="medium">
+				<title xml:lang="ko">중간 크기</title>
+				<title xml:lang="en">Medium</title>
+			</options>
+			<options value="tall">
+				<title xml:lang="ko">큰 크기</title>
+				<title xml:lang="en">Tall</title>
+			</options>
+		</var>
+		<var name="count" type="select">
+			<title xml:lang="ko">추천수 포함</title>
+			<title xml:lang="en">Include Count</title>
+			<options value="true">
+				<title xml:lang="ko">포함</title>
+				<title xml:lang="en">Include</title>
+			</options>
+			<options value="false">
+				<title xml:lang="ko">포함 안함</title>
+				<title xml:lang="en">Do not include</title>
+			</options>
+		</var>
+		<var name="text_position" type="select">
+			<title xml:lang="ko">위/아래 위치</title>
+			<title xml:lang="en">Vertical position</title>
+			<options value="0">
+				<title xml:lang="ko">아래</title>
+				<title xml:lang="en">bottom</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">위</title>
+				<title xml:lang="en">top</title>
+			</options>
+			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 글을 기준으로 글의 위/아래를 정할 수 있습니다.</description>
+			<description xml:lang="en">Where the scrap button is located. Top of a document or bottom of it.</description>
+		</var>
+		<var name="text_align" type="select">
+			<title xml:lang="ko">왼쪽/가운데/오른쪽 정렬</title>
+			<title xml:lang="en">Horizontal position</title>
+			<options value="left">
+				<title xml:lang="ko">왼쪽</title>
+				<title xml:lang="en">left</title>
+			</options>
+			<options value="center">
+				<title xml:lang="ko">가운데</title>
+				<title xml:lang="en">center</title>
+			</options>
+			<options value="right">
+				<title xml:lang="ko">오른쪽</title>
+				<title xml:lang="en">right</title>
+			</options>
+			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 버튼이 왼쪽 정렬될지, 가운데 정렬될지, 오른쪽 정렬이 될 지 선택할 수 있습니다.</description>
+			<description xml:lang="en">Where the scrap button is located. Left/centre/right of a document.</description>
+		</var>
+		<var name="comment_set" type="select">
+			<title xml:lang="ko">댓글에도 표시</title>
+			<title xml:lang="en">Even on comments</title>
+			<options value="0">
+				<title xml:lang="ko">표시</title>
+				<title xml:lang="en">Display</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">표시 안함</title>
+				<title xml:lang="en">Hide</title>
+			</options>
+			<description xml:lang="ko">댓글에도 버튼을 표시할 것인지 설정합니다.</description>
+			<description xml:lang="en">Display the button on the comments.</description>
+		</var>
+	</extra_vars>
+</addon>
