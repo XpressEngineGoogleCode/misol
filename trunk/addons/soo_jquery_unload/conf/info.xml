@@ -8,15 +8,15 @@
 	<description xml:lang="en">
 		Load jQuery, jQueryUI and some common files from public CDN servers.
 	</description>
-	<version>0.5</version>
-	<date>2011-08-03</date>
+	<version>2012.1.23</version>
+	<date>2012-01-23</date>
 	<link>http://www.imsoo.net</link>
 	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
 		<name xml:lang="ko">민수 (misol)</name>
 		<name xml:lang="en">misol</name>
 	</author>
 	<extra_vars>
-		<var name="jquery" type="select">
+		<var name="jqu" type="select">
 			<title xml:lang="ko">jQuery 경로</title>
 			<title xml:lang="en">jQuery CDN provider</title>
 			<options value="://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
@@ -26,10 +26,6 @@
 			<options value="://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.2.min.js">
 				<title xml:lang="ko">Microsoft (jQuery 1.5.2)</title>
 				<title xml:lang="en">Microsoft (jQuery 1.5.2)</title>
-			</options>
-			<options value="://kt.misolcdn.net/jquery/js/jquery-1.5.2.min.js">
-				<title xml:lang="ko">misolCDN (jQuery 1.5.2)</title>
-				<title xml:lang="en">misolCDN (jQuery 1.5.2)</title>
 			</options>
 			<description xml:lang="ko">
 				jQuery를 불러올 경로를 선택합니다.
@@ -42,7 +38,7 @@
 				Google HTTPS might provide TLS 1.0 connection with 128bit code.
 				misolCDN does not support HTTPS connection.</description>
 		</var>
-		<var name="jqueryui" type="select">
+		<var name="jq_ui" type="select">
 			<title xml:lang="ko">jQueryUI 경로</title>
 			<title xml:lang="en">jQueryUI CDN provider</title>
 			<options value="://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js">
@@ -53,16 +49,12 @@
 				<title xml:lang="ko">Microsoft (jqueryUI 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI 1.8.12)</title>
 			</options>
-			<options value="://kt.misolcdn.net/jquery/js/jquery-ui-1.8.14.custom.min.js">
-				<title xml:lang="ko">misolCDN (jqueryUI 1.8.14)</title>
-				<title xml:lang="en">misolCDN (jqueryUI 1.8.14)</title>
-			</options>
 			<description xml:lang="ko">
 				jQueryUI를 불러올 경로를 선택합니다.
 			</description>
 			<description xml:lang="en">Select a jQueryUI CDN provider and version of jQuery.</description>
 		</var>
-		<var name="ui_css" type="select">
+		<var name="uicss" type="select">
 			<title xml:lang="ko">jQueryUI CSS 경로</title>
 			<title xml:lang="en">jQueryUI CSS CDN provider</title>
 
@@ -91,34 +83,11 @@
 				<title xml:lang="ko">Microsoft (jqueryUI theme UI-Lightness 1.8.12)</title>
 				<title xml:lang="en">Microsoft (jqueryUI theme UI-Lightness 1.8.12)</title>
 			</options>
-
-			<options value="://kt.misolcdn.net/jquery/css/smoothness/jquery-ui-1.8.14.custom.css">
-				<title xml:lang="ko">misolCDN (jqueryUI theme smoothness 1.8.14)</title>
-				<title xml:lang="en">misolCDN (jqueryUI theme smoothness 1.8.14)</title>
-			</options>
 			<description xml:lang="ko">
 				jQueryUI CSS를 불러올 경로를 선택합니다.
 				CSS 테마 파일은 회원 가입시 달력의 색상 등을 결정합니다. 원하는 테마를 선택하세요.
 			</description>
 			<description xml:lang="en">Select a jQueryUI CDN provider and version of jQuery.</description>
-		</var>
-		<var name="misolcdn" type="select">
-			<title xml:lang="ko">misol CDN 이용</title>
-			<title xml:lang="en">misol CDN</title>
-			<options value="0">
-				<title xml:lang="ko">이용</title>
-				<title xml:lang="en">ON</title>
-			</options>
-			<options value="1">
-				<title xml:lang="ko">이용 안함</title>
-				<title xml:lang="en">OFF</title>
-			</options>
-			<description xml:lang="ko">
-				http://kt.misolcdn.net에서 XE 공통 파일을 일부 불러옵니다...
-				베타 서비스로, 서비스가 중지될 수 있습니다.
-			</description>
-			<description xml:lang="en">Load some of XE common files from http://kt.misolcdn.net
-			It may be disabled by misol.... (I don't have much money)</description>
 		</var>
 
 		<var name="domain">

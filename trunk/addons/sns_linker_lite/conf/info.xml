@@ -3,7 +3,22 @@
 	<title xml:lang="ko">요약 책갈피 경량판</title>
 	<title xml:lang="en">SNS Bookmarker lite</title>
 	<title xml:lang="zh-TW">社交書籤 lite</title>
-	<description xml:lang="ko"><![CDATA[<p>페이스북, 트위터, 미투데이, 요즘, C공감(C로그)에 해당 글을 책갈피 할 수 있게 합니다.<br />게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요.</p><dl><dt>###__SNS_BOOKMARKER_BY_MID__###</dt><dd>mid 값을 기준으로 책갈피 버튼을 만듭니다. 페이지에 사용하면 적절합니다.</dd><dt>###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###</dt><dd>document_srl 값을 기준으로 책갈피 버튼을 만듭니다. 게시판과 같은 곳에 사용하면 적절합니다.</dd><dt>###__SNS_BOOKMARKER_BY_URL__###</dt><dd>접속한 주소값을 기준으로 책갈피 버튼을 만듭니다. 고정된 주소가 없는 검색 페이지에 사용하면 적절합니다.</dd></dl><p>소스 코드를 보고 싶으신 분은 http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/ 을 방문하세요.<br />사용권은 크리에이티브 커먼스 저작자표시-동일조건변경허락 2.0 대한민국 라이선스를 따릅니다. 사용권에 대한 자세한 사항은 http://creativecommons.org/licenses/by-sa/2.0/kr/ 를 참조하세요.<br />This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.</p>]]></description>
+	<description xml:lang="ko">페이스북, 트위터, 미투데이, 요즘, C공감(C로그)에 해당 글을 책갈피 할 수 있게 합니다.
+	게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요.
+
+	치환코드 안내입니다.
+	###__SNS_BOOKMARKER_BY_MID__###
+	mid 값을 기준으로 책갈피 버튼을 만듭니다. 페이지에 사용하면 적절합니다.
+	###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
+	document_srl 값을 기준으로 책갈피 버튼을 만듭니다. 게시판과 같은 곳에 사용하면 적절합니다.
+	###__SNS_BOOKMARKER_BY_URL__###
+	접속한 주소값을 기준으로 책갈피 버튼을 만듭니다. 고정된 주소가 없는 검색 페이지에 사용하면 적절합니다.
+
+	소스 코드를 보고 싶으신 분은 http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/ 을 방문하세요.
+
+	사용권은 크리에이티브 커먼스 저작자표시-동일조건변경허락 2.0 대한민국 라이선스를 따릅니다. 사용권에 대한 자세한 사항은 http://creativecommons.org/licenses/by-sa/2.0/kr/ 를 참조하세요.
+	This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+	</description>
 	<description xml:lang="en">
 		Link a document to Facebook, Twitter, me2day, Yozm and C Log.
 		Source code is opened on http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/
@@ -14,10 +29,10 @@
 		Source code is opened on http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/
 		本程式遵循 Creative Commons License Attribution-ShareAlike 2.0 Korea license.  瀏覽 http://creativecommons.org/licenses/by-sa/2.0/kr/ 以取得更多資訊。
 	</description>
-	<version>1.0.6</version>
-	<date>2011-06-14</date>
+	<version>1.0.10</version>
+	<date>2012-02-16</date>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
-	<link>http://www.imsoo.net/sns_bookmarker/</link>
+	<link>http://www.imsoo.net/</link>
 	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
 		<name xml:lang="ko">김민수</name>
 		<name xml:lang="en">Min-Soo Kim</name>

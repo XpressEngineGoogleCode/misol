@@ -1,5 +1,7 @@
 <?php
-if(!defined("__ZBXE__")) exit();
+if(!defined('__ZBXE__')) exit();
+// XE 1.5 이상은 지원하지 않음.
+if(defined('__XE__')) return;
 // file : addon_example.addon.php
 // author : misol (misol@korea.ac.kr)
 if(Context::getResponseMethod() != 'HTML') return;
