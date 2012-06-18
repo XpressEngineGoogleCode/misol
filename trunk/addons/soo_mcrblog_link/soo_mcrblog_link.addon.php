@@ -5,7 +5,7 @@ if(!defined('__XE__')) exit();
 // license : Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국) http://creativecommons.org/licenses/by-sa/2.0/kr/
 // brief : 마이크로 블로그에 글의 링크를 퍼갈 수 있게 합니다.
 
-if(Context::get('module')=='addon' || Context::get('module')=='admin') return;
+if(Context::get('module')=='admin') return;
 // called position이 애드온이 동작하는 코드가 없는 곳에서- 여기서 끝
 if($called_position != 'before_display_content' && $called_position != 'before_module_init') return;
 // 로봇에게는 보이지 않음.
@@ -25,7 +25,7 @@ if(!isset($mobile_set)) {
 	}
 }
 
-if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML') {
+if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML' && Context::get('addon') != 'SooLinkerAddon') {
 	// 왼쪽 정렬이 기본값
 	if(!$addon_info->text_align) $addon_info->text_align = 'left';
 
@@ -104,6 +104,12 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			$title_str = $oDocument->getTitleText();
 			$tag_list = $oDocument->get('tag_list');
 			$tag_list = implode(', ',$tag_list);
+		}
+		else {
+			unset($document_srl);
+			$url = getFullUrl('','mid',Context::get('mid'));
+			$title_str = strip_tags(Context::get('doc_title'));
+			$tag_list = '';
 		}
 	} else {
 		$title_str = strip_tags(Context::get('doc_title'));
