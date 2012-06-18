@@ -1,1 +1,1 @@
-jQuery(document).ready(function(){setTimeout(scrollTo, 0, 0, 1);});
+jQuery(window).load(function(){if(window.pageYOffset==0){window.scrollTo(0,1)}});
