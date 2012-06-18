@@ -1,11 +1,11 @@
 <?php
-if(!defined("__ZBXE__")) exit();
+if(!defined('__XE__')) exit();
 // file : soo_mcrblog_link.addon.php
 // author : misol (misol@korea.ac.kr)
 // license : Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국) http://creativecommons.org/licenses/by-sa/2.0/kr/
 // brief : 마이크로 블로그에 글의 링크를 퍼갈 수 있게 합니다.
 
-if(Context::get('module')=='addon') return;
+if(Context::get('module')=='addon' || Context::get('module')=='admin') return;
 // called position이 애드온이 동작하는 코드가 없는 곳에서- 여기서 끝
 if($called_position != 'before_display_content' && $called_position != 'before_module_init') return;
 // 로봇에게는 보이지 않음.
@@ -36,23 +36,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	Context::set('me2day_share', sprintf($sns_share,Context::getlang('me2day')));
 	Context::set('yozm_share', sprintf($sns_share,Context::getlang('yozm')));
 	Context::set('clog_share', sprintf($sns_share,Context::getlang('clog')));
-
-	if(!defined('__XE__')) {
-		if(version_compare(__ZBXE_VERSION__, '1.4.5', ">=")) {
-			$oContext =& Context::getInstance();
-			$oContext->addJsFile('./common/js/jquery.js', false, '',-100000000);
-			$oContext->addJsFile('./common/js/common.js', false, '',-10000000);
-			$oContext->addJsFile('./common/js/xml_handler.js', false, '',-1000000);
-		} elseif(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">")) {
-			$oContext =& Context::getInstance();
-			$oContext->_addJsFile('./common/js/jquery.js', '', -1000000);
-			$oContext->_addJsFile('./common/js/common.js', '', -1000000);
-			$oContext->_addJsFile('./common/js/xml_handler.js', '', -100000);
-		}
-	} else {
-		Context::loadFile(array('./common/js/jquery.min.js','head'),true);
-		Context::unloadFile('./common/js/jquery.js');
-	}
 
 	// 스킨 설정이 되어 있으면 그 설정을 따름.
 	if($addon_info->pc_skin) {
@@ -90,16 +73,18 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		}
 	}
 
-	$btn_text = array();
-	$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')).'\''),$template_btn_text);
-	$btn_text[1] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'','\''.Context::get('document_srl').'\''),$template_btn_text);
-	$btn_text[2] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'curr_url\'','\'1\''),$template_btn_text);
+	if($addon_info->trans != 1) {
+		$btn_text = array();
+		$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')).'\''),$template_btn_text);
+		$btn_text[1] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'','\''.Context::get('document_srl').'\''),$template_btn_text);
+		$btn_text[2] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'curr_url\'','\'1\''),$template_btn_text);
 
-	foreach($btn_text as $key=>$val) {
-		$btn_text[$key] = "<div style=\"text-align:".$addon_info->text_align."\">".$val."</div>";
+		foreach($btn_text as $key=>$val) {
+			$btn_text[$key] = "<div style=\"text-align:".$addon_info->text_align."\">".$val."</div>";
+		}
+
+		$output = str_replace(array('###__SNS_BOOKMARKER_BY_MID__###','###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###','###__SNS_BOOKMARKER_BY_URL__###'),$btn_text,$output);
 	}
-
-	$output = str_replace(array('###__SNS_BOOKMARKER_BY_MID__###','###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###','###__SNS_BOOKMARKER_BY_URL__###'),$btn_text,$output);
 
 } elseif ($called_position == 'before_module_init' && Context::get('addon') == 'SooLinkerAddon' && Context::get('addonFunc') == 'getSooLinkerAddonUrls') {
 	$document_srl = intval(Context::get('id_type'));
@@ -183,4 +168,3 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 		exit();
 	}
 }
-?>

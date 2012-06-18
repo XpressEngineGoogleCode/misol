@@ -12,16 +12,6 @@
 		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
 
 		번역을 도와주신 분 : royallin (zh-TW), 박문호 (zh-CN)
-
-		게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요.
-
-		치환코드 안내입니다.
-		###__SNS_BOOKMARKER_BY_MID__###
-		mid 값을 기준으로 책갈피 버튼을 만듭니다. 페이지에 사용하면 적절합니다.
-		###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
-		document_srl 값을 기준으로 책갈피 버튼을 만듭니다. 게시판과 같은 곳에 사용하면 적절합니다.
-		###__SNS_BOOKMARKER_BY_URL__###
-		접속한 주소값을 기준으로 책갈피 버튼을 만듭니다. 고정된 주소가 없는 검색 페이지에 사용하면 적절합니다.
 	</description>
 	<description xml:lang="en">
 		Link a document to Facebook, Twitter, me2day, Yozm, or Cyworld.
@@ -59,15 +49,18 @@
 		Use twitter button API with t.co link shortening service which is the offical twitter link shortener
 		By the way, API t.co might be un reasonal to environment of mobile devices, so this code use another API with external linkshortening service (us7.kr, tln.kr)
 	</description>
-	<version>1.2.10</version>
-	<date>2012-02-16</date>
-	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/">Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국)</license>
+	<version>1.2.11</version>
+	<date>2012-06-19</date>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="ko">Creative Commons License 저작자표시-동일조건변경허락 2.0 대한민국</license>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="en">Creative Commons License Attribution-ShareAlike 2.0 Korea</license>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="zh-TW">Creative Commons License Attribution-ShareAlike 2.0 Korea</license>
+	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="zh-CN">Creative Commons License Attribution-ShareAlike 2.0 Korea</license>
 	<link>http://www.imsoo.net</link>
-	<author email_address="misol221@paran.com" link="http://twitter.com/misol221">
-		<name xml:lang="ko">민수</name>
-		<name xml:lang="en">Min-Soo Kim</name>
-		<name xml:lang="zh-TW">Min-Soo Kim</name>
-		<name xml:lang="zh-CN">Min-Soo Kim</name>
+	<author email_address="misol@korea.ac.kr" link="https://twitter.com/misol221">
+		<name xml:lang="ko">김민수 (misol)</name>
+		<name xml:lang="en">Min-Soo Kim (misol)</name>
+		<name xml:lang="zh-TW">Min-Soo Kim (misol)</name>
+		<name xml:lang="zh-CN">Min-Soo Kim (misol)</name>
 	</author>
 	<extra_vars>
 		<var name="tag">
@@ -79,6 +72,40 @@
 			<description xml:lang="en">Hash tag with a scrapped document.</description>
 			<description xml:lang="zh-TW">Hash tag with a scrapped document.</description>
 			<description xml:lang="zh-CN">Hash tag with a scrapped document.</description>
+		</var>
+		<var name="trans" type="select">
+			<title xml:lang="ko">치환자 사용</title>
+			<title xml:lang="en">Replaceable texts</title>
+			<title xml:lang="zh-TW">Replaceable texts</title>
+			<title xml:lang="zh-CN">Replaceable texts</title>
+			<options value="0">
+				<title xml:lang="ko">사용</title>
+				<title xml:lang="en">ON</title>
+				<title xml:lang="zh-TW">ON</title>
+				<title xml:lang="zh-CN">开启</title>
+			</options>
+			<options value="1">
+				<title xml:lang="ko">사용 안함</title>
+				<title xml:lang="en">OFF</title>
+				<title xml:lang="zh-TW">OFF</title>
+				<title xml:lang="zh-CN">关闭</title>
+			</options>
+			<description xml:lang="ko">게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요. (기본값: 사용)
+				치환코드 안내입니다.
+				###__SNS_BOOKMARKER_BY_MID__###
+					mid 값을 기준으로 책갈피 버튼을 만듭니다. 페이지에 사용하면 적절합니다.
+				###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
+					document_srl 값을 기준으로 책갈피 버튼을 만듭니다. 게시판과 같은 곳에 사용하면 적절합니다.
+				###__SNS_BOOKMARKER_BY_URL__###
+					접속한 주소값을 기준으로 책갈피 버튼을 만듭니다. 고정된 주소가 없는 검색 페이지에 사용하면 적절합니다.</description>
+			<description xml:lang="en">You can add SNS button on anywhere you want of XE pages (Default: ON)
+				With replaceable texts like below.
+				###__SNS_BOOKMARKER_BY_MID__###
+					Add SNS Bookmarker via mid.
+				###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
+					Add SNS Bookmarker via document_srl.
+				###__SNS_BOOKMARKER_BY_URL__###
+					Add SNS Bookmarker via URL</description>
 		</var>
 		<var name="ex_use" type="select">
 			<title xml:lang="ko">지원 모듈 확장</title>
@@ -198,10 +225,10 @@
 				<title xml:lang="zh-TW">The bada mini</title>
 				<title xml:lang="zh-CN">The bada mini</title>
 			</options>
-			<description xml:lang="ko"><![CDATA[버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.<br />아래는 이미지 버튼 2개의 미리보기 입니다.<br /><ul><li>드롭다운 메뉴가 없는 가로로 긴 이미지 버튼 : <br /><img alt="드롭다운 메뉴가 없는 가로로 긴 이미지 버튼" src="./addons/soo_mcrblog_link/skin/bada/images/onebtn.png" /><br />각 사이트 이미지가 각각의 링크로 작동하는 버튼입니다. 크으은바다님께서 제공해 주셨습니다.</li><li>모바일 버튼 : <br /><img alt="모바일 버튼" src="./addons/soo_mcrblog_link/skin/default/images/mobile_scrapbar.png" /><br />각 사이트 이미지가 각각의 링크로 작동하는 버튼입니다. 터치 폰 환경에서 편리하도록 아이콘이 큽니다.</li></ul>]]></description>
-			<description xml:lang="en"><![CDATA[Select button type. XE buttons will have drop down menu.<br />Here is some preview images.<ul><li>Wide button : <br /><img alt="Wide button by K. Bada" src="./addons/soo_mcrblog_link/skin/bada/images/onebtn.png" /><br />Click each site image. K. Bada provided it.</li><li>For Mobile : <br /><img alt="For Mobile" src="./addons/soo_mcrblog_link/skin/default/images/mobile_scrapbar.png" /><br />Click each site image. Bigger site image for touch mobile situation.</li></ul>]]></description>
-			<description xml:lang="zh-TW"><![CDATA[Select button type. XE buttons will have drop down menu.<br />Here is some preview images.<ul><li>Wide button : <br /><img alt="Wide button by K. Bada" src="./addons/soo_mcrblog_link/skin/bada/images/onebtn.png" /><br />Click each site image. K. Bada provided it.</li><li>For Mobile : <br /><img alt="For Mobile" src="./addons/soo_mcrblog_link/skin/default/images/mobile_scrapbar.png" /><br />Click each site image. Bigger site image for touch mobile situation.</li></ul>]]></description>
-			<description xml:lang="zh-CN"><![CDATA[Select button type. XE buttons will have drop down menu.<br />Here is some preview images.<ul><li>Wide button : <br /><img alt="Wide button by K. Bada" src="./addons/soo_mcrblog_link/skin/bada/images/onebtn.png" /><br />Click each site image. K. Bada provided it.</li><li>For Mobile : <br /><img alt="For Mobile" src="./addons/soo_mcrblog_link/skin/default/images/mobile_scrapbar.png" /><br />Click each site image. Bigger site image for touch mobile situation.</li></ul>]]></description>
+			<description xml:lang="ko">버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.</description>
+			<description xml:lang="en">Select button type. XE buttons will have drop down menu.</description>
+			<description xml:lang="zh-TW">Select button type. XE buttons will have drop down menu.</description>
+			<description xml:lang="zh-CN">Select button type. XE buttons will have drop down menu.</description>
 		</var>
 		<var name="mobile_skin" type="select">
 			<title xml:lang="ko">모바일 환경 버튼 모양</title>
@@ -238,10 +265,18 @@
 				<title xml:lang="zh-TW">The bada mini</title>
 				<title xml:lang="zh-CN">The bada mini</title>
 			</options>
-			<description xml:lang="ko"><![CDATA[모바일 환경에서 버튼 모양을 PC 환경과 다르게 설정할 수 있습니다.<br />이는 PC환경과 달리 손가락으로 조작 해야하는 터치폰 환경(넥서스원, 아이폰 등)을 고려한 것입니다.<br />모바일 버튼을 권장합니다. XE 기본 드롭 다운 메뉴는 모바일 환경 스타일이 지정되어 있지 않아 옵션이 없습니다.<br />이 기능은 스마트폰 애드온이 작동되는 상태의 XE나 스마트폰 애드온이 XE 기본 기능으로 흡수된 XE 1.4.4 에서 동작합니다.]]></description>
-			<description xml:lang="en"><![CDATA[Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)<br />Touch phone usually controlled with finger (not a mouse pointer).<br />The For Mobile option will show a little bigger button than Wide button for easy touching.<br />smartphone XE addon or XE Core 1.4.4 and upper edition required.]]></description>
-			<description xml:lang="zh-TW"><![CDATA[Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)<br />Touch phone usually controlled with finger (not a mouse pointer).<br />The For Mobile option will show a little bigger button than Wide button for easy touching.<br />smartphone XE addon or XE Core 1.4.4 and upper edition required.]]></description>
-			<description xml:lang="zh-CN"><![CDATA[Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)<br />Touch phone usually controlled with finger (not a mouse pointer).<br />The For Mobile option will show a little bigger button than Wide button for easy touching.<br />smartphone XE addon or XE Core 1.4.4 and upper edition required.]]></description>
+			<description xml:lang="ko">모바일 환경에서 버튼 모양을 PC 환경과 다르게 설정할 수 있습니다.
+			이는 PC환경과 달리 손가락으로 조작 해야하는 터치폰 환경(넥서스원, 아이폰 등)을 고려한 것입니다.
+			모바일 버튼을 권장합니다. XE 기본 드롭 다운 메뉴는 모바일 환경 스타일이 지정되어 있지 않아 옵션이 없습니다.</description>
+			<description xml:lang="en">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
+			Touch phone usually controlled with finger (not a mouse pointer).
+			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
+			<description xml:lang="zh-TW">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
+			Touch phone usually controlled with finger (not a mouse pointer).
+			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
+			<description xml:lang="zh-CN">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
+			Touch phone usually controlled with finger (not a mouse pointer).
+			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
 		</var>
 	</extra_vars>
 </addon>
