@@ -387,4 +387,4 @@ function insertMap(obj) {
 	opener.editorFocus(opener.editorPrevSrl);
 	window.close();
 }
-jQuery(window).load(function() { getGoogleMap(); });
+jQuery(document).ready(function() { getGoogleMap(); });
