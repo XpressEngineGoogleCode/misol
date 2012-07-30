@@ -222,7 +222,7 @@ class soo_google_map extends EditorHandler {
 			);
 			$google_langtype = str_replace($xe_langtype, $google_langtype, strtolower(Context::getLangType()));
 
-			$header_script .= '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true&amp;language='.$google_langtype.'"></script><style type="text/css">.soo_google_map_ment { background-color: #ffffff; color: #000000; } span.soo_maps {display:block;} span.soo_maps img {max-width:none;}</style>'."\n";
+			$header_script .= '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true&amp;language='.$google_langtype.'"></script><style type="text/css">.soo_google_map_ment { background-color: #ffffff; color: #000000; } span.soo_maps {display:block;} span.soo_maps img {max-width:none;}span.soo_maps>a>img {max-width:100%;}</style>'."\n";
 		}
 		if(!$xml_obj->attrs->location_no) { // 단일 위치 지도 one pointed map
 			$ment = str_replace(array('[[STS[[',']]STS]]','[[STS_EQ]]'),array('<','>','='),$xml_obj->attrs->ment);
@@ -568,7 +568,7 @@ class soo_google_map extends EditorHandler {
 
 		}
 
-		print '<address><a href="http://www.xpressengine.com/">XE</a> Editor Component by MinSoo Kim(<a href="http://twitter.com/misol221">@misol221</a>) using Google Maps API.</address></body></html>';
+		print('<p>Click the maps, and see the maps on the google.</p><address><a href="http://www.xpressengine.com/">XE</a> Editor Component by MinSoo Kim(<a href="http://twitter.com/misol221">@misol221</a>) using Google Maps API.</address></body></html>');
 		exit();
 
 	}
