@@ -111,7 +111,36 @@ class soo_google_map extends EditorHandler {
 		if(Context::getLangType() == 'ko') $region = '.co.kr';
 		else $region = '.com';
 
-		$soo_google_map_api_header_script = '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true"></script>'; 
+		//language setting
+		$xe_langtype = array(
+			'ko',
+			'en',
+			'zh-tw',
+			'zh-cn',
+			'jp',
+			'es',
+			'fr',
+			'ru',
+			'vi',
+			'mn',
+			'tr'
+		);
+		$google_langtype = array(
+			'ko',
+			'en',
+			'zh-Hant',
+			'zh-Hans',
+			'ja',
+			'es',
+			'fr',
+			'ru',
+			'vi',
+			'en', // google does not not support
+			'tr'
+		);
+		$google_langtype = str_replace($xe_langtype, $google_langtype, strtolower(Context::getLangType()));
+
+		$soo_google_map_api_header_script = '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true&amp;language='.$google_langtype.'"></script>'; 
 		$soo_google_map_api_header_script .= '<script type="text/javascript">//<![CDATA['."\n";
 		$soo_google_map_api_header_script .= sprintf(
 			'var insert_lat="%s";'."\n".
@@ -158,13 +187,42 @@ class soo_google_map extends EditorHandler {
 		settype($height,"int");
 		if(!$height) {$height = 400;}
 
-		$region = '';
-		if(Context::getLangType() == 'ko') $region = '.co.kr';
-		else $region = '.com';
-
-		$header_script = '<style type="text/css"> .soo_google_map_ment { background-color: #ffffff; color: #000000; } </style>';
+		$header_script = '';
 		if($map_count==1) {
-			$header_script .= '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true"></script>'."\n";
+			$region = '';
+			if(Context::getLangType() == 'ko') $region = '.co.kr';
+			else $region = '.com';
+
+			//language setting
+			$xe_langtype = array(
+				'ko',
+				'en',
+				'zh-tw',
+				'zh-cn',
+				'jp',
+				'es',
+				'fr',
+				'ru',
+				'vi',
+				'mn',
+				'tr'
+			);
+			$google_langtype = array(
+				'ko',
+				'en',
+				'zh-Hant',
+				'zh-Hans',
+				'ja',
+				'es',
+				'fr',
+				'ru',
+				'vi',
+				'en', // google does not not support
+				'tr'
+			);
+			$google_langtype = str_replace($xe_langtype, $google_langtype, strtolower(Context::getLangType()));
+
+			$header_script .= '<script type="text/javascript" src="http://maps.google'.$region.'/maps/api/js?sensor=true&amp;language='.$google_langtype.'"></script><style type="text/css">.soo_google_map_ment { background-color: #ffffff; color: #000000; } span.soo_maps {display:block;} span.soo_maps img {max-width:none;}</style>'."\n";
 		}
 		if(!$xml_obj->attrs->location_no) { // 단일 위치 지도 one pointed map
 			$ment = str_replace(array('[[STS[[',']]STS]]','[[STS_EQ]]'),array('<','>','='),$xml_obj->attrs->ment);
@@ -270,13 +328,13 @@ class soo_google_map extends EditorHandler {
 
 		if(Context::getResponseMethod() != 'HTML' || $this->mobile_set == true) {
 			$style = 'text-align:center; width: 100%; margin:15px 0px;';
-			$view_code = '<div style="'.$style.'"><a href="'.$altMapLinkParas.'" target="_blank"><img src="'.
-			$this->getImageMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom, $width, $height).'" /><br />'.Context::getLang('view_map').'</a></div>';
+			$view_code = '<span style="'.$style.'" class="soo_maps"><a href="'.$altMapLinkParas.'" target="_blank"><img src="'.
+			$this->getImageMapLink(($lat.','.$lng), ($marker_lat.','.$marker_lng), $zoom, $width, $height).'" /><br />'.Context::getLang('view_map').'</a></span>';
 		} else {
-			$view_code = '<div id="ggl_map_canvas'.$map_count.'" style="width: '.$width.'px; height: '.$height.'px"></div>'."\n".
+			$view_code = '<span id="ggl_map_canvas'.$map_count.'" style="width: '.$width.'px; height: '.$height.'px" class="soo_maps"></span>'."\n".
 				'<script language="javascript" type="text/javascript">//<![CDATA['."\n".
 				'<!--'."\n".
-				'jQuery(window).load(function() { ggl_map_init'.$map_count.'(); });'."\n".
+				'jQuery(document).ready(function() { ggl_map_init'.$map_count.'(); });'."\n".
 				'//-->'."\n".'//]]></script>'."\n";
 		}
 		return $view_code;
