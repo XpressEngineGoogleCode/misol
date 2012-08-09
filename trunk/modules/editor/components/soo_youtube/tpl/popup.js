@@ -5,7 +5,7 @@ var item = new Array();
 
 function insertSooCom(i, j) {
     if(typeof(opener)=="undefined") return;
-    var fo = xGetElementById('form');
+    var fo = document.getElementById('form');
     var text = "<p>&nbsp;</p><blockquote style=\"margin:0px; padding:0px;\" cite=\""+item[i][10]+"\"><p><a href=\""+item[i][10]+"\" target=\"_blank\">"+item[i][0]+"</a>";
     if(j != 1) {
       if(fo.size_select) {
@@ -16,7 +16,7 @@ function insertSooCom(i, j) {
       }
       var embed_height = embed_width*(3/4)+25;
       if(item[i][2]) {
-        text += '<br /><img src="'+item[i][3]+'" editor_component="soo_youtube" width="'+embed_width+'" height="'+embed_height+'" value="'+item[i][2]+'" />';
+        text += '<br /><img src="'+item[i][3]+'" editor_component="soo_youtube" style="width:'+embed_width+'px; height:'+embed_height+'px;" value="'+item[i][2]+'" />';
       }
     }
     text += '</p></blockquote><p>&nbsp;</p>';
@@ -33,7 +33,7 @@ function insertSooCom(i, j) {
 }
 
 function preview_video(i) {
-  var preview_zone = xGetElementById("result_view_layer");
+  var preview_zone = document.getElementById("result_view_layer");
   var html = '<p class="preview_movie"><object width="240" height="205"><param name="movie" value="'+item[i][2]+'"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="'+item[i][2]+'" allowfullscreen="true" width="240" height="205"></embed></object></p>';
   html += '<h2 class="preview_full_title">'+item[i][0]+'</h2>';
   html += '<h3 class="preview_cut_title">'+item[i][11]+'</h3>';
@@ -78,19 +78,19 @@ function preview_video(i) {
     html += '<input type="hidden" name="video_size_type" value="normal" />';
     html += '</div>';
   }
-  html += '<p class="preview_controller">'+"<a href=\""+item[i][10]+"\" target=\"_blank\"><strong>"+go_doc+"</strong></a>";
+  html += '<p class="preview_controller">'+"<span class='btn'><a href=\""+item[i][10]+"\" target=\"_blank\">"+go_doc+"</a></span>";
   if(item[i][2]) {
-    html += "<a class=\"button\" href=\"javascript:insertSooCom("+i+",0);\"><span>"+soo_msg_insert+"</span></a>";
+    html += "<span class='btn'><a href=\"javascript:insertSooCom("+i+",0);\">"+soo_msg_insert+"</a></span>";
   }
   html += '</p>';
 
-  xInnerHtml(preview_zone, html);
+  preview_zone.innerHTML = html;
 }
 
 function soo_search(start_page) {
-  query = xGetElementById("query").value;
-  q_site = xGetElementById("site").value;
-  q_sort = xGetElementById("sort").value;
+  query = document.getElementById("query").value;
+  q_site = document.getElementById("site").value;
+  q_sort = document.getElementById("sort").value;
   if(!query) return;
   var params = new Array();
   if(start_page) params['soo_result_start'] = start_page;
@@ -119,12 +119,13 @@ function complete_search(ret_obj, response_tags, selected_image) {
   soo_result_list = new Array();
   var html = "<a id='page_top'></a>";
 
+  var list_zone = document.getElementById("result_list_layer");
   soo_result_start_end = '<span id="start_end">'+soo_result_start_end+'</span>';
   item = new Array();
   if(!total_result_no || total_result_no==0) html = no_result;
   else {
       var result_list = result_list.split("\n");
-      xInnerHtml(list_zone, 'Result Loading...<br />Wait...');
+      list_zone.innerHTML = 'Result Loading...<br />Wait...';
       for(var i=0;i<result_list.length;i++) {
         item[i] = result_list[i].split(",[[soo]],");
         soo_result_list[soo_result_list.length] = item[i];
@@ -172,28 +173,27 @@ function complete_search(ret_obj, response_tags, selected_image) {
   }
   var nxtpg = "";
   if(result_list_nextpage!=1) {
-   nxtpg = "<a class=\"button nextpagebtn pagebtn\" href=\"javascript:soo_search("+result_list_nextpage+");\"><span>"+soo_msg_nextpage+"</span></a>";
+   nxtpg = "<span class='btn'><a class=\"nextpagebtn pagebtn\" href=\"javascript:soo_search("+result_list_nextpage+");\">"+soo_msg_nextpage+"</a></span>";
   }
   else {
    nxtpg = '';
   }
   
   if(result_list_page!=1) {
-   bfpg = "<a class=\"button beforepagebtn pagebtn\" href=\"javascript:soo_search("+bfpgno+");\"><span>"+soo_msg_beforepage+"</span></a>";
+   bfpg = "<span class='btn'><a class=\"beforepagebtn pagebtn\" href=\"javascript:soo_search("+bfpgno+");\">"+soo_msg_beforepage+"</a></span>";
   }
   else {
    bfpg = '';
   }
   
-  var list_zone = xGetElementById("result_list_layer");
-  var result_info_zone = xGetElementById("soo_result_info");
+  var result_info_zone = document.getElementById("soo_result_info");
 
   if(!total_result_no || total_result_no==0){
-  xInnerHtml(result_info_zone, no_result);
+  result_info_zone.innerHTML = no_result;
   }
   else {
-  xInnerHtml(result_info_zone, '<span id="bottom_info">'+'<span id="bottom_info_total">'+soo_msg_total+total_result_no+soo_msg_result_num+'</span>'+soo_result_start_end+'</span>'+bfpg + nxtpg);
+  result_info_zone.innerHTML = '<span id="bottom_info">'+'<span id="bottom_info_total">'+soo_msg_total+total_result_no+soo_msg_result_num+'</span>'+soo_result_start_end+'</span>'+bfpg + nxtpg;
   }
-  xInnerHtml(list_zone, html);
-  window.location.href('#page_top');
+  list_zone.innerHTML = html;
+  window.location = '#page_top';
 }
