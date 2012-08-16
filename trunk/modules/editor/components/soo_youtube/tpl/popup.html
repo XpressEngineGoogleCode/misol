@@ -1,7 +1,7 @@
 <!--%import("popup.js")-->
 <!--%import("../lang")-->
 <style type="text/css" media="all"> @import "./modules/editor/components/soo_youtube/tpl/{$design}"; </style>
-{@Context::setBrowserTitle($component_info->title.' Ver. '.$component_info->version);}
+{@Context::setBrowserTitle($component_info->title);}
 <script language="javascript" type="text/javascript">//<![CDATA[
 <!--
 var no_result="{$lang->msg_no_result}";
@@ -28,7 +28,7 @@ var size_select = '{$lang->size_select}';
 //-->
 //]]></script>
 <div id="popHeadder">
-	<h1>{$component_info->title} ver. {$component_info->version}</h1>
+	<h1>{$component_info->title}</h1>
 </div>
 <form action="./" method="get" onSubmit="soo_search(); return false;" id="form">
 <div id="popupBody">
@@ -54,7 +54,7 @@ var size_select = '{$lang->size_select}';
 <!--@end-->
 				  </select>
 					<input type="text" class="inputTypeText" id="query" value="" /></td>
-				<td><span class="button"><input type="submit" value="{$lang->cmd_search}" /></span></td>
+				<td><span class="btn"><input type="submit" value="{$lang->cmd_search}" /></span></td>
 			  </tr>
 			</table>
 		  </div>

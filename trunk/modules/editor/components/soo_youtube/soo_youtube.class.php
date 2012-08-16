@@ -57,29 +57,29 @@ class soo_youtube extends EditorHandler {
 		if(!$soo_display_set) $soo_display_set = '20';
 		if(!$soo_result_start) $soo_result_start = '1';
 		if(!$q_sort) $q_sort = 'relevance';
-	$langtype = array(
-		'ko' => 'ko',
-		'en' => 'en',
-		'zh-CN' => 'zh',
-		'jp' => 'ja',
-		'es' => 'eo',
-		'ru' => 'ru',
-		'fr' => 'fr',
-		'zh-TW' => 'zh',
-		'vi' => 'vi',
-		'mn' => 'mn'
-	);
+		$langtype = array(
+			'ko' => 'ko',
+			'en' => 'en',
+			'zh-CN' => 'zh-Hans',
+			'jp' => 'ja',
+			'es' => 'es',
+			'ru' => 'ru',
+			'fr' => 'fr',
+			'zh-TW' => 'zh-Hant',
+			'vi' => 'vi',
+			'mn' => 'mn'
+		);
 
-	if(isset($langtype[Context::getLangType()])) $langtype = $langtype[Context::getLangType()];
-	else $langtype = 'en';
+		if(isset($langtype[Context::getLangType()])) $langtype = $langtype[Context::getLangType()];
+		else $langtype = 'en';
 
-	$headers = array(
+		$headers = array(
 				'X-GData-Key' => 'key=AI39si541gJ_PERbh5tkpMBDGcNRtzWArnSjtsWrHvvuidaoaErs2krFIHZ9PPKxePlZFeeJLD0W_DBIc7rOBD1qR0AKus5GHw',
 				'GData-Version' => '2',
 				'Connection' => 'close'
 			);
 
-		$uri = sprintf('http://gdata.youtube.com/feeds/api/videos?q=%s&lr=%s&start-index=%s&max-results=%s&orderby=%s&v=2&alt=rss&safeSearch=none&key=AI39si541gJ_PERbh5tkpMBDGcNRtzWArnSjtsWrHvvuidaoaErs2krFIHZ9PPKxePlZFeeJLD0W_DBIc7rOBD1qR0AKus5GHw',$query, $langtype, $soo_result_start, $soo_display_set, $q_sort);
+		$uri = sprintf('http://gdata.youtube.com/feeds/api/videos?q=%s&lang=%s&start-index=%s&max-results=%s&orderby=%s&v=2&alt=rss',$query, $langtype, $soo_result_start, $soo_display_set, $q_sort);
 
 		$xml_doc = $this->xml_api_request($uri, $headers);
 
@@ -114,9 +114,9 @@ class soo_youtube extends EditorHandler {
 			if(!is_array($item->{'media:group'}->{'media:content'})) $item->{'media:group'}->{'media:content'} = array($item->{'media:group'}->{'media:content'});
 
 			$soo_list[] = sprintf("%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s",
-				trim($item->title->body),
+				trim(strip_tags($item->title->body)),
 				trim($item->author->body),
-				trim($item->{'media:group'}->{'media:content'}[0]->attrs->url),
+				trim(str_replace('http://www.youtube.com/v/','http://www.youtube.com/embed/',$item->{'media:group'}->{'media:content'}[0]->attrs->url)),
 				trim($item_images[0]->attrs->url),
 				trim($item_published[0]),
 				trim($item_updated[0]),
@@ -125,7 +125,7 @@ class soo_youtube extends EditorHandler {
 				trim($item_second),
 				trim($item->{'yt:statistics'}->attrs->viewcount),
 				trim($item->link->body),
-				cut_str(trim($item->title->body),20)
+				cut_str(trim(strip_tags($item->title->body)),20)
 				);
 		}
 
@@ -138,7 +138,7 @@ class soo_youtube extends EditorHandler {
 	}
 
 
-	function soo_search_daum($query, $soo_display_set = '20', $soo_result_start = '1', $q_sort = 'exact') {
+	function soo_search_daum($query, $soo_display_set = '20', $soo_result_start = '1', $q_sort = 'accuracy') {
 		$apikey = $this->soo_daum_api_key;
 
 		if(!$soo_display_set) $soo_display_set = '20';
@@ -181,7 +181,7 @@ class soo_youtube extends EditorHandler {
 			if(!is_array($item->{'media:group'}->{'media:content'})) $item->{'media:group'}->{'media:content'} = array($item->{'media:group'}->{'media:content'});
 
 			$soo_list[] = sprintf("%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s,[[soo]],%s",
-				trim($item->title->body),
+				trim(strip_tags($item->title->body)),
 				trim($item->author->body),
 				trim($item->player_url->body),
 				trim($item->thumbnail->body),
@@ -192,9 +192,9 @@ class soo_youtube extends EditorHandler {
 				trim($item_second),
 				trim($item->playcnt->body),
 				trim($item->link->body),
-				cut_str(trim($item->title->body),20),
+				cut_str(trim(strip_tags($item->title->body)),20),
 				trim($item->score->body),
-				trim($item->tag->body),
+				trim(strip_tags($item->tag->body)),
 				trim($item->cpname->body)
 				);
 		}
@@ -206,6 +206,19 @@ class soo_youtube extends EditorHandler {
 		$this->add("result_list_nextpage", $soo_next_page);
 		$this->add("result_list", implode("\n", $soo_list));
 	}
+
+/*
+	function soo_search_vimeo($query, $soo_display_set = '20', $soo_result_start = '1', $q_sort = 'accuracy')
+	{
+
+		$headers = array(
+			'Authorization' => 'OAuth realm="",oauth_consumer_key="e6e7e662087a8c624dd1192b289f469c",oauth_timestamp="'.time().'",oauth_nonce="'.md5(time()).'",oauth_signature_method="HMAC-SHA1",oauth_signature="'..'"'
+		);
+		$uri = 'http://vimeo.com/api/rest/v2?format=json&method=vimeo.videos.search&query=vimeo&sort=relevant&full_response=1&page=1&per_page=20';
+		$output = FileHandler::getRemoteResource($uri, null, 3, 'GET', '', $headers);
+
+	}
+*/
 
 	function getPopupContent() {
 		$tpl_path = $this->component_path.'tpl';
@@ -254,8 +267,8 @@ class soo_youtube extends EditorHandler {
 			}
 			if(preg_match('/^([\-\.a-z0-9]+)\.youtube\.com$/i', $value_url['host']))
 			{
-				$value = str_replace('http://www.youtube.com/v/','http://www.youtube.com/embed/',$value);
-				return sprintf('<iframe width="%d" height="%d" src="%s" frameborder="0" allowfullscreen>></iframe>', $width, $height, $value);
+				$value = str_replace(array('http://www.youtube.com/v/','http://'),array('http://www.youtube.com/embed/','https://'),$value);
+				return sprintf('<iframe width="%d" height="%d" src="%s" frameborder="0" allowfullscreen></iframe>', $width, $height, $value);
 			}
 		}
 		else
@@ -264,8 +277,8 @@ class soo_youtube extends EditorHandler {
 				return sprintf('<object width="%d" height="%d"><param name="wmode" value="opaque"></param><param name="movie" value="%s"></param><param name="allowFullScreen" value="true"></param><embed width="%d" height="%d" src="%s" allowfullscreen="true" wmode="opaque"></embed></object>', $width, $height, $value, $width, $height, $value);
 			if(preg_match('/^([\-\.a-z0-9]+)\.youtube\.com$/i', $value_url['host']))
 			{
-				$value = str_replace('http://www.youtube.com/v/','http://www.youtube.com/embed/',$value);
-				return sprintf('<iframe width="%d" height="%d" src="%s" frameborder="0" allowfullscreen>></iframe>', $width, $height, $value);
+				$value = str_replace(array('http://www.youtube.com/v/','http://'),array('http://www.youtube.com/embed/','https://'),$value);
+				return sprintf('<iframe width="%d" height="%d" src="%s" frameborder="0" allowfullscreen></iframe>', $width, $height, $value);
 			}
 		}
 	}
