@@ -1,29 +1,26 @@
 <?php
-if(!defined("__ZBXE__")) exit();
+if(!defined('__XE__')) exit();
 // file : sns_linker_lite.addon.php
 // author : misol (misol@korea.ac.kr)
 // license : Creative Commons License Attribution-ShareAlike 2.0 Korea (저작자표시-동일조건변경허락 2.0 대한민국) http://creativecommons.org/licenses/by-sa/2.0/kr/
 // brief : 마이크로 블로그에 글의 링크를 퍼갈 수 있게 합니다.
 
-if(Context::get('module')=='addon') return;
+if(Context::get('module')=='admin') return;
 
 // called position이 애드온이 동작하는 코드가 없는 곳에서- 여기서 끝
 if($called_position != 'before_display_content' && $called_position != 'before_module_init') return;
 // 로봇에게는 보이지 않음.
 if(function_exists('isCrawler')) if(isCrawler()) return;
 
-// 스마트폰 접속인지 확인하는 부분. XE 모든 버전에서 지원하지 않는 기능이므로 해당 기능이 있는지 먼저 확인. Mobile 이 좀 더 최신 버전이지만 구 버전에서도 애드온이 켜져있으면 smartphoneXE가 존재.
+// 스마트폰 접속인지 확인하는 부분.
 if(!isset($mobile_set)) {
 	$mobile_set = false;
-	if(class_exists('Mobile')) {
-		if(Mobile::isFromMobilePhone()) {
-			$mobile_set = true;
-		}
-	} elseif(class_exists('smartphoneXE')) {
-		if(smartphoneXE::isFromSmartPhone()) {
-			$mobile_set = true;
-		}
+	if(Mobile::isFromMobilePhone()) {
+		Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-100000),true);
+		$mobile_set = true;
 	}
+} elseif($mobile_set===true) {
+	Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-100000),true);
 }
 
 if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML') {
@@ -37,23 +34,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 	Context::set('me2day_share', sprintf($sns_share,Context::getlang('me2day')));
 	Context::set('yozm_share', sprintf($sns_share,Context::getlang('yozm')));
 	Context::set('clog_share', sprintf($sns_share,Context::getlang('clog')));
-
-	if(!defined('__XE__')) {
-		if(version_compare(__ZBXE_VERSION__, '1.4.5', ">=")) {
-			$oContext =& Context::getInstance();
-			$oContext->addJsFile('./common/js/jquery.js', false, '',-100000000);
-			$oContext->addJsFile('./common/js/common.js', false, '',-10000000);
-			$oContext->addJsFile('./common/js/xml_handler.js', false, '',-1000000);
-		} elseif(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">")) {
-			$oContext =& Context::getInstance();
-			$oContext->_addJsFile('./common/js/jquery.js', '', -1000000);
-			$oContext->_addJsFile('./common/js/common.js', '', -1000000);
-			$oContext->_addJsFile('./common/js/xml_handler.js', '', -100000);
-		}
-	} else {
-		Context::loadFile(array('./common/js/jquery.min.js','head'),true);
-		Context::unloadFile('./common/js/jquery.js');
-	}
 
 	$soo_linker_lite_skin = 'default';
 
@@ -116,6 +96,12 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 			$title_str = $oDocument->getTitleText();
 			$tag_list = $oDocument->get('tag_list');
 			$tag_list = implode(', ',$tag_list);
+		}
+		else {
+			unset($document_srl);
+			$url = getFullUrl('','mid',Context::get('mid'));
+			$title_str = strip_tags(Context::get('doc_title'));
+			$tag_list = '';
 		}
 	} else {
 		$title_str = strip_tags(Context::get('doc_title'));
