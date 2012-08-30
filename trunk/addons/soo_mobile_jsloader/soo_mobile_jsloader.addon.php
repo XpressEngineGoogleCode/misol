@@ -1,5 +1,5 @@
 <?php
-if(!defined("__ZBXE__")) exit();
+if(!defined('__ZBXE__') && !defined('__XE__')) exit();
 // file : soo_mobile_jsloader.addon.php
 // author : misol (misol@korea.ac.kr)
 // brief : 자주 쓰이지만 로드되지 않은 스크립트 로드
@@ -23,10 +23,14 @@ if(!isset($mobile_set)) {
 	}
 }
 if($mobile_set == true) {
-	Context::addJsFile("./common/js/jquery.js");
-	Context::addJsFile("./common/js/common.js");
-	Context::addJsFile("./common/js/js_app.js");
-	Context::addJsFile("./common/js/xml_handler.js");
-	Context::addJsFile("./common/js/xml_js_filter.js");
+	if(defined('__XE__')) {
+		Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-100000),true);
+	} else {
+		Context::addJsFile("./common/js/jquery.js");
+		Context::addJsFile("./common/js/common.js");
+		Context::addJsFile("./common/js/js_app.js");
+		Context::addJsFile("./common/js/xml_handler.js");
+		Context::addJsFile("./common/js/xml_js_filter.js");
+	}
 }
 ?>

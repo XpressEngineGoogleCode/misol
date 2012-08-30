@@ -49,7 +49,7 @@
 		Use twitter button API with t.co link shortening service which is the offical twitter link shortener
 		By the way, API t.co might be un reasonal to environment of mobile devices, so this code use another API with external linkshortening service (us7.kr, tln.kr)
 	</description>
-	<version>1.2.11</version>
+	<version>1.2.12</version>
 	<date>2012-06-19</date>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="ko">Creative Commons License 저작자표시-동일조건변경허락 2.0 대한민국</license>
 	<license link="http://creativecommons.org/licenses/by-sa/2.0/kr/" xml:lang="en">Creative Commons License Attribution-ShareAlike 2.0 Korea</license>
