@@ -15,24 +15,41 @@ if(function_exists('isCrawler')) if(isCrawler()) return;
 if(!isset($mobile_set)) {
 	$mobile_set = false;
 	if(Mobile::isFromMobilePhone()) {
-		Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-100000),true);
+		Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-1000000),true);
 		$mobile_set = true;
 	}
 } elseif($mobile_set===true) {
-	Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-100000),true);
+	Context::loadFile(array('./common/js/jquery.min.js','head', NULL,-1000000),true);
 }
 
 if($called_position == 'before_display_content' && Context::getResponseMethod() == 'HTML' && Context::get('addon') != 'SooLinkerAddon') {
 	// 왼쪽 정렬이 기본값
 	if(!$addon_info->text_align) $addon_info->text_align = 'left';
 
-	Context::loadLang($addon_path.'lang');
+	Context::loadLang('./addons/soo_mcrblog_link/lang');
 	$sns_share = Context::getlang('sns_share');
 	Context::set('facebook_share', sprintf($sns_share,Context::getlang('facebook')));
 	Context::set('twitter_share', sprintf($sns_share,Context::getlang('twitter')));
 	Context::set('me2day_share', sprintf($sns_share,Context::getlang('me2day')));
 	Context::set('yozm_share', sprintf($sns_share,Context::getlang('yozm')));
 	Context::set('clog_share', sprintf($sns_share,Context::getlang('clog')));
+	Context::set('kakao_share', sprintf($sns_share,Context::getlang('kakao')));
+
+	if(Mobile::isFromMobilePhone())
+	{
+		Context::set('soo_mobile_set','true');
+	}
+	else
+	{
+		Context::set('soo_mobile_set','false');
+	}
+	Context::set('soo_sns_tag',$addon_info->tag);
+
+	// 링크 주소 설정
+	$document_srl = intval(Context::get('document_srl'));
+	if($document_srl > 0) $document_url = htmlspecialchars(getFullUrl('','document_srl',$document_srl));
+	$mid_url = htmlspecialchars(getFullUrl('','mid',Context::get('mid')));
+	$current_url = htmlspecialchars(Context::get('current_url'));
 
 	// 스킨 설정이 되어 있으면 그 설정을 따름.
 	if($addon_info->pc_skin) {
@@ -45,7 +62,6 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if($addon_info->ex_use != 2) {
 		if($addon_info->ex_use == 1) { // 확장 ShopXE 등
-			$document_srl = intval(Context::get('document_srl'));
 			$oDocumentModel = &getModel('document');
 			$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'), false, false);
 
@@ -72,9 +88,9 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if($addon_info->trans != 1) {
 		$btn_text = array();
-		$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')).'\''),$template_btn_text);
-		$btn_text[1] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'document_srl\'','\''.Context::get('document_srl').'\''),$template_btn_text);
-		$btn_text[2] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##'),array('\'curr_url\'','\'1\''),$template_btn_text);
+		$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')),'\''.$mid_url.'\''),$template_btn_text);
+		$btn_text[1] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'document_srl\'','\''.Context::get('document_srl').'\'', '\''.$document_url.'\''),$template_btn_text);
+		$btn_text[2] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'curr_url\'','\'1\'','\''.$current_url.'\''),$template_btn_text);
 
 		foreach($btn_text as $key=>$val) {
 			$btn_text[$key] = "<div style=\"text-align:".$addon_info->text_align."\">".$val."</div>";

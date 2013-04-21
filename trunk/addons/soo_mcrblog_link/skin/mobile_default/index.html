@@ -1,5 +1,5 @@
-<!--%import("css/oneBtn.css")-->
-<!--%import("js/oneBtn.min.js",type="body")-->
+<!--%import("css/oneBtn_mobile.css")-->
+<!--%import("js/oneBtn.js",type="body")-->
 <script>
 var soo_isAllowRewrite = {Context::isAllowRewrite()};
 var soo_isMobile = {$soo_mobile_set};
@@ -15,10 +15,10 @@ var soo_snsTag = "{htmlspecialchars($soo_sns_tag)}";
 	<li><a class="SooLinkerAddon me2day" title="{$me2day_share}" href="http://me2day.net/" onclick="soo_Linker(2,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
 		{$me2day_share}
 	</a></li>
-	<li><a class="SooLinkerAddon Yozm" title="{$yozm_share}" href="http://yozm.daum.net/" onclick="soo_Linker(3,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
-		{$yozm_share}
-	</a></li>
 	<li><a class="SooLinkerAddon Cyworld" title="{$clog_share}" href="http://www.cyworld.com/" onclick="soo_Linker(4,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
 		{$clog_share}
+	</a></li>
+	<li><a class="SooLinkerAddon Kakao" title="{$kakao_share}" href="http://m.kakao.com/" onclick="soo_Linker(5,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
+		{$kakao_share}
 	</a></li>
 </ul>
