@@ -1,10 +1,11 @@
 <!--// ¿ä¾àÃ¥°¥ÇÇ (C) ±è¹Î¼ö (twitter @misol221)//-->
 <!--%import("css/oneBtn_mini.css")-->
-<!--@if(version_compare(__ZBXE_VERSION__, '1.4.4.1', ">"))-->
-	<!--%import("js/oneBtn.min.js",type="body")-->
-<!--@else-->
-	<!--%import("js/oneBtn.min.js")-->
-<!--@endif-->
+<!--%import("js/oneBtn.min.js",type="body")-->
+<script>
+var soo_isAllowRewrite = {Context::isAllowRewrite()};
+var soo_isMobile = {$soo_mobile_set};
+var soo_snsTag = "{htmlspecialchars($soo_sns_tag)}";
+</script>
 <ul class="SooLinkerContainer">
 	<li><a class="SooLinkerAddon Facebook" title="{$facebook_share}" href="http://www.facebook.com/" onclick="soo_Linker(0,##__CONTENT_ID_TYPE__##,##__CONTENT_ID__##);return false;">
 		{$facebook_share}

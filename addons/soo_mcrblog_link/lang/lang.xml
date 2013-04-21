@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="facebook">
+		<value xml:lang="ko"><![CDATA[페이스북]]></value>
+		<value xml:lang="en"><![CDATA[Facebook]]></value>
+		<value xml:lang="jp"><![CDATA[Facebook]]></value>
+		<value xml:lang="fr"><![CDATA[Facebook]]></value>
+		<value xml:lang="es"><![CDATA[Facebook]]></value>
+		<value xml:lang="vi"><![CDATA[Facebook]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Facebook]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Facebook]]></value>
+	</item>
+	<item name="twitter">
+		<value xml:lang="ko"><![CDATA[트위터]]></value>
+		<value xml:lang="en"><![CDATA[Twitter]]></value>
+		<value xml:lang="jp"><![CDATA[Twitter]]></value>
+		<value xml:lang="fr"><![CDATA[Twitter]]></value>
+		<value xml:lang="es"><![CDATA[Twitter]]></value>
+		<value xml:lang="vi"><![CDATA[Twitter]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Twitter]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Twitter]]></value>
+	</item>
+	<item name="me2day">
+		<value xml:lang="ko"><![CDATA[미투데이]]></value>
+		<value xml:lang="en"><![CDATA[Me2day]]></value>
+		<value xml:lang="jp"><![CDATA[Me2day]]></value>
+		<value xml:lang="fr"><![CDATA[Me2day]]></value>
+		<value xml:lang="es"><![CDATA[Me2day]]></value>
+		<value xml:lang="vi"><![CDATA[Me2day]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Me2day]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Me2day]]></value>
+	</item>
+	<item name="yozm">
+		<value xml:lang="ko"><![CDATA[요즘]]></value>
+		<value xml:lang="en"><![CDATA[Yozm]]></value>
+		<value xml:lang="jp"><![CDATA[Yozm]]></value>
+		<value xml:lang="fr"><![CDATA[Yozm]]></value>
+		<value xml:lang="es"><![CDATA[Yozm]]></value>
+		<value xml:lang="vi"><![CDATA[Yozm]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Yozm]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Yozm]]></value>
+	</item>
+	<item name="clog">
+		<value xml:lang="ko"><![CDATA[C 공감]]></value>
+		<value xml:lang="en"><![CDATA[C Log]]></value>
+		<value xml:lang="jp"><![CDATA[C Log]]></value>
+		<value xml:lang="fr"><![CDATA[C Log]]></value>
+		<value xml:lang="es"><![CDATA[C Log]]></value>
+		<value xml:lang="vi"><![CDATA[C Log]]></value>
+		<value xml:lang="zh-CN"><![CDATA[C Log]]></value>
+		<value xml:lang="zh-TW"><![CDATA[C Log]]></value>
+	</item>
+	<item name="kakao">
+		<value xml:lang="ko"><![CDATA[카카오톡]]></value>
+		<value xml:lang="en"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="jp"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="fr"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="es"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="vi"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="zh-CN"><![CDATA[KakaoTalk]]></value>
+		<value xml:lang="zh-TW"><![CDATA[KakaoTalk]]></value>
+	</item>
+	<item name="sns_share">
+		<value xml:lang="ko"><![CDATA[%s에서 공유하기!]]></value>
+		<value xml:lang="en"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="jp"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="fr"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="es"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="vi"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Share on %s!]]></value>
+		<value xml:lang="zh-TW"><![CDATA[分享至 %s!]]></value>
+	</item>
+</lang>
