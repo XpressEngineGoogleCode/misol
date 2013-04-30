@@ -26,12 +26,12 @@
 		By the way, API t.co might be un reasonal to environment of mobile devices, so this code use another API with external linkshortening service (us7.kr, tln.kr)
 	</description>
 	<description xml:lang="zh-TW">
-		可將文章轉貼到 Facebook, Twitter, me2day, Yozm 或 Cyworld 等網站。
-		KeoEuEun Bada provided Wide Button. Thanks K. Bada.
-		Source code is opened on http://misol.googlecode.com/ .
-		This software license is following Creative Commons License Attribution-ShareAlike 2.0 Korea. Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
+		可將文章轉貼分享到 Facebook, Twitter, me2day, Yozm 或 Cyworld 等網站。
+		感謝 KeoEuEun Bada 提供寬按鈕樣式。
+		原始碼公開於 http://misol.googlecode.com/
+		本軟體遵循 Creative Commons License Attribution-ShareAlike 2.0 Korea 條款。 請瀏覽 http://creativecommons.org/licenses/by-sa/2.0/kr/ 取得更多資料。
 		
-		Translators : royallin (zh-TW), 박문호 (zh-CN)
+		翻譯人員 : royallin (zh-TW), 박문호 (zh-CN)
 
 		Changed
 		Use twitter button API with t.co link shortening service which is the offical twitter link shortener
@@ -76,18 +76,18 @@
 		<var name="trans" type="select">
 			<title xml:lang="ko">치환자 사용</title>
 			<title xml:lang="en">Replaceable texts</title>
-			<title xml:lang="zh-TW">Replaceable texts</title>
+			<title xml:lang="zh-TW">替換代碼</title>
 			<title xml:lang="zh-CN">Replaceable texts</title>
 			<options value="0">
 				<title xml:lang="ko">사용</title>
 				<title xml:lang="en">ON</title>
-				<title xml:lang="zh-TW">ON</title>
+				<title xml:lang="zh-TW">開啟</title>
 				<title xml:lang="zh-CN">开启</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">사용 안함</title>
 				<title xml:lang="en">OFF</title>
-				<title xml:lang="zh-TW">OFF</title>
+				<title xml:lang="zh-TW">關閉</title>
 				<title xml:lang="zh-CN">关闭</title>
 			</options>
 			<description xml:lang="ko">게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요. (기본값: 사용)
@@ -106,22 +106,30 @@
 					Add SNS Bookmarker via document_srl.
 				###__SNS_BOOKMARKER_BY_URL__###
 					Add SNS Bookmarker via URL</description>
+			<description xml:lang="zh-TW">可在 XE 頁面中的任何位置新增社交按鈕 (預設: 開啟)
+				代碼替換說明如下
+				###__SNS_BOOKMARKER_BY_MID__###
+					藉由 mid 新增社交書籤
+				###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
+					藉由 document_srl 新增社交書籤
+				###__SNS_BOOKMARKER_BY_URL__###
+					藉由 URL 新增社交書籤</description>
 		</var>
 		<var name="ex_use" type="select">
 			<title xml:lang="ko">지원 모듈 확장</title>
 			<title xml:lang="en">Extention</title>
-			<title xml:lang="zh-TW">Extention</title>
+			<title xml:lang="zh-TW">延伸組件</title>
 			<title xml:lang="zh-CN">模块扩展</title>
 			<options value="0">
 				<title xml:lang="ko">사용 안함</title>
 				<title xml:lang="en">OFF</title>
-				<title xml:lang="zh-TW">OFF</title>
+				<title xml:lang="zh-TW">關閉</title>
 				<title xml:lang="zh-CN">关闭</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">사용</title>
 				<title xml:lang="en">ON</title>
-				<title xml:lang="zh-TW">ON</title>
+				<title xml:lang="zh-TW">開啟</title>
 				<title xml:lang="zh-CN">开启</title>
 			</options>
 			<description xml:lang="ko">스크랩 기능을 적용하는 모듈을 확장합니다. 확장 기능을 사용하면 ShopXE와 같은 모듈에서 스크랩 기능을 이용할 수 있습니다.
@@ -131,10 +139,10 @@
 				However, it can make DB server overload.
 				Board module or Textyle module does not require Extention.
 				(default : OFF)</description>
-			<description xml:lang="zh-TW">Extend applying modules. Extention will allow you to add scrap button on many modules like ShopXE.
-				However, it can make DB server overload.
-				Board module or Textyle module does not require Extention.
-				(default : OFF)</description>
+			<description xml:lang="zh-TW">延伸組件可使你新增收藏按扭到任何模組中。
+				不過有可能會造成資料庫主機超載。
+				Board 或 Textyle 模組不需要延伸組件。
+				(預設：關閉)</description>
 			<description xml:lang="zh-CN">Extend applying modules. Extention will allow you to add scrap button on many modules like ShopXE.
 				However, it can make DB server overload.
 				Board module or Textyle module does not require Extention.
@@ -143,120 +151,120 @@
 		<var name="text_position" type="select">
 			<title xml:lang="ko">위/아래 위치</title>
 			<title xml:lang="en">Vertical position</title>
-			<title xml:lang="zh-TW">Vertical position</title>
+			<title xml:lang="zh-TW">垂直位置</title>
 			<title xml:lang="zh-CN">上/下 位子</title>
 			<options value="0">
 				<title xml:lang="ko">아래</title>
 				<title xml:lang="en">bottom</title>
-				<title xml:lang="zh-TW">bottom</title>
+				<title xml:lang="zh-TW">下方</title>
 				<title xml:lang="zh-CN">下</title>
 			</options>
 			<options value="1">
 				<title xml:lang="ko">위</title>
 				<title xml:lang="en">top</title>
-				<title xml:lang="zh-TW">top</title>
+				<title xml:lang="zh-TW">上方</title>
 				<title xml:lang="zh-CN">上</title>
 			</options>
 			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 글을 기준으로 글의 위/아래를 정할 수 있습니다.</description>
 			<description xml:lang="en">Where the scrap button is located. Top of a document or bottom of it.</description>
-			<description xml:lang="zh-TW">Where the scrap button is located. Top of a document or bottom of it.</description>
+			<description xml:lang="zh-TW">設定按鈕位置是要在主題的上方或下方。</description>
 			<description xml:lang="zh-CN">指定转到语句的位子。指定文字的上方或下方</description>
 		</var>
 		<var name="text_align" type="select">
 			<title xml:lang="ko">왼쪽/가운데/오른쪽 정렬</title>
 			<title xml:lang="en">Horizontal position</title>
-			<title xml:lang="zh-TW">Horizontal position</title>
+			<title xml:lang="zh-TW">水平位置</title>
 			<title xml:lang="zh-CN">左边/中间/右边的排序</title>
 			<options value="left">
 				<title xml:lang="ko">왼쪽</title>
 				<title xml:lang="en">left</title>
-				<title xml:lang="zh-TW">left</title>
+				<title xml:lang="zh-TW">左側</title>
 				<title xml:lang="zh-CN">左边</title>
 			</options>
 			<options value="center">
 				<title xml:lang="ko">가운데</title>
 				<title xml:lang="en">centre</title>
-				<title xml:lang="zh-TW">centre</title>
+				<title xml:lang="zh-TW">置中</title>
 				<title xml:lang="zh-CN">中间</title>
 			</options>
 			<options value="right">
 				<title xml:lang="ko">오른쪽</title>
 				<title xml:lang="en">right</title>
-				<title xml:lang="zh-TW">right</title>
+				<title xml:lang="zh-TW">右側</title>
 				<title xml:lang="zh-CN">右边</title>
 			</options>
 			<description xml:lang="ko">스크랩 문구가 생기는 위치를 정합니다. 버튼이 왼쪽 정렬될지, 가운데 정렬될지, 오른쪽 정렬이 될 지 선택할 수 있습니다.</description>
 			<description xml:lang="en">Where the scrap button is located. Left/centre/right of a document.</description>
-			<description xml:lang="zh-TW">Where the scrap button is located. Left/centre/right of a document.</description>
+			<description xml:lang="zh-TW">設定按鈕位置是要在主題的左側、右側還是中間。</description>
 			<description xml:lang="zh-CN">Where the scrap button is located. Left/centre/right of a document.</description>
 		</var>
 		<var name="pc_skin" type="select">
 			<title xml:lang="ko">PC환경 버튼 모양</title>
 			<title xml:lang="en">Shape of button (PC)</title>
-			<title xml:lang="zh-TW">Shape of button (PC)</title>
+			<title xml:lang="zh-TW">按鈕樣式 (PC)</title>
 			<title xml:lang="zh-CN">Shape of button (PC)</title>
 			<options value="bada">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼</title>
 				<title xml:lang="en">Wide button provided by K. Bada</title>
-				<title xml:lang="zh-TW">Wide button provided by K. Bada</title>
+				<title xml:lang="zh-TW">K. Bada寬按鈕</title>
 				<title xml:lang="zh-CN">没有下拉菜单的图片按钮</title>
 			</options>
 			<options value="mini">
 				<title xml:lang="ko">조그만 버튼</title>
 				<title xml:lang="en">The mini</title>
-				<title xml:lang="zh-TW">The mini</title>
+				<title xml:lang="zh-TW">迷你樣式</title>
 				<title xml:lang="zh-CN">The mini</title>
 			</options>
 			<options value="onebtn">
 				<title xml:lang="ko">작은 바다</title>
 				<title xml:lang="en">The bada mini</title>
-				<title xml:lang="zh-TW">The bada mini</title>
+				<title xml:lang="zh-TW">bada 迷你樣式</title>
 				<title xml:lang="zh-CN">The bada mini</title>
 			</options>
 			<options value="default">
 				<title xml:lang="ko">모바일 버튼</title>
 				<title xml:lang="en">For Mobile</title>
-				<title xml:lang="zh-TW">For Mobile</title>
+				<title xml:lang="zh-TW">行動裝置</title>
 				<title xml:lang="zh-CN">移动设备</title>
 			</options>
 			<options value="mini_default">
 				<title xml:lang="ko">조그만 모바일 버튼</title>
 				<title xml:lang="en">The mobile mini</title>
-				<title xml:lang="zh-TW">The mobile mini</title>
+				<title xml:lang="zh-TW">迷你手機樣式</title>
 				<title xml:lang="zh-CN">The mobile mini</title>
 			</options>
 			<description xml:lang="ko">버튼 모양을 정할 수 있습니다. 이미지 버튼과 XE 기본 버튼 모양을 선택할 수 있습니다.</description>
 			<description xml:lang="en">Select button type. XE buttons will have drop down menu.</description>
-			<description xml:lang="zh-TW">Select button type. XE buttons will have drop down menu.</description>
+			<description xml:lang="zh-TW">選擇按鈕樣式。 XE按鈕將有下拉式選單。</description>
 			<description xml:lang="zh-CN">Select button type. XE buttons will have drop down menu.</description>
 		</var>
 		<var name="mobile_skin" type="select">
 			<title xml:lang="ko">모바일 환경 버튼 모양</title>
 			<title xml:lang="en">Shape of button (Mobile)</title>
-			<title xml:lang="zh-TW">Shape of button (Mobile)</title>
+			<title xml:lang="zh-TW">按鈕樣式 (Mobile)</title>
 			<title xml:lang="zh-CN">移动设备模样的按钮</title>
 			<options value="bada">
 				<title xml:lang="ko">드롭다운 메뉴가 없는 가로로 긴 이미지 버튼</title>
 				<title xml:lang="en">Wide button provided by K. Bada</title>
-				<title xml:lang="zh-TW">Wide button provided by K. Bada</title>
+				<title xml:lang="zh-TW">K. Bada寬按鈕</title>
 				<title xml:lang="zh-CN">没有下拉菜单的图片按钮</title>
 			</options>
 			<options value="onebtn">
 				<title xml:lang="ko">작은 바다</title>
 				<title xml:lang="en">The bada mini</title>
-				<title xml:lang="zh-TW">The bada mini</title>
+				<title xml:lang="zh-TW">bada迷你樣式</title>
 				<title xml:lang="zh-CN">The bada mini</title>
 			</options>
 			<options value="mini">
 				<title xml:lang="ko">조그만 버튼</title>
 				<title xml:lang="en">The mini</title>
-				<title xml:lang="zh-TW">The mini</title>
+				<title xml:lang="zh-TW">迷你樣式</title>
 				<title xml:lang="zh-CN">The mini</title>
 			</options>
 			<options value="default">
 				<title xml:lang="ko">모바일 버튼</title>
 				<title xml:lang="en">For Mobile</title>
-				<title xml:lang="zh-TW">For Mobile</title>
+				<title xml:lang="zh-TW">行動裝置</title>
 				<title xml:lang="zh-CN">移动设备</title>
 			</options>
 			<options value="mobile_default">
@@ -268,7 +276,7 @@
 			<options value="mini_default">
 				<title xml:lang="ko">조그만 모바일 버튼</title>
 				<title xml:lang="en">The mobile mini</title>
-				<title xml:lang="zh-TW">The mobile mini</title>
+				<title xml:lang="zh-TW">迷你手機樣式</title>
 				<title xml:lang="zh-CN">The mobile mini</title>
 			</options>
 			<description xml:lang="ko">모바일 환경에서 버튼 모양을 PC 환경과 다르게 설정할 수 있습니다.
@@ -277,9 +285,9 @@
 			<description xml:lang="en">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
 			Touch phone usually controlled with finger (not a mouse pointer).
 			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
-			<description xml:lang="zh-TW">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
-			Touch phone usually controlled with finger (not a mouse pointer).
-			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
+			<description xml:lang="zh-TW">設定顯示於行動裝置頁面的按鈕形狀。 (智慧型手機像是 Nexus One, iPhone)
+			觸控手機通常是由手指進行操作。
+			對於手機選項按鈕將會比寬按鈕大一點以方便觸碰</description>
 			<description xml:lang="zh-CN">Set button shape displayed on Mobile Phone page. (Smart phone, eg, Nexus One, iPhone)
 			Touch phone usually controlled with finger (not a mouse pointer).
 			The For Mobile option will show a little bigger button than Wide button for easy touching.</description>
