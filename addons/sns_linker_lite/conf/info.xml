@@ -2,7 +2,7 @@
 <addon version="0.2">
 	<title xml:lang="ko">요약 책갈피 경량판</title>
 	<title xml:lang="en">SNS Bookmarker lite</title>
-	<title xml:lang="zh-TW">社交書籤 lite</title>
+	<title xml:lang="zh-TW">社交書籤輕量版</title>
 	<description xml:lang="ko">페이스북, 트위터, 미투데이, 요즘, C공감(C로그)에 해당 글을 책갈피 할 수 있게 합니다.
 	게시판이나 텍스타일의 글과 같이 정형화된 글이 아닌 곳에 요약 책갈피 버튼을 달고 싶다면 아래 치환코드를 이용하세요.
 
@@ -25,9 +25,18 @@
 		This software is following Creative Commons License Attribution-ShareAlike 2.0 Korea license.  Visit http://creativecommons.org/licenses/by-sa/2.0/kr/ for more information about it.
 	</description>
 	<description xml:lang="zh-TW">
-		可將文章分享至 Facebook, Twitter, me2day, Yozm 和 C Log等網站。
-		Source code is opened on http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/
-		本程式遵循 Creative Commons License Attribution-ShareAlike 2.0 Korea license.  瀏覽 http://creativecommons.org/licenses/by-sa/2.0/kr/ 以取得更多資訊。
+		可將文章分享至 Facebook, Twitter, me2day, Yozm 和 C Log 等網站。
+		
+		代碼替換說明如下
+		###__SNS_BOOKMARKER_BY_MID__###
+			藉由 mid 新增社交書籤
+		###__SNS_BOOKMARKER_BY_DOCUMENT_SRL__###
+			藉由 document_srl 新增社交書籤
+		###__SNS_BOOKMARKER_BY_URL__###
+			藉由 URL 新增社交書籤
+		
+		原始碼開放於 http://misol.googlecode.com/svn/trunk/addons/sns_linker_lite/
+		本程式遵循 Creative Commons License Attribution-ShareAlike 2.0 Korea 條款。 請瀏覽 http://creativecommons.org/licenses/by-sa/2.0/kr/ 以取得更多資訊。
 	</description>
 	<version>1.0.11</version>
 	<date>2012-06-19</date>
@@ -42,7 +51,7 @@
 		<var name="ex_use" type="select">
 			<title xml:lang="ko">지원 모듈 확장</title>
 			<title xml:lang="en">Extention</title>
-			<title xml:lang="zh-TW">Extention</title>
+			<title xml:lang="zh-TW">延伸組件</title>
 			<options value="0">
 				<title xml:lang="ko">사용 안함</title>
 				<title xml:lang="en">OFF</title>
@@ -56,7 +65,7 @@
 			<options value="2">
 				<title xml:lang="ko">치환 코드만 사용</title>
 				<title xml:lang="en">Conversion code only</title>
-				<title xml:lang="zh-TW">Conversion code only</title>
+				<title xml:lang="zh-TW">代碼轉換</title>
 			</options>
 			<description xml:lang="ko">스크랩 기능을 적용하는 모듈을 확장합니다. 확장 기능을 사용하면 ShopXE와 같은 모듈에서 스크랩 기능을 이용할 수 있습니다.
 				하지만 확장 기능은 문서 모듈에서 해당 문서를 한번 더 호출하기 때문에 데이터베이스 모듈에 약간 부담을 줄 수 있습니다.
@@ -68,12 +77,13 @@
 				(default : OFF)</description>
 			<description xml:lang="zh-TW">延伸組件可使你新增收藏按扭到任何模組中。
 				不過有可能會造成資料庫主機超載。
-				Board 或 Textyle 模組不需要延伸組件。(預設：關閉)</description>
+				Board 或 Textyle 模組不需要延伸組件。
+				(預設：關閉)</description>
 		</var>
 		<var name="text_position" type="select">
 			<title xml:lang="ko">위/아래 위치</title>
 			<title xml:lang="en">Vertical position</title>
-			<title xml:lang="zh-TW">上下位置</title>
+			<title xml:lang="zh-TW">垂直位置</title>
 			<options value="0">
 				<title xml:lang="ko">아래</title>
 				<title xml:lang="en">bottom</title>
@@ -91,7 +101,7 @@
 		<var name="text_align" type="select">
 			<title xml:lang="ko">왼쪽/가운데/오른쪽 정렬</title>
 			<title xml:lang="en">Horizontal position</title>
-			<title xml:lang="zh-TW">左右位置</title>
+			<title xml:lang="zh-TW">水平位置</title>
 			<options value="left">
 				<title xml:lang="ko">왼쪽</title>
 				<title xml:lang="en">left</title>
