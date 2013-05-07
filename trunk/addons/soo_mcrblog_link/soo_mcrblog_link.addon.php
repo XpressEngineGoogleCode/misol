@@ -88,7 +88,7 @@ if($called_position == 'before_display_content' && Context::getResponseMethod() 
 
 	if($addon_info->trans != 1) {
 		$btn_text = array();
-		$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')),'\''.$mid_url.'\''),$template_btn_text);
+		$btn_text[0] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'mid\'','\''.str_replace('\'','\\\'',Context::get('mid')).'\'','\''.$mid_url.'\''),$template_btn_text);
 		$btn_text[1] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'document_srl\'','\''.Context::get('document_srl').'\'', '\''.$document_url.'\''),$template_btn_text);
 		$btn_text[2] = str_replace(array('##__CONTENT_ID_TYPE__##','##__CONTENT_ID__##', '##__CONTENT_URL__##'),array('\'curr_url\'','\'1\'','\''.$current_url.'\''),$template_btn_text);
 
